@@ -35,7 +35,7 @@ package com.hegdemahesh.ui
 			
 		}
 		
-		private function onAddedToStage(event:Event):void
+		public function onAddedToStage(event:Event):void
 		{
 			// TODO Auto Generated method stub
 			this.addChild(image);

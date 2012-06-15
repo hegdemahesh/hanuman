@@ -19,7 +19,6 @@ package
 			this.addChild(stats);
 			
 			myStarling = new Starling(Game,stage);
-			//myStarling = new Starling(Demo,stage);
 			myStarling.antiAliasing = 1;
 			myStarling.start();
 		}

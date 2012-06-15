@@ -1,6 +1,8 @@
 package com.hegdemahesh.ui
 {
 	
+	import com.hegdemahesh.events.WeaponReleased;
+	
 	import nape.constraint.AngleJoint;
 	import nape.constraint.PivotJoint;
 	import nape.constraint.WeldJoint;
@@ -29,10 +31,6 @@ package com.hegdemahesh.ui
 	{
 		
 		
-		private var backgroundImage:Image;
-		
-		private var maxScreenWidth:int = 2000;
-		private var maxScreenHeight:int = 600;
 		
 		private var space:Space;
 		
@@ -52,6 +50,7 @@ package com.hegdemahesh.ui
 		private var debug:BitmapDebug;
 		
 		private var mouseDown:Boolean =  false;
+		private var weapon:Actor;
 		
 		
 		public function LevelLoader()
@@ -92,15 +91,19 @@ package com.hegdemahesh.ui
 			Starling.juggler.add(mParticleSystem);
 			
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
+			//this.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			
 			debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
 			Starling.current.nativeOverlay.addChild(debug.display);
 			
 			
-			//this.addEventListener(starling.events.TouchEvent.TOUCH,onTouch);
 		}
 		
-		
+		/*private function onWeaponReleased(event:WeaponReleased):void
+		{
+			trace(event.xSpeed+ 'weapon relased');
+		}		
+		*/
 		
 		private function addCatapult():void {
 			
@@ -109,13 +112,16 @@ package com.hegdemahesh.ui
 			var material:Material = new Material(.8);
 			material.density = 10;
 			
-			var weapon:Actor = new Actor("stone_throw");
+			weapon = new Actor("stone_throw");
 			weapon.x = 124+ int(weapon.image.width/2);
 			weapon.y = 148 + int(weapon.image.height/2);
 			weapon.addEventListener(starling.events.TouchEvent.TOUCH,onStoneTouch);
 			this.addChild(weapon);
 			
-			
+			/*var weaponRelease:Weapon = new Weapon("stone_throw");
+			weaponRelease.x = 124+ 18;
+			weaponRelease.y = 148 + 18;
+			this.addChild(weaponRelease);*/
 			
 			hanumanTail.x = 94+ int(hanumanTail.image.width/2);
 			hanumanTail.y = 143+ int(hanumanTail.image.height/2);
@@ -125,6 +131,14 @@ package com.hegdemahesh.ui
 			
 		}
 		
+		public function moveWeapon(mouseX:int,mouseY:int):void {
+			if (mouseDown == true){
+				
+			}
+		}
+		public function releaseWeapon():void {
+			
+		}
 		private function onStoneTouch(event:TouchEvent):void
 		{
 			// TODO Auto Generated method stub
@@ -132,12 +146,14 @@ package com.hegdemahesh.ui
 			var target:DisplayObject = event.target as DisplayObject;
 			var mouseX:int;
 			var mouseY:int;
+			trace("Mouse interaceted");
 			
 			if(event.getTouch(target, TouchPhase.HOVER))
 			{
 				// mouse moving while up
 				mouseX = event.getTouch(target, TouchPhase.HOVER).globalX;
 				mouseY = event.getTouch(target, TouchPhase.HOVER).globalY;
+				moveWeapon(mouseX,mouseY);
 			}
 			
 			if(event.getTouch(target, TouchPhase.MOVED))
@@ -145,6 +161,7 @@ package com.hegdemahesh.ui
 				// mouse moving while down
 				mouseX = event.getTouch(target, TouchPhase.MOVED).globalX;
 				mouseY = event.getTouch(target, TouchPhase.MOVED).globalY;
+				moveWeapon(mouseX,mouseY);
 			}
 			
 			if(event.getTouch(target, TouchPhase.BEGAN)&&!mouseDown)
@@ -153,11 +170,13 @@ package com.hegdemahesh.ui
 				mouseDown = true;
 				mouseX = event.getTouch(target, TouchPhase.BEGAN).globalX;
 				mouseY = event.getTouch(target, TouchPhase.BEGAN).globalY;
+				moveWeapon(mouseX,mouseY);
 				
 			}
 			else if(event.getTouch(target, TouchPhase.ENDED)&&mouseDown)
 			{
 				mouseDown = false;
+				releaseWeapon();
 			}
 			
 			
@@ -225,7 +244,7 @@ package com.hegdemahesh.ui
 			actor.y = b.position.y;
 			actor.rotation = b.rotation;
 			if (actor.crushable == true){
-				trace (b.crushFactor());
+				//trace (b.crushFactor());
 				if (b.crushFactor() > crushNumber){
 					b.graphic.crushed = true;
 				}
@@ -235,12 +254,7 @@ package com.hegdemahesh.ui
 		}
 		
 		
-		private function onTouch(event:TouchEvent):void
-		{
-			// TODO Auto Generated method stub
-			
-			
-		}
+		
 		
 		private function onEnterFrame(event:Event):void
 		{
