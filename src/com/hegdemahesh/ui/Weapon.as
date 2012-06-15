@@ -28,7 +28,7 @@ package com.hegdemahesh.ui
 			var event1:WeaponReleased =  new WeaponReleased(WeaponReleased.GET);
 			event1.xSpeed = 100;
 			event1.ySpeed = 100;
-			dispatchEvent(event1);
+			this.dispatchEvent(event1);
 		}
 	}
 }

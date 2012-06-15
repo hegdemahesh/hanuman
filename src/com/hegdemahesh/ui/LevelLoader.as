@@ -91,7 +91,7 @@ package com.hegdemahesh.ui
 			Starling.juggler.add(mParticleSystem);
 			
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
-			//this.addEventListener(WeaponReleased.GET,onWeaponReleased);
+			this.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			
 			debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
 			Starling.current.nativeOverlay.addChild(debug.display);
@@ -99,11 +99,11 @@ package com.hegdemahesh.ui
 			
 		}
 		
-		/*private function onWeaponReleased(event:WeaponReleased):void
+		private function onWeaponReleased(event:WeaponReleased):void
 		{
 			trace(event.xSpeed+ 'weapon relased');
 		}		
-		*/
+		
 		
 		private function addCatapult():void {
 			
@@ -112,22 +112,25 @@ package com.hegdemahesh.ui
 			var material:Material = new Material(.8);
 			material.density = 10;
 			
-			weapon = new Actor("stone_throw");
-			weapon.x = 124+ int(weapon.image.width/2);
-			weapon.y = 148 + int(weapon.image.height/2);
-			weapon.addEventListener(starling.events.TouchEvent.TOUCH,onStoneTouch);
-			this.addChild(weapon);
-			
-			/*var weaponRelease:Weapon = new Weapon("stone_throw");
-			weaponRelease.x = 124+ 18;
-			weaponRelease.y = 148 + 18;
-			this.addChild(weaponRelease);*/
-			
 			hanumanTail.x = 94+ int(hanumanTail.image.width/2);
 			hanumanTail.y = 143+ int(hanumanTail.image.height/2);
 			hanumanTail.pivotX = 81;
 			hanumanTail.pivotY = 120;
 			this.addChild(hanumanTail);
+			
+			/*weapon = new Actor("stone_throw");
+			weapon.x = 124+ int(weapon.image.width/2);
+			weapon.y = 148 + int(weapon.image.height/2);
+			weapon.addEventListener(starling.events.TouchEvent.TOUCH,onStoneTouch);
+			this.addChild(weapon);*/
+			
+			var weaponRelease:Weapon = new Weapon("stone_throw");
+			weaponRelease.x = 124+ 18;
+			weaponRelease.y = 148 + 18;
+			//weaponRelease.addEventListener(WeaponReleased.GET,onWeaponReleased);
+			this.addChild(weaponRelease);
+			
+			
 			
 		}
 		
