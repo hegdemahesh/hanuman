@@ -45,7 +45,7 @@ package com.hegdemahesh.ui
 		private var psConfig:XML = XML(new Assets.SunConfig());
 		private var psTexture:Texture = Texture.fromBitmap(new Assets.SunParticle());
 		
-		private var hanumanTail:Actor = new Actor("tail");
+		
 		
 		private var debug:BitmapDebug;
 		
@@ -112,11 +112,7 @@ package com.hegdemahesh.ui
 			var material:Material = new Material(.8);
 			material.density = 10;
 			
-			hanumanTail.x = 94+ int(hanumanTail.image.width/2);
-			hanumanTail.y = 143+ int(hanumanTail.image.height/2);
-			hanumanTail.pivotX = 81;
-			hanumanTail.pivotY = 120;
-			this.addChild(hanumanTail);
+			
 			
 			/*weapon = new Actor("stone_throw");
 			weapon.x = 124+ int(weapon.image.width/2);

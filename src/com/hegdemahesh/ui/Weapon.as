@@ -1,12 +1,16 @@
 package com.hegdemahesh.ui
 {
 	import com.hegdemahesh.events.WeaponReleased;
+	import com.hegdemahesh.model.Constants;
+	
+	import de.polygonal.ds.NullIterator;
 	
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	import starling.utils.deg2rad;
 
 	public class Weapon extends Sprite
 	{
@@ -19,20 +23,63 @@ package com.hegdemahesh.ui
 		public var weaponX:int;
 		public var weaponY:int;
 		
+		private var weaponStartX:int;
+		private var weaponStartY:int;
+		
+		private var hanumanTail:Tail = new Tail("tail");
+		
 		public function moveActor(moveX:int,moveY:int):void {
 			
-			actor.x = moveX;
-			actor.y = moveY;
+			var xdif:int = weaponStartX - moveX;
+			var ydif:int = weaponStartY - moveY;
+			
+			if (xdif < 0){
+				xdif = 0;
+			}
+			if (ydif > 0){
+				ydif = 0;
+			}
+			if (xdif > Constants.weaponExtermeX){
+				xdif = Constants.weaponExtermeX;
+			}
+			if (ydif < (-Constants.weaponExtremeY)){
+				ydif = -Constants.weaponExtremeY;
+			}
+			actor.x = weaponStartX - xdif;
+			actor.y = weaponStartY - ydif;
+			
+			moveTail(xdif,ydif);
 			//this.width = moveX+39;
 		
 		}
 		
-		public function Weapon(weaponX:int,weaponY:int,src:String=null)
+		public function moveTail(xdif:int,ydif:int):void {
+			
+			//hanumanTail.rotation = deg2rad(-20);
+			var yFact:Number = 120+ydif;
+			var teta:Number = Number(Math.atan(xdif/yFact));
+			var scaleFact:Number = Math.sqrt((xdif*xdif)+(yFact*yFact))/120;
+			//trace(teta+'and'+ xdif+'and'+ ydif);
+			hanumanTail.scaleX  = scaleFact;
+			hanumanTail.scaleY = scaleFact;
+			hanumanTail.rotation = -teta;
+		}
+		
+		public function Weapon(wX:int,wY:int,src:String=null)
 		{
 			if (src != null){
 				
 				actor =  new Actor(src);
-				moveActor(weaponX,weaponY);
+				//moveActor(wX,wY);
+				actor.x = wX;
+				actor.y = wY;
+				hanumanTail.x = wX+ 81-48;
+				hanumanTail.y = wY+ 120-22;
+				weaponStartX = wX;
+				weaponStartY = wY;
+				//hanumanTail.pivotX = 81;
+				//hanumanTail.pivotY = 120;
+				this.addChild(hanumanTail);
 				
 			}
 			
@@ -54,14 +101,7 @@ package com.hegdemahesh.ui
 			
 		}		
 		
-		/*private function onTouch(event:TouchEvent):void
-		{
-			// TODO Auto Generated method stub
-			var event1:WeaponReleased =  new WeaponReleased(WeaponReleased.GET);
-			event1.xSpeed = 100;
-			event1.ySpeed = 100;
-			this.dispatchEvent(event1);
-		}*/
+		
 		
 		public function moveWeapon(mouseX:int,mouseY:int):void {
 			if (mouseDown == true){
@@ -81,7 +121,7 @@ package com.hegdemahesh.ui
 			
 			var target:DisplayObject = event.target as DisplayObject;
 			
-			trace("Mouse interacted");
+			//trace("Mouse interacted");
 			
 			
 			if(event.getTouch(target, TouchPhase.HOVER))
@@ -106,7 +146,7 @@ package com.hegdemahesh.ui
 				mouseDown = true;
 				weaponX = event.getTouch(target, TouchPhase.BEGAN).getLocation(actor).x- int(actor.image.width/2);
 				weaponY = event.getTouch(target, TouchPhase.BEGAN).getLocation(actor).y- int(actor.image.height/2);
-				trace(weaponX);
+				//trace(weaponX);
 				mouseX = event.getTouch(target, TouchPhase.BEGAN).globalX-weaponX;
 				mouseY = event.getTouch(target, TouchPhase.BEGAN).globalY-weaponY;
 				//moveWeapon(mouseX,mouseY);
