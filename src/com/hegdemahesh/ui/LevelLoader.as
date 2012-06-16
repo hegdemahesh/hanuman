@@ -91,7 +91,7 @@ package com.hegdemahesh.ui
 			Starling.juggler.add(mParticleSystem);
 			
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
-			this.addEventListener(WeaponReleased.GET,onWeaponReleased);
+			//this.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			
 			debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
 			Starling.current.nativeOverlay.addChild(debug.display);
@@ -124,66 +124,13 @@ package com.hegdemahesh.ui
 			weapon.addEventListener(starling.events.TouchEvent.TOUCH,onStoneTouch);
 			this.addChild(weapon);*/
 			
-			var weaponRelease:Weapon = new Weapon("stone_throw");
-			weaponRelease.x = 124+ 18;
-			weaponRelease.y = 148 + 18;
-			//weaponRelease.addEventListener(WeaponReleased.GET,onWeaponReleased);
+			var weaponRelease:Weapon = new Weapon(142,166,"stone_throw");
+			weaponRelease.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			this.addChild(weaponRelease);
-			
-			
 			
 		}
 		
-		public function moveWeapon(mouseX:int,mouseY:int):void {
-			if (mouseDown == true){
-				
-			}
-		}
-		public function releaseWeapon():void {
-			
-		}
-		private function onStoneTouch(event:TouchEvent):void
-		{
-			// TODO Auto Generated method stub
-			
-			var target:DisplayObject = event.target as DisplayObject;
-			var mouseX:int;
-			var mouseY:int;
-			trace("Mouse interaceted");
-			
-			if(event.getTouch(target, TouchPhase.HOVER))
-			{
-				// mouse moving while up
-				mouseX = event.getTouch(target, TouchPhase.HOVER).globalX;
-				mouseY = event.getTouch(target, TouchPhase.HOVER).globalY;
-				moveWeapon(mouseX,mouseY);
-			}
-			
-			if(event.getTouch(target, TouchPhase.MOVED))
-			{
-				// mouse moving while down
-				mouseX = event.getTouch(target, TouchPhase.MOVED).globalX;
-				mouseY = event.getTouch(target, TouchPhase.MOVED).globalY;
-				moveWeapon(mouseX,mouseY);
-			}
-			
-			if(event.getTouch(target, TouchPhase.BEGAN)&&!mouseDown)
-			{
-				// mouse down
-				mouseDown = true;
-				mouseX = event.getTouch(target, TouchPhase.BEGAN).globalX;
-				mouseY = event.getTouch(target, TouchPhase.BEGAN).globalY;
-				moveWeapon(mouseX,mouseY);
-				
-			}
-			else if(event.getTouch(target, TouchPhase.ENDED)&&mouseDown)
-			{
-				mouseDown = false;
-				releaseWeapon();
-			}
-			
-			
-		}
+		
 		
 		
 		

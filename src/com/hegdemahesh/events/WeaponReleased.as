@@ -7,7 +7,7 @@ package com.hegdemahesh.events
 		public static const GET:String = "weaponReleasedEvent";
 		public var xSpeed:int;
 		public var ySpeed:int;
-		public function WeaponReleased(type:String, bubbles:Boolean=true, cancelable:Boolean=false)
+		public function WeaponReleased(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);
 		}
