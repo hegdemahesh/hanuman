@@ -11,6 +11,7 @@ package com.hegdemahesh.ui
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.utils.deg2rad;
+	import starling.utils.rad2deg;
 
 	public class Weapon extends Sprite
 	{
@@ -25,6 +26,9 @@ package com.hegdemahesh.ui
 		
 		private var weaponStartX:int;
 		private var weaponStartY:int;
+		
+		private var xSpeed:int;
+		private var ySpeed:int;
 		
 		private var hanumanTail:Tail = new Tail("tail");
 		
@@ -73,8 +77,8 @@ package com.hegdemahesh.ui
 				//moveActor(wX,wY);
 				actor.x = wX;
 				actor.y = wY;
-				hanumanTail.x = wX+ 81-48;
-				hanumanTail.y = wY+ 120-22;
+				hanumanTail.x = wX+ 33;
+				hanumanTail.y = wY+ 98;
 				weaponStartX = wX;
 				weaponStartY = wY;
 				//hanumanTail.pivotX = 81;
@@ -98,7 +102,50 @@ package com.hegdemahesh.ui
 		private function onEnterFrame(event:Event):void
 		{
 			// TODO Auto Generated method stub
-			
+			if (mouseDown == false){
+				var xdif:int = weaponStartX - actor.x ;
+				var ydif:int = actor.y - weaponStartY ;
+				
+				if (xdif > 0){
+					xdif = int(xdif/1.5);
+				}
+				if (ydif > 0){
+					ydif = int(ydif/1.5);
+				}
+				actor.x = weaponStartX - xdif;
+				actor.y = weaponStartY + ydif;
+				
+				if (hanumanTail.scaleX < 1.02){
+					hanumanTail.scaleX = 1;
+				}
+				if (hanumanTail.scaleY < 1.02){
+					hanumanTail.scaleY = 1;
+				}
+				if (hanumanTail.scaleX > 0.98){
+					hanumanTail.scaleX = 1;
+				}
+				if (hanumanTail.scaleY > 0.98){
+					hanumanTail.scaleY = 1;
+				}
+				if (hanumanTail.scaleX > 1){
+					hanumanTail.scaleX = hanumanTail.scaleX / 1.5;
+				}
+				if (hanumanTail.scaleX < 1){
+					hanumanTail.scaleX = hanumanTail.scaleX * 15;
+				}
+				if (hanumanTail.scaleY > 1){
+					hanumanTail.scaleY = hanumanTail.scaleY / 1.5;
+				}
+				if (hanumanTail.scaleY < 1){
+					hanumanTail.scaleY = hanumanTail.scaleY * 1.5;
+				}
+				if (hanumanTail.rotation > -0.005){
+					hanumanTail.rotation = 0;
+				}
+				if (hanumanTail.rotation < 0){
+					hanumanTail.rotation = deg2rad(rad2deg(hanumanTail.rotation ) / 1.5);
+				}
+			}
 		}		
 		
 		
