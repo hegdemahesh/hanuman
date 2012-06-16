@@ -60,8 +60,8 @@ package com.hegdemahesh.ui
 			var teta:Number = Number(Math.atan(xdif/yFact));
 			var scaleFact:Number = Math.sqrt((xdif*xdif)+(yFact*yFact))/120;
 			//trace(teta+'and'+ xdif+'and'+ ydif);
-			hanumanTail.scaleX  = scaleFact;
-			hanumanTail.scaleY = scaleFact;
+			hanumanTail.scaleX  = (scaleFact*2+1)/3;
+			hanumanTail.scaleY = (scaleFact*2+1)/3;
 			hanumanTail.rotation = -teta;
 		}
 		
