@@ -3,6 +3,8 @@ package com.hegdemahesh.ui
 	
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Constants;
+	import com.hegdemahesh.ui.components.Actor;
+	import com.hegdemahesh.ui.components.Weapon;
 	
 	import nape.constraint.AngleJoint;
 	import nape.constraint.PivotJoint;
@@ -38,7 +40,7 @@ package com.hegdemahesh.ui
 		private var crushNumber:Number = 50;
 		
 		private var ground:Body;
-		private var groundXOffset:int = 400;
+		private var groundXOffset:int = 800;
 		private var groundYOffest:int = 491;
 		
 		private var mParticleSystem:PDParticleSystem;
@@ -46,7 +48,7 @@ package com.hegdemahesh.ui
 		private var psConfig:XML = XML(new Assets.SunConfig());
 		private var psTexture:Texture = Texture.fromBitmap(new Assets.SunParticle());
 		
-		
+		public var viewFocusX:int = 0;
 		
 		private var debug:BitmapDebug;
 		
@@ -116,7 +118,7 @@ package com.hegdemahesh.ui
 			var actor:Actor =  new Actor("stone_throw");
 			actor.x =  Constants.WEAPON_X - xdif - 19;
 			actor.y = Constants.WEAPON_Y - ydif - 19;
-			
+			actor.isWeapon = true;
 			
 			var actorNape:Body =  new Body();
 			actorNape.position.x = actor.x;
@@ -231,6 +233,18 @@ package com.hegdemahesh.ui
 						if (b.graphic is Actor){
 							//trace("An actor identified");
 							var actor:Actor =  b.graphic as Actor;
+							if (actor.isWeapon == true){
+								if (b.isSleeping == true){
+									this.removeChild(actor);
+									actor = null;
+									space.bodies.remove(b);
+									b.graphicUpdate = null;
+									b.clear();
+								}
+								else {
+									changeViewPort(b.position.x);
+								}
+							}
 							if (actor.crushed == true){
 								//trace(actor.imgSrc);
 								mParticleSystem.emitterX = b.position.x;
@@ -249,10 +263,35 @@ package com.hegdemahesh.ui
 				}
 				
 			}
+			upadateViewport();
 			debug.clear();
 			space.step(1/60);
 			debug.draw(space);
 			debug.flush();
+		}
+		
+		private function upadateViewport():void
+		{
+			// TODO Auto Generated method stub
+			var offsetRatio:Number = (this.x / viewFocusX);
+			if (offsetRatio < 1.002 && offsetRatio > 0.998){
+				this.x = int(viewFocusX);
+			}
+			else {
+				this.x = int((this.x  + viewFocusX)/2);
+			}
+		}
+		
+		private function changeViewPort(x:Number):void
+		{
+			// TODO Auto Generated method stub
+			if (x < 425){
+				x = 425;
+			}
+			if (x > 1275){
+				x = 1275;
+			}
+			viewFocusX = 425 - x;
 		}
 	}
 }

@@ -1,5 +1,7 @@
-package com.hegdemahesh.ui
+package com.hegdemahesh.ui.components
 {
+	import com.hegdemahesh.ui.Assets;
+	
 	import nape.phys.Body;
 	
 	import starling.display.Image;
@@ -17,6 +19,7 @@ package com.hegdemahesh.ui
 		public var ycord:int;
 		public var material:String;
 		public var flammable:Boolean;
+		public var isWeapon:Boolean = false;
 		public var crushable:Boolean = false;
 		public var crushed:Boolean = false;
 		

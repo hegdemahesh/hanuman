@@ -19,6 +19,7 @@ package com.hegdemahesh.ui
 	
 	import starling.display.Sprite;
 	import starling.display.Stage;
+	import com.hegdemahesh.ui.components.Actor;
 	
 	public class BodyFromGraphic extends starling.display.Sprite
 	{

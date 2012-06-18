@@ -1,4 +1,4 @@
-package com.hegdemahesh.ui
+package com.hegdemahesh.ui.components
 {
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Constants;

@@ -1,12 +1,20 @@
 package com.hegdemahesh.ui
 {
-	import starling.display.Sprite;
+	import com.byxb.extensions.starling.display.CameraSprite;
 	
-	public class World extends Sprite
+	import flash.geom.Rectangle;
+	
+	public class World extends CameraSprite
 	{
 		public function World()
 		{
-			super();
+			super(new Rectangle(0, 0, 850, 622), null, .3, .1, .01);
+		}
+		public function resetLevel():void {
+			
+		}
+		public function loadLevel(levelName:String):void {
+			
 		}
 	}
 }

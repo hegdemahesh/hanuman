@@ -24,6 +24,7 @@ package com.hegdemahesh.ui
 	import starling.events.TouchPhase;
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
+	import com.hegdemahesh.ui.components.Actor;
 	
 	public class Level1 extends Sprite
 	{
