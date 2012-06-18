@@ -2,6 +2,7 @@ package com.hegdemahesh.ui
 {
 	
 	import com.hegdemahesh.events.WeaponReleased;
+	import com.hegdemahesh.model.Constants;
 	
 	import nape.constraint.AngleJoint;
 	import nape.constraint.PivotJoint;
@@ -101,10 +102,33 @@ package com.hegdemahesh.ui
 		
 		private function onWeaponReleased(event:WeaponReleased):void
 		{
-			trace(event.xSpeed+ 'weapon relased');
+			var xSpeed:int = event.xSpeed;
+			var ySpeed:int = event.ySpeed;
+			//trace(event.xSpeed+ 'weapon relased');
+			addWeapon(xSpeed,ySpeed);
 		}		
 		
-		
+		private function addWeapon(xdif:int,ydif:int):void {
+			
+			var material:Material =  new Material(.6);
+			material.density = Constants.WEAPON_MATERIAL_DENSITY;
+			
+			var actor:Actor =  new Actor("stone_throw");
+			actor.x =  Constants.WEAPON_X - xdif - 19;
+			actor.y = Constants.WEAPON_Y - ydif - 19;
+			
+			
+			var actorNape:Body =  new Body();
+			actorNape.position.x = actor.x;
+			actorNape.position.y = actor.y;
+			actorNape.space = space;
+			actorNape.graphic = actor ;
+			actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
+			actorNape.graphicUpdate = updateGraphics;
+			actorNape.velocity = new Vec2(xdif * Constants.SPEED_FACTOR,ydif * Constants.SPEED_FACTOR);
+			this.addChild(actorNape.graphic);
+			
+		}
 		private function addCatapult():void {
 			
 			
@@ -113,14 +137,7 @@ package com.hegdemahesh.ui
 			material.density = 10;
 			
 			
-			
-			/*weapon = new Actor("stone_throw");
-			weapon.x = 124+ int(weapon.image.width/2);
-			weapon.y = 148 + int(weapon.image.height/2);
-			weapon.addEventListener(starling.events.TouchEvent.TOUCH,onStoneTouch);
-			this.addChild(weapon);*/
-			
-			var weaponRelease:Weapon = new Weapon(142,166,"stone_throw");
+			var weaponRelease:Weapon = new Weapon(Constants.WEAPON_X,Constants.WEAPON_Y,"stone_throw");
 			weaponRelease.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			this.addChild(weaponRelease);
 			

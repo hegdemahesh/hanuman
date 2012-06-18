@@ -5,6 +5,8 @@ package com.hegdemahesh.ui
 	
 	import de.polygonal.ds.NullIterator;
 	
+	import flashx.textLayout.elements.SpecialCharacterElement;
+	
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -21,6 +23,8 @@ package com.hegdemahesh.ui
 		public var mouseX:int;
 		public var mouseY:int;
 		
+		public var imgsrc:String;
+		
 		public var weaponX:int;
 		public var weaponY:int;
 		
@@ -31,6 +35,18 @@ package com.hegdemahesh.ui
 		private var ySpeed:int;
 		
 		private var hanumanTail:Tail = new Tail("tail");
+		
+		public function loadWeapon():void {
+			//actor = new Actor(src);
+			if (actor == null){
+				actor =  new Actor(imgsrc);
+			}
+			if (this.contains(actor) == false){
+				this.addChild(actor);
+			}
+			actor.x = weaponStartX;
+			actor.y = weaponStartY;
+		}
 		
 		public function moveActor(moveX:int,moveY:int):void {
 			
@@ -43,11 +59,11 @@ package com.hegdemahesh.ui
 			if (ydif > 0){
 				ydif = 0;
 			}
-			if (xdif > Constants.weaponExtermeX){
-				xdif = Constants.weaponExtermeX;
+			if (xdif > Constants.WEAPON_EXTREME_X){
+				xdif = Constants.WEAPON_EXTREME_X;
 			}
-			if (ydif < (-Constants.weaponExtremeY)){
-				ydif = -Constants.weaponExtremeY;
+			if (ydif < (-Constants.WEAPON_EXTREME_Y)){
+				ydif = -Constants.WEAPON_EXTREME_Y;
 			}
 			actor.x = weaponStartX - xdif;
 			actor.y = weaponStartY - ydif;
@@ -81,8 +97,7 @@ package com.hegdemahesh.ui
 				hanumanTail.y = wY+ 98;
 				weaponStartX = wX;
 				weaponStartY = wY;
-				//hanumanTail.pivotX = 81;
-				//hanumanTail.pivotY = 120;
+				imgsrc = src;
 				this.addChild(hanumanTail);
 				
 			}
@@ -155,10 +170,15 @@ package com.hegdemahesh.ui
 				moveActor(mouseX,mouseY);
 			}
 		}
-		private function releaseWeapon(xSpeed:int,ySpeed:int):void {
+		private function releaseWeapon():void {
+			var xdif:int = weaponStartX - actor.x;
+			var ydif:int = weaponStartY - actor.y;
+			
+			this.removeChild(actor);
+			
 			var event1:WeaponReleased =  new WeaponReleased(WeaponReleased.GET);
-			event1.xSpeed = xSpeed;
-			event1.ySpeed = ySpeed;
+			event1.xSpeed = xdif ;
+			event1.ySpeed = ydif ;
 			this.dispatchEvent(event1);
 		}
 		
@@ -202,7 +222,7 @@ package com.hegdemahesh.ui
 			else if(event.getTouch(target, TouchPhase.ENDED)&&mouseDown)
 			{
 				mouseDown = false;
-				releaseWeapon(mouseX,mouseY);
+				releaseWeapon();
 			}
 			
 			
