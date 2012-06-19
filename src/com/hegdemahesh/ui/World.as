@@ -24,11 +24,16 @@ package com.hegdemahesh.ui
 {
 	
 	
+	import com.hegdemahesh.events.ChangeBackgroundOffset;
+	import com.hegdemahesh.events.WeaponReleased;
+	import com.hegdemahesh.model.Constants;
 	import com.hegdemahesh.ui.components.Actor;
+	import com.hegdemahesh.ui.components.Weapon;
 	
 	import nape.geom.Vec2;
 	import nape.phys.Body;
 	import nape.phys.BodyType;
+	import nape.phys.Material;
 	import nape.shape.Polygon;
 	import nape.space.Space;
 	import nape.util.BitmapDebug;
@@ -104,14 +109,21 @@ package com.hegdemahesh.ui
 		private var debug:BitmapDebug;
 		
 		
+		private var levelXML:XML;
+		
 		/**
 		 * Creates a new World.
 		 */
 		
-		public function World()
+		public function World(level:XML = null)
 		{
 			super();
+			if (level != null){
+				levelXML = new XML(level);
+			}
+			mParticleSystem = new PDParticleSystem(psConfig, psTexture);
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
+			
 		}
 		
 		private function onAddedToStage(event:Event):void
@@ -134,7 +146,9 @@ package com.hegdemahesh.ui
 			
 			/*Extract level related information*/
 			//extractActors();
-			loadLevel("level1");
+			if (levelXML != null){
+				loadLevel(levelXML);
+			}
 			
 			addCatapult();
 			
@@ -152,16 +166,131 @@ package com.hegdemahesh.ui
 			
 		}
 		
+		/**
+		 * Hanuman tail component is initialised 
+		 */
+		
 		private function addCatapult():void {
+			var material:Material = new Material(.8);
+			material.density = 10;
+			
+			
+			var weaponRelease:Weapon = new Weapon(Constants.WEAPON_X,Constants.WEAPON_Y,"stone_throw");
+			weaponRelease.addEventListener(WeaponReleased.GET,onWeaponReleased);
+			this.addChild(weaponRelease);
+		}
+		
+		private function onWeaponReleased(event:WeaponReleased):void
+		{
+			var xSpeed:int = event.xSpeed;
+			var ySpeed:int = event.ySpeed;
+			trace(event.xSpeed+ 'weapon relased');
+			addWeapon(xSpeed,ySpeed);
+		}
+		
+		private function addWeapon(xdif:int,ydif:int):void {
+			
+			var material:Material =  new Material(.6);
+			material.density = Constants.WEAPON_MATERIAL_DENSITY;
+			
+			var actor:Actor =  new Actor("stone_throw");
+			actor.x =  Constants.WEAPON_X - xdif - 19;
+			actor.y = Constants.WEAPON_Y - ydif - 19;
+			actor.isWeapon = true;
+			
+			var actorNape:Body =  new Body();
+			actorNape.position.x = actor.x;
+			actorNape.position.y = actor.y;
+			actorNape.space = space;
+			actorNape.graphic = actor ;
+			actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
+			actorNape.graphicUpdate = updateGraphics;
+			actorNape.velocity = new Vec2(xdif * Constants.SPEED_FACTOR,ydif * Constants.SPEED_FACTOR);
+			this.addChild(actorNape.graphic);
 			
 		}
 		
 		/**
 		 *this function is executed once every frame
 		 */
+		
 		private function onEnterFrame(event:Event):void
 		{
 			// TODO Auto Generated method stub
+			for (var i:int = 0; i < space.bodies.length; i++){
+				var b:Body = space.bodies.at(i) as Body;
+				
+				if (b.space != null){
+					if (b.isDynamic() == true){
+						if (b.graphic is Actor){
+							//trace("An actor identified");
+							var actor:Actor =  b.graphic as Actor;
+							if (actor.isWeapon == true){
+								if (b.isSleeping == true){
+									this.removeChild(actor);
+									actor = null;
+									space.bodies.remove(b);
+									b.graphicUpdate = null;
+									b.clear();
+								}
+								else {
+									changeViewPort(b.position.x);
+								}
+							}
+							if (actor.crushed == true){
+								//trace(actor.imgSrc);
+								mParticleSystem.emitterX = b.position.x;
+								mParticleSystem.emitterY = b.position.y;
+								mParticleSystem.start(.25);
+								this.removeChild(actor);
+								actor = null;
+								space.bodies.remove(b);
+								b.graphicUpdate = null;
+								b.clear();
+								
+							}
+						}
+						
+					}
+				}
+				
+			}
+			updateViewport();
+			debug.clear();
+			space.step(1/60);
+			debug.draw(space);
+			debug.flush();
+		}
+		
+		private function updateViewport():void
+		{
+			// TODO Auto Generated method stub
+			var offsetRatio:Number = (this.x / viewFocusX);
+			if (offsetRatio < 1.002 && offsetRatio > 0.998){
+				this.x = int(viewFocusX);
+				debug.display.x = int(viewFocusX);
+			}
+			else {
+				this.x = int((this.x  + viewFocusX)/2);
+				debug.display.x = int((this.x  + viewFocusX)/2);
+			}
+		}
+		
+		private function changeViewPort(xVal:Number):void
+		{
+			// TODO Auto Generated method stub
+			if (xVal < 425){
+				xVal = 425;
+			}
+			if (xVal > 1275){
+				xVal = 1275;
+			}
+			if ( viewFocusX != (425-xVal)){
+				viewFocusX = 425 - xVal;
+				var e:ChangeBackgroundOffset =  new ChangeBackgroundOffset(ChangeBackgroundOffset.GET);
+				e.globalXOffset = viewFocusX;
+				this.dispatchEvent(e);
+			}
 			
 		}
 		
@@ -169,15 +298,112 @@ package com.hegdemahesh.ui
 		 *reset the level back to the initial stage
 		 */
 		public function resetLevel():void {
-			
+			if (levelXML != null){
+				removeBodies();
+				loadLevel(levelXML);
+			}
 		}
+		
+		/**
+		 *this function will remove level related bodies from the space and from the starling display list.
+		 */
+		
+		private function removeBodies():void
+		{
+			// TODO Auto Generated method stub
+			for (var i:int = 0; i < space.bodies.length; i++){
+				var b:Body = space.bodies.at(i) as Body;
+				
+				if (b.space != null){
+					if (b.isDynamic() == true){
+						if (b.graphic is Actor){
+							//trace("An actor identified");
+							var actor:Actor =  b.graphic as Actor;
+							if (actor.imgSrc != "tail" ){
+								
+									this.removeChild(actor);
+									actor = null;
+									space.bodies.remove(b);
+									b.graphicUpdate = null;
+									b.clear();
+							}
+						}
+					}
+				}
+			}
+		}		
+		
 		
 		/**
 		 * loads different levels
 		 */
-		public function loadLevel(levelName:String):void {
-			
+		public function loadLevel(xml:XML):void {
+			for (var i:int = 0; i < xml.actor.length();i ++ ){
+				
+				var actor:Actor =  new Actor(xml.actor[i].name);
+				actor.idString = xml.actor[i].id;
+				actor.material = xml.actor[i].material;
+				actor.xcord = xml.actor[i].xcord;
+				actor.ycord = xml.actor[i].ycord;
+				actor.flammable = (xml.actor[i].flammable == 1)? true: false;
+				actor.x = groundXOffset + int(xml.actor[i].xcord)-int(Math.ceil(actor.image.width/2));
+				actor.y = groundYOffest - int(xml.actor[i].ycord)-int(Math.ceil(actor.image.height/2));
+				actor.crushable = (xml.actor[i].crushable == 1)? true: false;
+				
+				var material:Material = new Material();
+				
+				if (actor.material == "stone"){
+					
+					material = Material.steel();
+				}
+				else if (actor.material == "foundation"){
+					
+					material = Material.steel();
+				}
+				else if (actor.material == "wood"){
+					
+					material = Material.wood();
+				}
+				else if (actor.material == "gold"){
+					
+					material = Material.steel();
+				}
+				else {
+					
+					material = Material.steel();
+				}
+				
+				var actorNape:Body =  new Body();
+				actorNape.position.x = actor.x;
+				actorNape.position.y = actor.y;
+				actorNape.space = space;
+				actorNape.graphic = actor ;
+				actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
+				actorNape.graphicUpdate = updateGraphics;
+				this.addChild(actorNape.graphic);
+				
+			}
 		}
 		
+		/**
+		 * position and other parameters of starling display sprites are modified in accordance with the nape physics objects
+		 */
+		
+		private function updateGraphics(b:Body):void
+		{
+			// TODO Auto Generated method stub
+			var actor:Actor = b.graphic as Actor;
+			actor.x = b.position.x;
+			actor.y = b.position.y;
+			actor.rotation = b.rotation;
+			if (actor.crushable == true){
+				//trace (b.crushFactor());
+				if (b.crushFactor() > crushNumber){
+					b.graphic.crushed = true;
+				}
+				
+			}
+			
+		}
 	}
 }

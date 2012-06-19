@@ -40,7 +40,24 @@ package com.hegdemahesh.ui
 	public class Game extends Sprite
 	{
 		private var levelScreen:LevelLoader;
+		
+		/**
+		 * Background Class for the which implements parallax functionality
+		 */
+		
 		private var bg:Background;
+		
+		/**
+		 * world display is responsible for presentaing the playable game space
+		 */
+		private var world:World;
+		
+		
+		/**
+		 * level related information stored in XML objects
+		 */
+		
+		private var xmlLevel1:XML = XML(new Assets.level1XML());
 		
 		/**
 		 * creats a new Game instance
@@ -59,13 +76,16 @@ package com.hegdemahesh.ui
 		{
 			bg =  new Background();
 			this.addChild(bg);
-			levelScreen = new LevelLoader();
-			this.addChild(levelScreen);
+			world =  new World(xmlLevel1);
+			this.addChild(world);
+			//levelScreen = new LevelLoader();
+			//this.addChild(levelScreen);
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
-			levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
+			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
+			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
 		/**
-		 * groundYOffset is the distance from top of the screen at which ground starts
+		 * Background offset is updated , when the game focus point changes..
 		 */
 		private function onOffestChange(event:ChangeBackgroundOffset):void
 		{
@@ -73,7 +93,7 @@ package com.hegdemahesh.ui
 			bg.gameXOffset = event.globalXOffset;
 		}
 		/**
-		 * this function is called once every frame is upadated
+		 * this function is called once every frame
 		 */
 		private function onEnterFrame(event:Event):void
 		{
