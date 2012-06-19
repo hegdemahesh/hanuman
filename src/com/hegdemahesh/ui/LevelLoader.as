@@ -38,10 +38,10 @@ package com.hegdemahesh.ui
 		
 		private var space:Space;
 		
-		private var crushNumber:Number = 50;
+		private var crushNumber:Number = 100;
 		
 		private var ground:Body;
-		private var groundXOffset:int = 800;
+		private var groundXOffset:int = 1000;
 		private var groundYOffest:int = 491;
 		
 		private var mParticleSystem:PDParticleSystem;
@@ -277,9 +277,11 @@ package com.hegdemahesh.ui
 			var offsetRatio:Number = (this.x / viewFocusX);
 			if (offsetRatio < 1.002 && offsetRatio > 0.998){
 				this.x = int(viewFocusX);
+				debug.display.x = int(viewFocusX);
 			}
 			else {
 				this.x = int((this.x  + viewFocusX)/2);
+				debug.display.x = int((this.x  + viewFocusX)/2);
 			}
 		}
 		

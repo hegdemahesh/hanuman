@@ -110,14 +110,14 @@ package com.hegdemahesh.ui
 			
 			mParticleSystem = new PDParticleSystem(psConfig, psTexture);
 			mParticleSystem.emitterX = 0;
-			mParticleSystem.emitterY = 420;
+			mParticleSystem.emitterY = 440;
 			mParticleSystem.start();
 			this.addChild(mParticleSystem);
 			Starling.juggler.add(mParticleSystem);
 			
 			mParticleSystemCopy = new PDParticleSystem(psConfig, psTexture);
 			mParticleSystemCopy.emitterX = 0;
-			mParticleSystemCopy.emitterY = 420;
+			mParticleSystemCopy.emitterY = 440;
 			mParticleSystemCopy.start();
 			this.addChild(mParticleSystemCopy);
 			Starling.juggler.add(mParticleSystemCopy);
