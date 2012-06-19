@@ -108,6 +108,19 @@ package com.hegdemahesh.ui
 		 */
 		private var debug:BitmapDebug;
 		
+		/**
+		 * Maximum number of weapons that can be used by the user in a level 
+		 */
+		private var weaponCount:int;
+		
+		/**
+		 * weapon compoentn to be loaded 
+		 */
+		private var weaponRelease:Weapon;
+		
+		/**
+		 * An XML containing information about the current level 
+		 */
 		
 		private var levelXML:XML;
 		
@@ -175,7 +188,7 @@ package com.hegdemahesh.ui
 			material.density = 10;
 			
 			
-			var weaponRelease:Weapon = new Weapon(Constants.WEAPON_X,Constants.WEAPON_Y,"stone_throw");
+			weaponRelease = new Weapon(Constants.WEAPON_X,Constants.WEAPON_Y,"stone_throw");
 			weaponRelease.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			this.addChild(weaponRelease);
 		}
@@ -184,7 +197,7 @@ package com.hegdemahesh.ui
 		{
 			var xSpeed:int = event.xSpeed;
 			var ySpeed:int = event.ySpeed;
-			trace(event.xSpeed+ 'weapon relased');
+			//trace(event.xSpeed+ 'weapon relased');
 			addWeapon(xSpeed,ySpeed);
 		}
 		
@@ -232,6 +245,7 @@ package com.hegdemahesh.ui
 									space.bodies.remove(b);
 									b.graphicUpdate = null;
 									b.clear();
+									loadWeapon();
 								}
 								else {
 									changeViewPort(b.position.x);
@@ -262,6 +276,17 @@ package com.hegdemahesh.ui
 			debug.flush();
 		}
 		
+		private function loadWeapon():void
+		{
+			// TODO Auto Generated method stub
+			if (weaponCount > 0){
+				weaponCount --;
+				weaponRelease.loadWeapon();
+				changeViewPort(0);
+			}
+			
+		}
+		
 		private function updateViewport():void
 		{
 			// TODO Auto Generated method stub
@@ -269,11 +294,15 @@ package com.hegdemahesh.ui
 			if (offsetRatio < 1.002 && offsetRatio > 0.998){
 				this.x = int(viewFocusX);
 				debug.display.x = int(viewFocusX);
+				
 			}
 			else {
-				this.x = int((this.x  + viewFocusX)/2);
-				debug.display.x = int((this.x  + viewFocusX)/2);
+				this.x = int((this.x * 8  + viewFocusX)/9);
+				debug.display.x = int((this.x * 8  + viewFocusX)/9);
 			}
+			var e:ChangeBackgroundOffset =  new ChangeBackgroundOffset(ChangeBackgroundOffset.GET);
+			e.globalXOffset = this.x;
+			this.dispatchEvent(e);
 		}
 		
 		private function changeViewPort(xVal:Number):void
@@ -287,9 +316,7 @@ package com.hegdemahesh.ui
 			}
 			if ( viewFocusX != (425-xVal)){
 				viewFocusX = 425 - xVal;
-				var e:ChangeBackgroundOffset =  new ChangeBackgroundOffset(ChangeBackgroundOffset.GET);
-				e.globalXOffset = viewFocusX;
-				this.dispatchEvent(e);
+				
 			}
 			
 		}
@@ -311,6 +338,7 @@ package com.hegdemahesh.ui
 		private function removeBodies():void
 		{
 			// TODO Auto Generated method stub
+			//weaponCount = 0;
 			for (var i:int = 0; i < space.bodies.length; i++){
 				var b:Body = space.bodies.at(i) as Body;
 				
@@ -319,14 +347,13 @@ package com.hegdemahesh.ui
 						if (b.graphic is Actor){
 							//trace("An actor identified");
 							var actor:Actor =  b.graphic as Actor;
-							if (actor.imgSrc != "tail" ){
-								
-									this.removeChild(actor);
-									actor = null;
-									space.bodies.remove(b);
-									b.graphicUpdate = null;
-									b.clear();
-							}
+							
+							this.removeChild(actor);
+							actor = null;
+							space.bodies.remove(b);
+							b.graphicUpdate = null;
+							b.clear();
+							
 						}
 					}
 				}
@@ -338,6 +365,7 @@ package com.hegdemahesh.ui
 		 * loads different levels
 		 */
 		public function loadLevel(xml:XML):void {
+			weaponCount = int(xml.weaponLimit);
 			for (var i:int = 0; i < xml.actor.length();i ++ ){
 				
 				var actor:Actor =  new Actor(xml.actor[i].name);

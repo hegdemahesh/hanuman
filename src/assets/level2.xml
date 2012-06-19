@@ -57,6 +57,15 @@
 		<flammable>0</flammable>
 		<crushable>0</crushable>
 	</actor>
+<!-- 	<actor> -->
+<!-- 		<id>3</id> -->
+<!-- 		<name>stone_block_big</name> -->
+<!-- 		<xcord>125</xcord> -->
+<!-- 		<ycord>220</ycord> -->
+<!-- 		<material>foundation</material> -->
+<!-- 		<flammable>0</flammable> -->
+<!-- 		<crushable>0</crushable> -->
+<!-- 	</actor> -->
 	<actor>
 		<id>3</id>
 		<name>roof_stone_right</name>
