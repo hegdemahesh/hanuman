@@ -1,6 +1,7 @@
 package com.hegdemahesh.ui
 {
 	
+	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Constants;
 	import com.hegdemahesh.ui.components.Actor;
@@ -282,16 +283,22 @@ package com.hegdemahesh.ui
 			}
 		}
 		
-		private function changeViewPort(x:Number):void
+		private function changeViewPort(xVal:Number):void
 		{
 			// TODO Auto Generated method stub
-			if (x < 425){
-				x = 425;
+			if (xVal < 425){
+				xVal = 425;
 			}
-			if (x > 1275){
-				x = 1275;
+			if (xVal > 1275){
+				xVal = 1275;
 			}
-			viewFocusX = 425 - x;
+			if ( viewFocusX != (425-xVal)){
+				viewFocusX = 425 - xVal;
+				var e:ChangeBackgroundOffset =  new ChangeBackgroundOffset(ChangeBackgroundOffset.GET);
+				e.globalXOffset = viewFocusX;
+				this.dispatchEvent(e);
+			}
+			
 		}
 	}
 }

@@ -1,6 +1,8 @@
 package com.hegdemahesh.ui
 {
 	
+	import com.hegdemahesh.events.ChangeBackgroundOffset;
+	
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.Touch;
@@ -9,7 +11,6 @@ package com.hegdemahesh.ui
 	public class Game extends Sprite
 	{
 		private var levelScreen:LevelLoader;
-		public var gameXOffset:int = 0;
 		private var bg:Background;
 		
 		public function Game()
@@ -20,27 +21,24 @@ package com.hegdemahesh.ui
 		
 		private function onAddedToStage(event:Event):void
 		{
-			// TODO Auto Generated method stub
-			/*trace("starling framework intialised");
-			welcomeScreen =  new Welcome();
-			this.addChild(welcomeScreen);*/
+			
 			bg =  new Background();
 			this.addChild(bg);
 			levelScreen = new LevelLoader();
 			this.addChild(levelScreen);
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
-			//this.addEventListener(starling.events
+			levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
+		
+		private function onOffestChange(event:ChangeBackgroundOffset):void
+		{
+			// TODO Auto Generated method stub
+			bg.gameXOffset = event.globalXOffset;
+		}
 		
 		private function onEnterFrame():void
 		{
-			// TODO Auto Generated method stub
-			if (gameXOffset != levelScreen.x){
-				levelScreen.x = gameXOffset;
-			}
-			if (bg.gameXOffset != gameXOffset){
-				bg.gameXOffset == this.gameXOffset;
-			}
+			
 			
 		}
 	}
