@@ -24,12 +24,14 @@ package com.hegdemahesh.ui
 {
 	
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
+	import com.hegdemahesh.events.LevelClearedEvent;
+	import com.hegdemahesh.model.Assets;
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
-	
+
 	/**
 	 * The Game class holds the main game play area and the UI for score and other stats
 	 * This is the class that is passed to Starling for initialization.
@@ -52,12 +54,12 @@ package com.hegdemahesh.ui
 		 */
 		private var world:World;
 		
-		
 		/**
-		 * level related information stored in XML objects
+		 * utility class to load different levels
 		 */
 		
-		private var xmlLevel1:XML = XML(new Assets.level1XML());
+		private var levelLoader:LevelLoader =  new LevelLoader();
+		
 		
 		/**
 		 * creats a new Game instance
@@ -76,14 +78,21 @@ package com.hegdemahesh.ui
 		{
 			bg =  new Background();
 			this.addChild(bg);
-			world =  new World(xmlLevel1);
+			world =  new World(levelLoader.currentLevel('level1'));
 			this.addChild(world);
 			//levelScreen = new LevelLoader();
 			//this.addChild(levelScreen);
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
+			world.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
+		
+		private function onLevelCleared(e:LevelClearedEvent):void
+		{
+			// TODO Auto Generated method stub
+			
+		}
 		/**
 		 * Background offset is updated , when the game focus point changes..
 		 */

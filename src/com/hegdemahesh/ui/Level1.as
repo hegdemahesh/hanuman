@@ -25,6 +25,7 @@ package com.hegdemahesh.ui
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
 	import com.hegdemahesh.ui.components.Actor;
+	import com.hegdemahesh.model.Assets;
 	
 	public class Level1 extends Sprite
 	{
@@ -45,8 +46,8 @@ package com.hegdemahesh.ui
 		
 		private var mParticleSystem:PDParticleSystem;
 		
-		private var psConfig:XML = XML(new Assets.SunConfig());
-		private var psTexture:Texture = Texture.fromBitmap(new Assets.SunParticle());
+		private var psConfig:XML = XML(new com.hegdemahesh.model.Assets());
+		private var psTexture:Texture = Texture.fromBitmap(new com.hegdemahesh.model.Assets());
 		
 		private var catapult:Body =  new Body(BodyType.DYNAMIC);
 		private var hanumanTail:Actor = new Actor("tail");
@@ -192,7 +193,7 @@ package com.hegdemahesh.ui
 		
 		private function extractActors():void {
 			/*function to extract level related information from a local xml*/
-			var xml:XML = XML(new Assets.level1XML());
+			var xml:XML = XML(new com.hegdemahesh.model.Assets());
 			for (var i:int = 0; i < xml.actor.length();i ++ ){
 				var actor:Actor =  new Actor(xml.actor[i].name);
 				actor.idString = xml.actor[i].id;

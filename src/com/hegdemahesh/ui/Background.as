@@ -28,6 +28,7 @@ package com.hegdemahesh.ui
 	import starling.events.Event;
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
+	import com.hegdemahesh.model.Assets;
 	
 	public class Background extends Sprite
 	{
@@ -54,8 +55,8 @@ package com.hegdemahesh.ui
 		private var mParticleSystemCopy:PDParticleSystem;
 		
 		
-		private var psConfig:XML = XML(new Assets.FireConfig());
-		private var psTexture:Texture = Texture.fromBitmap(new Assets.FireParticle());
+		private var psConfig:XML = XML(new com.hegdemahesh.model.Assets.FireConfig());
+		private var psTexture:Texture = Texture.fromBitmap(new com.hegdemahesh.model.Assets.FireParticle());
 		
 		public var _gameXOffest:int = 0;
 		

@@ -25,6 +25,7 @@ package com.hegdemahesh.ui
 	
 	
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
+	import com.hegdemahesh.events.LevelClearedEvent;
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Constants;
 	import com.hegdemahesh.ui.components.Actor;
@@ -44,6 +45,7 @@ package com.hegdemahesh.ui
 	import starling.events.Event;
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
+	import com.hegdemahesh.model.Assets;
 	
 	/**
 	 * The World class holds the main game play area.
@@ -88,14 +90,15 @@ package com.hegdemahesh.ui
 		 * configuration file for particle system. (Built on a particle effects extenson for starling)
 		 */
 		
-		private var psConfig:XML = XML(new Assets.SunConfig());
+		private var psConfig:XML = XML(new com.hegdemahesh.model.Assets.SunConfig());
 		
 		
 		/**
 		 * texture for particle system. (Built on a particle effects extenson for starling)
 		 */
 		
-		private var psTexture:Texture = Texture.fromBitmap(new Assets.SunParticle());
+		
+		private var psTexture:Texture = Texture.fromBitmap(new com.hegdemahesh.model.Assets.SunParticle());
 		
 		/**
 		 * An Offest for viewing rectangle. this will change the application virtual focus point. 
@@ -123,6 +126,12 @@ package com.hegdemahesh.ui
 		 */
 		
 		private var levelXML:XML;
+		
+		
+		/**
+		 * Number of frames to wait after all villains are destroyed
+		 */
+		private var actorFrameCouter:int = Constants.LEVEL_COMPLETE_DELAY;
 		
 		/**
 		 * Creates a new World.
@@ -230,50 +239,66 @@ package com.hegdemahesh.ui
 		private function onEnterFrame(event:Event):void
 		{
 			// TODO Auto Generated method stub
-			for (var i:int = 0; i < space.bodies.length; i++){
-				var b:Body = space.bodies.at(i) as Body;
-				
-				if (b.space != null){
-					if (b.isDynamic() == true){
-						if (b.graphic is Actor){
-							//trace("An actor identified");
-							var actor:Actor =  b.graphic as Actor;
-							if (actor.isWeapon == true){
-								if (b.isSleeping == true){
-									this.removeChild(actor);
-									actor = null;
-									space.bodies.remove(b);
-									b.graphicUpdate = null;
-									b.clear();
-									loadWeapon();
+			if (actorFrameCouter > 0){
+				actorFrameCouter--;
+				for (var i:int = 0; i < space.bodies.length; i++){
+					var b:Body = space.bodies.at(i) as Body;
+					
+					if (b.space != null){
+						if (b.isDynamic() == true){
+							if (b.graphic is Actor){
+								//trace("An actor identified");
+								var actor:Actor =  b.graphic as Actor;
+								if (actor.crushable == true){
+									actorFrameCouter = Constants.LEVEL_COMPLETE_DELAY;
 								}
-								else {
-									changeViewPort(b.position.x);
+								if (actor.isWeapon == true){
+									if (b.isSleeping == true || (b.position.x > 1700)){
+										this.removeChild(actor);
+										actor = null;
+										space.bodies.remove(b);
+										b.graphicUpdate = null;
+										b.clear();
+										loadWeapon();
+									}
+									else {
+										changeViewPort(b.position.x);
+									}
 								}
-							}
-							if (actor.crushed == true){
-								//trace(actor.imgSrc);
-								mParticleSystem.emitterX = b.position.x;
-								mParticleSystem.emitterY = b.position.y;
-								mParticleSystem.start(.25);
-								this.removeChild(actor);
-								actor = null;
-								space.bodies.remove(b);
-								b.graphicUpdate = null;
-								b.clear();
+								if (actor != null){
+									if (actor.crushed == true){
+										//trace(actor.imgSrc);
+										mParticleSystem.emitterX = b.position.x;
+										mParticleSystem.emitterY = b.position.y;
+										mParticleSystem.start(.25);
+										this.removeChild(actor);
+										actor = null;
+										space.bodies.remove(b);
+										b.graphicUpdate = null;
+										b.clear();
+										
+									}
+								}
+								
 								
 							}
+							
 						}
-						
 					}
+					
 				}
-				
+				updateViewport();
+				debug.clear();
+				space.step(1/60);
+				debug.draw(space);
+				debug.flush();
 			}
-			updateViewport();
-			debug.clear();
-			space.step(1/60);
-			debug.draw(space);
-			debug.flush();
+			else {
+				var e:LevelClearedEvent =  new LevelClearedEvent(LevelClearedEvent.GET);
+				this.dispatchEvent(e);
+			}
+			
+			
 		}
 		
 		private function loadWeapon():void

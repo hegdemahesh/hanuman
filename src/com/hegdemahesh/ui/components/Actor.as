@@ -22,7 +22,7 @@
 
 package com.hegdemahesh.ui.components
 {
-	import com.hegdemahesh.ui.Assets;
+	import com.hegdemahesh.model.Assets;
 	
 	import nape.phys.Body;
 	

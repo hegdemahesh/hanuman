@@ -19,7 +19,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package com.hegdemahesh.ui
+package com.hegdemahesh.model
 {
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
@@ -66,8 +66,19 @@ package com.hegdemahesh.ui
 		[Embed(source="assets/level1.xml",mimeType="application/octet-stream")]
 		public static const level1XML:Class;
 		
+		[Embed(source="assets/level2.xml",mimeType="application/octet-stream")]
+		public static const level2XML:Class;
+		
+		[Embed(source="assets/ShowCardGothic.fnt", mimeType="application/octet-stream")]
+		public static const ShowCardGothicXML:Class;
+		
+		[Embed(source="assets/ShowCardGothic_0.png", mimeType="application/octet-stream")]
+		public static const ShowCardGothicBitmap:Class;
+		
 		private static var gameTextures:Dictionary =new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
+		
+		
 		
 		public static function getAtlas():TextureAtlas {
 			if (gameTextureAtlas == null){

@@ -2,7 +2,9 @@
 <!-- level1 actor details-->
 <!--  -->
 <data>
-	<weaponLimit>10</weaponLimit>
+	<weaponLimit>5</weaponLimit>
+	<offsetX>1000</offsetX>
+	<leveld>1</leveld>
 	<actor>
 		<id>1</id>
 		<name>foundation_stone_left</name>
