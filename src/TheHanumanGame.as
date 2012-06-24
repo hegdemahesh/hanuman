@@ -25,18 +25,39 @@ package
 	import com.hegdemahesh.ui.Game;
 	
 	import flash.display.Sprite;
+	import flash.events.Event;
 	
 	import net.hires.debug.Stats;
 	
 	import starling.core.Starling;
 	
-	[SWF(frameRate="60",width="850",height="622", backgroundColor="0x333333")]
+	[SWF(frameRate="60",width="850",height="622", backgroundColor="0x000000")]
 	public class TheHanumanGame extends Sprite
 	{
 		private var stats:Stats;
 		private var myStarling:Starling;
 		public function TheHanumanGame()
 		{
+			
+			this.addEventListener(Event.ENTER_FRAME,onEnterFrame);
+			
+		}
+		
+		protected function onEnterFrame(event:Event):void
+		{
+			// TODO Auto-generated method stub
+			if(stage.loaderInfo.bytesLoaded == stage.loaderInfo.bytesTotal){
+				startStarling();
+				this.removeEventListener(Event.ENTER_FRAME,onEnterFrame);
+			}
+			else {
+				trace('loading..');
+			}
+		}
+		
+		private function startStarling():void
+		{
+			// TODO Auto Generated method stub
 			stats = new Stats();
 			this.addChild(stats);
 			

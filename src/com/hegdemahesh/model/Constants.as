@@ -24,6 +24,9 @@ package com.hegdemahesh.model
 {
 	public class Constants
 	{
+		public static const SPONSOR_SCREEN_SHOW_TIME:int = 200;
+		public static const DEVELOPER_SCREEN_SHOW_TIME:int = 200;
+		
 		public static const CRUSH_NUMBER:int = 100;
 		public static const WEAPON_EXTREME_X:int = 30;
 		public static const WEAPON_EXTREME_Y:int = 30;

@@ -41,7 +41,14 @@ package com.hegdemahesh.ui
 	
 	public class Game extends Sprite
 	{
-		private var levelScreen:LevelLoader;
+		/**
+		 * Sponsor screen
+		 */
+		private var sponsorScreen:SponsorScreen;
+		/**
+		 * Developer screen
+		 */
+		private var developerScreen:DeveloperScreen;
 		
 		/**
 		 * Background Class for the which implements parallax functionality
