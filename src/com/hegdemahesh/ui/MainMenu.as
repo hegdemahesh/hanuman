@@ -23,6 +23,8 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			var levelSprite:TileSprite =  new TileSprite(levelDetails,600,400);
+			levelSprite.x = int((stage.stageWidth-600)/2);
+			levelSprite.y = int((stage.stageHeight-400)/2);
 			this.addChild(levelSprite);
 		}
 	}

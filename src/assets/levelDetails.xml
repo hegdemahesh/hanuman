@@ -21,8 +21,26 @@
 		<cleared>No</cleared>
 	</level>
 	<level>
-		<id>2</id>
+		<id>4</id>
 		<name>level4</name>
+		<difficulty>normal</difficulty>
+		<cleared>No</cleared>
+	</level>
+	<level>
+		<id>5</id>
+		<name>level5</name>
+		<difficulty>normal</difficulty>
+		<cleared>No</cleared>
+	</level>
+	<level>
+		<id>6</id>
+		<name>level5</name>
+		<difficulty>normal</difficulty>
+		<cleared>No</cleared>
+	</level>
+	<level>
+		<id>7</id>
+		<name>level5</name>
 		<difficulty>normal</difficulty>
 		<cleared>No</cleared>
 	</level>

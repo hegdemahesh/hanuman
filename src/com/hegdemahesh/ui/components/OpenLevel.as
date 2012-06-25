@@ -3,6 +3,7 @@ package com.hegdemahesh.ui.components
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.vos.Level;
 	
+	import starling.display.Button;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -13,7 +14,8 @@ package com.hegdemahesh.ui.components
 	public class OpenLevel extends Sprite
 	{
 		public var level:Level;
-		private var img:Image = new Image(Assets.getAtlas().getTexture('levelButton'));
+		private var img:Button =  new Button(Assets.getAtlas().getTexture('levelButton'));
+		//private var img:Image = new Image(Assets.getAtlas().getTexture('levelButton'));
 		public function OpenLevel(lev:Level=null)
 		{
 			super();

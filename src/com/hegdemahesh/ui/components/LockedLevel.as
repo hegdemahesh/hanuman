@@ -3,6 +3,7 @@ package com.hegdemahesh.ui.components
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.vos.Level;
 	
+	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -10,7 +11,7 @@ package com.hegdemahesh.ui.components
 	public class LockedLevel extends Sprite
 	{
 		public var level:Level;
-		private var img:Image = new Image(Assets.getAtlas().getTexture('levelButtonLocked'));
+		private var img:Button = new Button(Assets.getAtlas().getTexture('levelButtonLocked'));
 		public function LockedLevel(lev:Level=null)
 		{
 			super();
