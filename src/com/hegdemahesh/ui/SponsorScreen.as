@@ -28,15 +28,15 @@ package com.hegdemahesh.ui
 		private function onAddedToStage(event:Event):void
 		{
 			// TODO Auto Generated method stub
-			developerImage.x = ((stage.stageWidth-img.width)/2)+ 80;
+			developerImage.x = int((stage.stageWidth-img.width)/2)+ 80;
 			//developerImage.y = ((stage.stageHeight-img.height)/2);
 			developerImage.y = 0;
 			this.addChild(developerImage);
 			//developerImage.addEventListener(starling.events.Event.ADDED_TO_STAGE,onDeveloperImageAddedToStage);
 			
 			
-			img.x = ((stage.stageWidth-img.width)/2);
-			img.y = ((stage.stageHeight-img.height)/2);
+			img.x = int((stage.stageWidth-img.width)/2);
+			img.y = int((stage.stageHeight-img.height)/2);
 			img.alpha = 0;
 			this.addChild(img);
 			//img.addEventListener(starling.events.Event.ADDED_TO_STAGE,onImgAddedToStage);
@@ -57,7 +57,7 @@ package com.hegdemahesh.ui
 		}
 		
 		private function animateLogo():void {
-			var tween:Tween = new Tween(img, 2.0, Transitions.EASE_IN_OUT);
+			var tween:Tween = new Tween(img, 3.0, Transitions.EASE_IN_OUT);
 			tween.animate("alpha", 1);
 			//tween.animate("rotation", deg2rad(45));
 			//tween.fadeTo(0);    // equivalent to 'animate("alpha", 0)'
@@ -65,7 +65,7 @@ package com.hegdemahesh.ui
 			
 		}
 		private function animateText():void {
-			var tween:Tween = new Tween(developerImage, 2.0, Transitions.EASE_IN_OUT);
+			var tween:Tween = new Tween(developerImage, 3.0, Transitions.EASE_IN_OUT);
 			tween.animate("y", 250);
 			Starling.juggler.add(tween);
 			tween.onComplete = onTweenComplete;
