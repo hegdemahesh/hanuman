@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:154418f12c27a0e935c99affd448a873$ -->
+<!-- $TexturePacker:SmartUpdate:7f74ec2cf38e0f69ea2433601c8a05be$ -->
 <TextureAtlas imagePath="hanuman.png">
     <SubTexture name="barrel" x="1933" y="309" width="51" height="71"/>
     <SubTexture name="bg1" x="2" y="836" width="850" height="152" frameX="0" frameY="-281" frameWidth="850" frameHeight="622"/>
@@ -16,17 +16,17 @@
     <SubTexture name="foundation_stone_left" x="1906" y="830" width="99" height="69"/>
     <SubTexture name="foundation_stone_middle" x="290" y="1885" width="50" height="69"/>
     <SubTexture name="foundation_stone_right" x="1906" y="759" width="99" height="69"/>
-    <SubTexture name="golden_design" x="478" y="1756" width="28" height="22"/>
+    <SubTexture name="golden_design" x="743" y="1340" width="28" height="22"/>
     <SubTexture name="gopur01" x="1706" y="162" width="225" height="101" frameX="-1" frameY="0" frameWidth="227" frameHeight="101"/>
     <SubTexture name="gourish" x="1983" y="511" width="54" height="140"/>
     <SubTexture name="hanumanFront" x="2" y="990" width="630" height="394" frameX="-9" frameY="-15" frameWidth="690" frameHeight="430"/>
     <SubTexture name="hanuman_0001" x="372" y="1950" width="196" height="83" frameX="-1" frameY="-5" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0002" x="169" y="1800" width="196" height="83" frameX="-1" frameY="-5" frameWidth="200" frameHeight="91"/>
-    <SubTexture name="hanuman_0003" x="936" y="1672" width="196" height="81" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
-    <SubTexture name="hanuman_0004" x="860" y="1589" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
-    <SubTexture name="hanuman_0005" x="799" y="1506" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
-    <SubTexture name="hanuman_0006" x="768" y="1423" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
-    <SubTexture name="hanuman_0007" x="768" y="1340" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
+    <SubTexture name="hanuman_0003" x="961" y="1696" width="196" height="81" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
+    <SubTexture name="hanuman_0004" x="936" y="1613" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
+    <SubTexture name="hanuman_0005" x="860" y="1530" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
+    <SubTexture name="hanuman_0006" x="768" y="1447" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
+    <SubTexture name="hanuman_0007" x="768" y="1364" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0008" x="634" y="1257" width="196" height="81" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0009" x="634" y="1174" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0010" x="634" y="1091" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
@@ -34,7 +34,7 @@
     <SubTexture name="hanuman_0012" x="797" y="1841" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0013" x="763" y="1758" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0014" x="738" y="1675" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
-    <SubTexture name="hanuman_0015" x="961" y="1755" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
+    <SubTexture name="hanuman_0015" x="995" y="1779" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0016" x="634" y="990" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0017" x="1706" y="925" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0018" x="1706" y="844" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
@@ -45,7 +45,7 @@
     <SubTexture name="hanuman_0023" x="1706" y="439" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0024" x="1706" y="358" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0025" x="1706" y="277" width="198" height="79" frameX="-1" frameY="-6" frameWidth="200" frameHeight="91"/>
-    <SubTexture name="hanuman_0026" x="995" y="1836" width="196" height="79" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
+    <SubTexture name="hanuman_0026" x="1164" y="1860" width="196" height="79" frameX="-2" frameY="-6" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0027" x="662" y="1592" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0028" x="570" y="1469" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
     <SubTexture name="hanuman_0029" x="570" y="1386" width="196" height="81" frameX="-2" frameY="-5" frameWidth="200" frameHeight="91"/>
@@ -67,16 +67,16 @@
     <SubTexture name="kalasa_top_02" x="244" y="1885" width="41" height="45"/>
     <SubTexture name="kalasha_middle_01" x="1906" y="699" width="122" height="58"/>
     <SubTexture name="kalasha_middle_02" x="169" y="1885" width="73" height="45"/>
-    <SubTexture name="kalasha_middle_03" x="1088" y="2007" width="70" height="35"/>
+    <SubTexture name="kalasha_middle_03" x="1126" y="2007" width="70" height="35"/>
     <SubTexture name="kalasha_middle_04" x="321" y="1721" width="155" height="57"/>
     <SubTexture name="kalasha_middle_05" x="464" y="1678" width="74" height="38"/>
-    <SubTexture name="kalasha_top_01" x="478" y="1718" width="36" height="36"/>
-    <SubTexture name="ladder" x="670" y="1340" width="33" height="29"/>
+    <SubTexture name="kalasha_top_01" x="768" y="2010" width="36" height="36"/>
+    <SubTexture name="ladder" x="708" y="1340" width="33" height="29"/>
     <SubTexture name="levelButton" x="286" y="1959" width="84" height="86" frameX="-1" frameY="-1" frameWidth="88" frameHeight="90"/>
     <SubTexture name="levelButtonLocked" x="200" y="1959" width="84" height="86" frameX="-1" frameY="-1" frameWidth="88" frameHeight="90"/>
     <SubTexture name="levelFinish" x="2" y="1386" width="368" height="210" frameX="-5" frameY="-8" frameWidth="384" frameHeight="230"/>
-    <SubTexture name="menu" x="634" y="1340" width="34" height="30" frameX="-8" frameY="-11" frameWidth="52" frameHeight="52"/>
-    <SubTexture name="mute" x="1160" y="2007" width="36" height="32" frameX="-7" frameY="-10" frameWidth="52" frameHeight="52"/>
+    <SubTexture name="menu" x="672" y="1340" width="34" height="30" frameX="-8" frameY="-11" frameWidth="52" frameHeight="52"/>
+    <SubTexture name="mute" x="634" y="1340" width="36" height="32" frameX="-7" frameY="-10" frameWidth="52" frameHeight="52"/>
     <SubTexture name="nandu" x="1986" y="268" width="60" height="140" frameX="0" frameY="0" frameWidth="64" frameHeight="140"/>
     <SubTexture name="next" x="367" y="1863" width="32" height="20" frameX="-10" frameY="-16" frameWidth="52" frameHeight="52"/>
     <SubTexture name="pillar1" x="2007" y="759" width="38" height="128"/>
@@ -91,12 +91,12 @@
     <SubTexture name="prashant" x="2" y="1804" width="92" height="155" frameX="-2" frameY="0" frameWidth="94" frameHeight="155"/>
     <SubTexture name="programmedBy" x="1706" y="140" width="269" height="20"/>
     <SubTexture name="replay" x="540" y="1552" width="36" height="40" frameX="-7" frameY="-8" frameWidth="52" frameHeight="52"/>
-    <SubTexture name="roof_golden_left" x="718" y="1552" width="79" height="35"/>
-    <SubTexture name="roof_golden_middle" x="1011" y="2007" width="75" height="35"/>
-    <SubTexture name="roof_golden_right" x="930" y="2010" width="79" height="35"/>
-    <SubTexture name="roof_stone_left" x="849" y="2010" width="79" height="35"/>
+    <SubTexture name="roof_golden_left" x="968" y="2007" width="79" height="35"/>
+    <SubTexture name="roof_golden_middle" x="1049" y="2007" width="75" height="35"/>
+    <SubTexture name="roof_golden_right" x="718" y="1552" width="79" height="35"/>
+    <SubTexture name="roof_stone_left" x="887" y="2010" width="79" height="35"/>
     <SubTexture name="roof_stone_middle" x="1906" y="382" width="78" height="35"/>
-    <SubTexture name="roof_stone_right" x="768" y="2010" width="79" height="35"/>
+    <SubTexture name="roof_stone_right" x="806" y="2010" width="79" height="35"/>
     <SubTexture name="sky" x="2" y="428" width="850" height="240" frameX="0" frameY="0" frameWidth="850" frameHeight="622"/>
     <SubTexture name="slab_golden" x="1999" y="45" width="44" height="9"/>
     <SubTexture name="slab_stone" x="372" y="2035" width="68" height="10"/>
@@ -110,6 +110,7 @@
     <SubTexture name="stone_box" x="342" y="1885" width="53" height="63"/>
     <SubTexture name="stone_throw" x="2007" y="889" width="37" height="35"/>
     <SubTexture name="tail" x="182" y="1598" width="85" height="122"/>
+    <SubTexture name="transparentBg" x="478" y="1718" width="50" height="50"/>
     <SubTexture name="wallBottom_golden_left" x="372" y="1552" width="99" height="41"/>
     <SubTexture name="wallBottom_golden_middle" x="1999" y="2" width="47" height="41"/>
     <SubTexture name="wallBottom_golden_right" x="1906" y="987" width="99" height="41"/>
