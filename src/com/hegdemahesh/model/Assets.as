@@ -69,11 +69,17 @@ package com.hegdemahesh.model
 		[Embed(source="assets/level2.xml",mimeType="application/octet-stream")]
 		public static const level2XML:Class;
 		
+		[Embed(source="assets/levelDetails.xml",mimeType="application/octet-stream")]
+		public static const levelDetails:Class;
+		
+		
 		[Embed(source="assets/ShowCardGothic.fnt", mimeType="application/octet-stream")]
 		public static const ShowCardGothicXML:Class;
 		
 		[Embed(source="assets/ShowCardGothic_0.png", mimeType="application/octet-stream")]
 		public static const ShowCardGothicBitmap:Class;
+		
+		
 		
 		private static var gameTextures:Dictionary =new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;

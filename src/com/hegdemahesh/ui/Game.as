@@ -26,8 +26,8 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.DeveloperScreenChanged;
 	import com.hegdemahesh.events.LevelClearedEvent;
-	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.events.SponsorScreenChanged;
+	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.model.Assets;
 	
 	import starling.display.Sprite;
@@ -57,7 +57,13 @@ package com.hegdemahesh.ui
 		 * Start screen
 		 */
 		private var startScreen:StartScreen;
-
+		
+		/**
+		 * Level Screen
+		 */
+		private var levelScreen:MainMenu;
+		
+		
 		
 		/**
 		 * Background Class for the which implements parallax functionality
@@ -139,11 +145,20 @@ package com.hegdemahesh.ui
 			// TODO Auto Generated method stub
 			this.removeChild(startScreen);
 			startScreen =  null;
-			addGameWorld();
+			//addGameWorld();
+			addMenu();
+		}
+		
+		private function addMenu():void
+		{
+			// TODO Auto Generated method stub
+			levelScreen =  new MainMenu(levelLoader.levelDetails);
+			this.addChild(bg);
+			this.addChild(levelScreen);
+		
 		}
 		
 		private function addGameWorld():void {
-			this.addChild(bg);
 			this.addChild(world);
 		}
 		

@@ -25,7 +25,8 @@ package com.hegdemahesh.vos
 	public class Level
 	{
 		public var levelName:String;
-		public var levelXML:XML;
+		public var levelId:int;
+		public var locked:Boolean = false;
 		public function Level()
 		{
 		}

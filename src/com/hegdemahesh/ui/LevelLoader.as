@@ -13,8 +13,10 @@ package com.hegdemahesh.ui
 	public class LevelLoader extends Sprite
 	{
 		
-		public var xmlLevel1:XML = XML(new com.hegdemahesh.model.Assets.level1XML());
-		public var xmlLevel2:XML = XML(new com.hegdemahesh.model.Assets.level2XML());
+		public var xmllevel1:XML = XML(new com.hegdemahesh.model.Assets.level1XML());
+		public var xmllevel2:XML = XML(new com.hegdemahesh.model.Assets.level2XML());
+		
+		public var levelDetails:XML = XML(new com.hegdemahesh.model.Assets.levelDetails());
 		
 		public function LevelLoader()
 		{
@@ -25,7 +27,7 @@ package com.hegdemahesh.ui
 		
 		public function currentLevel(levelId:String = null):XML {
 			if (levelId == null){
-				return xmlLevel1;
+				return xmllevel1;
 			}
 			else {
 				return currentLevelXML(levelId);
@@ -35,15 +37,16 @@ package com.hegdemahesh.ui
 		private function currentLevelXML(levelId:String):XML
 		{
 			// TODO Auto Generated method stub
-			if (levelId == 'level1'){
-				return xmlLevel1;
+			return this['xml'+levelId];
+			/*if (levelId == 'level1'){
+				return xmllevel1;
 			}
 			else if (levelId == 'level2'){
-				return xmlLevel2;
+				return xmllevel2;
 			}
 			else {
 				return null;
-			}
+			}*/
 			
 		}
 		
