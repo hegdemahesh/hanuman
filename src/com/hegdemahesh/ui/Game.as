@@ -24,7 +24,10 @@ package com.hegdemahesh.ui
 {
 	
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
+	import com.hegdemahesh.events.DeveloperScreenChanged;
 	import com.hegdemahesh.events.LevelClearedEvent;
+	import com.hegdemahesh.events.StartScreenChanged;
+	import com.hegdemahesh.events.SponsorScreenChanged;
 	import com.hegdemahesh.model.Assets;
 	
 	import starling.display.Sprite;
@@ -49,6 +52,12 @@ package com.hegdemahesh.ui
 		 * Developer screen
 		 */
 		private var developerScreen:DeveloperScreen;
+		
+		/**
+		 * Start screen
+		 */
+		private var startScreen:StartScreen;
+
 		
 		/**
 		 * Background Class for the which implements parallax functionality
@@ -84,16 +93,59 @@ package com.hegdemahesh.ui
 		private function onAddedToStage(event:Event):void
 		{
 			bg =  new Background();
-			this.addChild(bg);
+			//this.addChild(bg);
 			world =  new World(levelLoader.currentLevel('level1'));
-			this.addChild(world);
+			//this.addChild(world);
 			//levelScreen = new LevelLoader();
 			//this.addChild(levelScreen);
+			sponsorScreen =  new SponsorScreen();
+			this.addChild(sponsorScreen);
+			sponsorScreen.addEventListener(SponsorScreenChanged.GET,onSponsorScreenChanged);
+				
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 			world.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
+		
+		private function onSponsorScreenChanged(event:SponsorScreenChanged):void
+		{
+			// TODO Auto Generated method stub
+			this.removeChild(sponsorScreen);
+			sponsorScreen =  null;
+			developerScreen = new DeveloperScreen();
+			this.addChild(developerScreen);
+			developerScreen.addEventListener(DeveloperScreenChanged.GET,onDeveloperScreenChanged)
+		}
+		
+		private function onDeveloperScreenChanged(event:DeveloperScreenChanged):void
+		{
+			// TODO Auto Generated method stub
+			this.removeChild(developerScreen);
+			developerScreen =  null;
+			addStartScreen();
+		}
+		
+		private function addStartScreen():void
+		{
+			// TODO Auto Generated method stub
+			startScreen =  new StartScreen();
+			this.addChild(startScreen);
+			startScreen.addEventListener(StartScreenChanged.GET,onStartScreenChanged);
+		}
+		
+		private function onStartScreenChanged():void
+		{
+			// TODO Auto Generated method stub
+			this.removeChild(startScreen);
+			startScreen =  null;
+			addGameWorld();
+		}
+		
+		private function addGameWorld():void {
+			this.addChild(bg);
+			this.addChild(world);
+		}
 		
 		private function onLevelCleared(e:LevelClearedEvent):void
 		{
