@@ -76,7 +76,7 @@ package com.hegdemahesh.model
 		[Embed(source="assets/ShowCardGothic.fnt", mimeType="application/octet-stream")]
 		public static const ShowCardGothicXML:Class;
 		
-		[Embed(source="assets/ShowCardGothic_0.png", mimeType="application/octet-stream")]
+		[Embed(source="assets/ShowCardGothic_0.png")]
 		public static const ShowCardGothicBitmap:Class;
 		
 		
