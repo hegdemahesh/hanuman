@@ -26,9 +26,11 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.DeveloperScreenChanged;
 	import com.hegdemahesh.events.LevelClearedEvent;
+	import com.hegdemahesh.events.LoadLevelEvent;
 	import com.hegdemahesh.events.SponsorScreenChanged;
 	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.vos.Level;
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -100,7 +102,7 @@ package com.hegdemahesh.ui
 		{
 			bg =  new Background();
 			//this.addChild(bg);
-			world =  new World(levelLoader.currentLevel('level1'));
+			
 			//this.addChild(world);
 			//levelScreen = new LevelLoader();
 			//this.addChild(levelScreen);
@@ -109,8 +111,7 @@ package com.hegdemahesh.ui
 			sponsorScreen.addEventListener(SponsorScreenChanged.GET,onSponsorScreenChanged);
 				
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
-			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
-			world.addEventListener(LevelClearedEvent.GET,onLevelCleared);
+			
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
 		
@@ -151,15 +152,57 @@ package com.hegdemahesh.ui
 		
 		private function addMenu():void
 		{
-			// TODO Auto Generated method stub
+			// TODO Aremouto Generated method stub
+			removeLevelScreen();
 			levelScreen =  new MainMenu(levelLoader.levelDetails);
 			this.addChild(bg);
 			this.addChild(levelScreen);
-		
+			this.addEventListener(LoadLevelEvent.GET,onLoadLevel);
 		}
 		
-		private function addGameWorld():void {
+		private function removeLevelScreen():void {
+			if (levelScreen != null){
+				if (this.contains(levelScreen)){
+					removeChild(levelScreen);
+					
+				}
+				levelScreen =  null;
+			}
+		}
+		private function onLoadLevel(event:LoadLevelEvent):void
+		{
+			// TODO Auto Generated method stub
+			removeLevelScreen();
+			var level:Level = event.level;
+			addGameWorld(level);
+			
+		}
+		
+		private function addGameWorld(level:Level):void {
+			
+			removeWorld();
+			world =  new World(levelLoader.currentLevel(level.levelName));
+			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
+			world.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			this.addChild(world);
+		}
+		
+		private function removeWorld():void
+		{
+			// TODO Auto Generated method stub
+			if (world != null){
+				if (this.contains(world)){
+					removeChild(world);
+					if(world.hasEventListener(ChangeBackgroundOffset.GET) == true){
+						world.removeEventListener(ChangeBackgroundOffset.GET,onOffestChange);
+					}
+					if (world.hasEventListener(LevelClearedEvent.GET) == true){
+						world.removeEventListener(LevelClearedEvent.GET,onLevelCleared);
+						
+					}
+				}
+				world =  null;
+			}
 		}
 		
 		private function onLevelCleared(e:LevelClearedEvent):void

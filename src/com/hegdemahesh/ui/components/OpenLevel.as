@@ -1,5 +1,6 @@
 package com.hegdemahesh.ui.components
 {
+	import com.hegdemahesh.events.LoadLevelEvent;
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.vos.Level;
 	
@@ -29,7 +30,7 @@ package com.hegdemahesh.ui.components
 		
 		
 		
-		private var bmpFontTF:TextField = new TextField(400, 400, "1", "Showcard Gothic", 50);
+		
 		
 		public function OpenLevel(lev:Level=null)
 		{
@@ -46,6 +47,8 @@ package com.hegdemahesh.ui.components
 			this.addChild(img);
 			
 			TextField.registerBitmapFont(new BitmapFont(texture1,xml1));
+			var bmpFontTF:TextField = new TextField(400, 400, level.levelId.toString(), "Showcard Gothic", 50);
+			
 			// the native bitmap font size, no scaling
 			bmpFontTF.fontSize = 30;
 			// use white to use the texture as it is (no tinting)
@@ -55,7 +58,7 @@ package com.hegdemahesh.ui.components
 			bmpFontTF.y = img.height - bmpFontTF.height >> 1;
 			// show it
 			this.addChild(bmpFontTF);
-			
+			bmpFontTF.touchable = false;
 			img.addEventListener(starling.events.TouchEvent.TOUCH,onImageTouch);
 		}
 		
@@ -67,7 +70,9 @@ package com.hegdemahesh.ui.components
 			
 			if(event.getTouch(target, TouchPhase.ENDED))
 			{
-								
+				var ev:LoadLevelEvent =  new LoadLevelEvent(LoadLevelEvent.GET);
+				ev.level =  level;
+				this.dispatchEvent(ev);
 			}
 		}
 	}
