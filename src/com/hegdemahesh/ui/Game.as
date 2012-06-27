@@ -23,6 +23,7 @@
 package com.hegdemahesh.ui
 {
 	
+	import com.hegdemahesh.events.ActionButtonEvent;
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.DeveloperScreenChanged;
 	import com.hegdemahesh.events.LevelClearedEvent;
@@ -34,6 +35,7 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.ui.components.LevelClearedMenu;
 	import com.hegdemahesh.vos.Level;
 	
+	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.Touch;
@@ -98,7 +100,7 @@ package com.hegdemahesh.ui
 		}
 		
 		/**
-		 * once game is added to the stage, background and the playable world are added
+		 * once game is added to the stage, background and the playable world are added to the game
 		 */
 		private function onAddedToStage(event:Event):void
 		{
@@ -115,17 +117,36 @@ package com.hegdemahesh.ui
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			this.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			this.addEventListener(LevelFailedEvent.GET,onLevelFailed);
+			this.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
+		
+		private function onActionButtonEvent(event:ActionButtonEvent):void
+		{
+			// TODO Auto Generated method stub
+			var displayObject:DisplayObject = event.target as DisplayObject;
+			displayObject.removeFromParent(true);
+			var actionString:String = event.actionString;
+			if (actionString == "replay"){
+				if (world != null){
+					world.clearLevel();
+					world.removeFromParent(true);
+					this.removeChild(world);
+					world = null;
+				}
+				//addGameWorld(event.
+			}
+		}
 		private function onLevelCleared(e:LevelClearedEvent):void
 		{
 			// TODO Auto Generated method stub
+			
 			var clearedLevel:Level = e.level;
 			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel);
 			levelClearedMenu.x =  (stage.stageWidth-levelClearedMenu.bg.width)/2;
 			levelClearedMenu.y = (stage.stageHeight-levelClearedMenu.bg.height)/2;
+			levelClearedMenu.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			this.addChild(levelClearedMenu);
-			
 		}
 		private function onLevelFailed(event:LevelFailedEvent):void
 		{

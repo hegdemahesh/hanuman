@@ -302,7 +302,7 @@ package com.hegdemahesh.ui
 			}
 			else {
 				levelComplete();
-				
+				//debug.clear();
 			}
 			
 			
@@ -324,6 +324,7 @@ package com.hegdemahesh.ui
 		public function clearLevel():void
 		{
 			// TODO Auto Generated method stub
+			
 			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
 				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			}
@@ -358,6 +359,7 @@ package com.hegdemahesh.ui
 					weapon = null;
 				}
 			}
+			this.dispose();
 		}
 		
 		private function loadWeapon():void
