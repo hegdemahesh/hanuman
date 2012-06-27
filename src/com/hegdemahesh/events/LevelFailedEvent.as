@@ -26,11 +26,11 @@ package com.hegdemahesh.events
 	
 	import starling.events.Event;
 	
-	public class LevelClearedEvent extends Event
+	public class LevelFailedEvent extends Event
 	{
-		public static const GET:String = "levelClearedEvent";
+		public static const GET:String = "levelFailedEvent";
 		public var level:Level;
-		public function LevelClearedEvent(type:String, bubbles:Boolean=true, data:Object=null)
+		public function LevelFailedEvent(type:String, bubbles:Boolean=true, data:Object=null)
 		{
 			super(type, bubbles, data);
 		}

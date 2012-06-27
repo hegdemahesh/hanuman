@@ -26,10 +26,12 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.DeveloperScreenChanged;
 	import com.hegdemahesh.events.LevelClearedEvent;
+	import com.hegdemahesh.events.LevelFailedEvent;
 	import com.hegdemahesh.events.LoadLevelEvent;
 	import com.hegdemahesh.events.SponsorScreenChanged;
 	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.ui.components.LevelClearedMenu;
 	import com.hegdemahesh.vos.Level;
 	
 	import starling.display.Sprite;
@@ -111,9 +113,25 @@ package com.hegdemahesh.ui
 			sponsorScreen.addEventListener(SponsorScreenChanged.GET,onSponsorScreenChanged);
 				
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
-			
+			this.addEventListener(LevelClearedEvent.GET,onLevelCleared);
+			this.addEventListener(LevelFailedEvent.GET,onLevelFailed);
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
+		private function onLevelCleared(e:LevelClearedEvent):void
+		{
+			// TODO Auto Generated method stub
+			var clearedLevel:Level = e.level;
+			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel);
+			levelClearedMenu.x =  (stage.stageWidth-levelClearedMenu.bg.width)/2;
+			levelClearedMenu.y = (stage.stageHeight-levelClearedMenu.bg.height)/2;
+			this.addChild(levelClearedMenu);
+			
+		}
+		private function onLevelFailed(event:LevelFailedEvent):void
+		{
+			// TODO Auto Generated method stub
+			var failedLevel:Level =  event.level;
+		}
 		
 		private function onSponsorScreenChanged(event:SponsorScreenChanged):void
 		{
@@ -181,9 +199,8 @@ package com.hegdemahesh.ui
 		private function addGameWorld(level:Level):void {
 			
 			removeWorld();
-			world =  new World(levelLoader.currentLevel(level.levelName));
+			world =  new World(levelLoader.currentLevel(level.levelName),level);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
-			world.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			this.addChild(world);
 		}
 		
@@ -196,20 +213,12 @@ package com.hegdemahesh.ui
 					if(world.hasEventListener(ChangeBackgroundOffset.GET) == true){
 						world.removeEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 					}
-					if (world.hasEventListener(LevelClearedEvent.GET) == true){
-						world.removeEventListener(LevelClearedEvent.GET,onLevelCleared);
-						
-					}
 				}
 				world =  null;
 			}
 		}
 		
-		private function onLevelCleared(e:LevelClearedEvent):void
-		{
-			// TODO Auto Generated method stub
-			
-		}
+	
 		/**
 		 * Background offset is updated , when the game focus point changes..
 		 */

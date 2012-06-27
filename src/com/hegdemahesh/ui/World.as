@@ -26,10 +26,13 @@ package com.hegdemahesh.ui
 	
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.LevelClearedEvent;
+	import com.hegdemahesh.events.LevelFailedEvent;
 	import com.hegdemahesh.events.WeaponReleased;
+	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.model.Constants;
 	import com.hegdemahesh.ui.components.Actor;
 	import com.hegdemahesh.ui.components.Weapon;
+	import com.hegdemahesh.vos.Level;
 	
 	import nape.geom.Vec2;
 	import nape.phys.Body;
@@ -45,7 +48,6 @@ package com.hegdemahesh.ui
 	import starling.events.Event;
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
-	import com.hegdemahesh.model.Assets;
 	
 	/**
 	 * The World class holds the main game play area.
@@ -127,6 +129,8 @@ package com.hegdemahesh.ui
 		
 		private var levelXML:XML;
 		
+		private var selectedLevel:Level;
+		
 		
 		/**
 		 * Number of frames to wait after all villains are destroyed
@@ -137,11 +141,14 @@ package com.hegdemahesh.ui
 		 * Creates a new World.
 		 */
 		
-		public function World(level:XML = null)
+		public function World(levelXMLTemp:XML = null,level:Level = null)
 		{
 			super();
+			if (levelXMLTemp != null){
+				levelXML = new XML(levelXMLTemp);
+			}
 			if (level != null){
-				levelXML = new XML(level);
+				selectedLevel = level;
 			}
 			mParticleSystem = new PDParticleSystem(psConfig, psTexture);
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
@@ -294,11 +301,63 @@ package com.hegdemahesh.ui
 				debug.flush();
 			}
 			else {
-				var e:LevelClearedEvent =  new LevelClearedEvent(LevelClearedEvent.GET);
-				this.dispatchEvent(e);
+				levelComplete();
+				
 			}
 			
 			
+		}
+		
+		private function levelComplete():void
+		{
+			// TODO Auto Generated method stub
+			//clearLevel();
+			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
+				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
+			}
+			var e:LevelClearedEvent =  new LevelClearedEvent(LevelClearedEvent.GET);
+			e.level = selectedLevel;
+			this.dispatchEvent(e);
+			
+		}
+		
+		public function clearLevel():void
+		{
+			// TODO Auto Generated method stub
+			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
+				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
+			}
+			
+			removeBodies();
+			for (var i:int = 0; i < this.numChildren ; i++){
+				//var displayObj:Sprite = this.getChildAt(i) as Sprite;
+				if (this.getChildAt(i) is Actor){
+					var actor:Actor = this.getChildAt(i) as Actor;
+					this.removeChild(actor);
+					actor = null;
+					
+				}
+				if (this.getChildAt(i) is PDParticleSystem){
+					var pdParticleSystem:PDParticleSystem = this.getChildAt(i) as PDParticleSystem;
+					this.removeChild(pdParticleSystem);
+					Starling.juggler.remove(pdParticleSystem);
+					pdParticleSystem =  null;
+				}
+				
+				if (this.getChildAt(i) is MovieClip){
+					var movieClip:MovieClip = this.getChildAt(i) as MovieClip;
+					this.removeChild(movieClip);
+					Starling.juggler.remove(movieClip);
+					movieClip = null;
+					
+				}
+				if(this.getChildAt(i) is Weapon){
+					var weapon:Weapon = this.getChildAt(i) as Weapon;
+					weapon.removeEventListener(WeaponReleased.GET,onWeaponReleased);
+					this.removeChild(weapon);
+					weapon = null;
+				}
+			}
 		}
 		
 		private function loadWeapon():void
@@ -309,7 +368,18 @@ package com.hegdemahesh.ui
 				weaponRelease.loadWeapon();
 				changeViewPort(0);
 			}
-			
+			else {
+				levelFailed();
+			}
+		}
+		
+		private function levelFailed():void
+		{
+			// TODO Auto Generated method stub
+			//clearLevel();
+			var e:LevelFailedEvent = new LevelFailedEvent(LevelFailedEvent.GET);
+			e.level =  selectedLevel;
+			this.dispatchEvent(e);
 		}
 		
 		private function updateViewport():void
@@ -346,15 +416,6 @@ package com.hegdemahesh.ui
 			
 		}
 		
-		/**
-		 *reset the level back to the initial stage
-		 */
-		public function resetLevel():void {
-			if (levelXML != null){
-				removeBodies();
-				loadLevel(levelXML);
-			}
-		}
 		
 		/**
 		 *this function will remove level related bodies from the space and from the starling display list.
