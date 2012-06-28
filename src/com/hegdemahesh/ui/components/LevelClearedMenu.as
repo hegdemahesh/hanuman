@@ -52,12 +52,15 @@ package com.hegdemahesh.ui.components
 		
 		public var replayButton:ActionButton =  new ActionButton("replay");
 		
-		public function LevelClearedMenu(levelCleared:Level = null)
+		public var nextLevelValidated:Boolean =  false;
+		
+		public function LevelClearedMenu(levelCleared:Level = null,levelValidate:Boolean = false)
 		{
 			super();
 			if (levelCleared != null){
 				level = levelCleared;
 			}
+			nextLevelValidated =  levelValidate;
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
 		}
 		
@@ -71,6 +74,34 @@ package com.hegdemahesh.ui.components
 			
 			TextField.registerBitmapFont(new BitmapFont(texture1,xml1));
 			var headerText:TextField = new TextField(350, 50, "Level Complete!", "Showcard Gothic", 50);
+			var yDiff:int = int(bg.height - (menuButton.img.height/2))-20;
+			
+			
+			if(nextLevelValidated == false){
+				headerText.text = "Game Complete!";
+				menuButton.x = 194;
+				
+				replayButton.x = 278;
+			}
+			
+			else {
+				menuButton.x = 110;
+				
+				replayButton.x = 194;
+				
+				nextButton.y = yDiff;
+				nextButton.x = 278;
+				this.addChild(nextButton);
+			}
+			
+			menuButton.y = yDiff;
+			
+			this.addChild(menuButton);
+			
+			
+			replayButton.y = yDiff;
+			
+			this.addChild(replayButton);
 			
 			// the native bitmap font size, no scaling
 			headerText.fontSize = 30;
@@ -81,22 +112,6 @@ package com.hegdemahesh.ui.components
 			headerText.y = 15;
 			// show it
 			this.addChild(headerText);
-			
-			var yDiff:int = int(bg.height - (menuButton.img.height/2))-20;
-			
-			menuButton.y = yDiff;
-			menuButton.x = 110;
-			this.addChild(menuButton);
-			
-			
-			replayButton.y = yDiff;
-			replayButton.x = 194;
-			this.addChild(replayButton);
-			
-			nextButton.y = yDiff;
-			nextButton.x = 278;
-			this.addChild(nextButton);
-			
 			
 			//bmpFontTF.touchable = false;
 			

@@ -12,36 +12,7 @@
 		<id>2</id>
 		<name>level2</name>
 		<difficulty>normal</difficulty>
-		<cleared>Yes</cleared>
-	</level>
-	<level>
-		<id>3</id>
-		<name>level3</name>
-		<difficulty>normal</difficulty>
 		<cleared>No</cleared>
 	</level>
-	<level>
-		<id>4</id>
-		<name>level4</name>
-		<difficulty>normal</difficulty>
-		<cleared>No</cleared>
-	</level>
-	<level>
-		<id>5</id>
-		<name>level5</name>
-		<difficulty>normal</difficulty>
-		<cleared>No</cleared>
-	</level>
-	<level>
-		<id>6</id>
-		<name>level5</name>
-		<difficulty>normal</difficulty>
-		<cleared>No</cleared>
-	</level>
-	<level>
-		<id>7</id>
-		<name>level5</name>
-		<difficulty>normal</difficulty>
-		<cleared>No</cleared>
-	</level>
+	
 </data>

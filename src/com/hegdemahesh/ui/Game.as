@@ -83,11 +83,7 @@ package com.hegdemahesh.ui
 		 */
 		private var world:World;
 		
-		/**
-		 * utility class to load different levels
-		 */
 		
-		private var levelLoader:LevelLoader =  new LevelLoader();
 		
 		/**
 		 * utility class to load different levels
@@ -143,6 +139,25 @@ package com.hegdemahesh.ui
 					this.removeChild(world);
 					world = null;
 				}
+				addGameWorld(actionLevel);
+			}
+			if (actionString == "next"){
+				if (world != null){
+					world.clearLevel();
+					world.removeFromParent(true);
+					this.removeChild(world);
+					world = null;
+				}
+				addGameWorld(levelManager.nextLevel(actionLevel));
+			}
+			if (actionString == "menu"){
+				if (world != null){
+					world.clearLevel();
+					world.removeFromParent(true);
+					this.removeChild(world);
+					world = null;
+				}
+				resetLevelMenu();
 			}
 		}
 		private function onLevelCleared(e:LevelClearedEvent):void
@@ -150,8 +165,8 @@ package com.hegdemahesh.ui
 			// TODO Auto Generated method stub
 			
 			var clearedLevel:Level = e.level;
-			levelManager.validateLevel(levelManager.nextLevel(clearedLevel));
-			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel);
+			var levelValidate:Boolean = levelManager.validateLevel(clearedLevel);
+			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel,levelValidate);
 			levelClearedMenu.x =  (stage.stageWidth-levelClearedMenu.bg.width)/2;
 			levelClearedMenu.y = (stage.stageHeight-levelClearedMenu.bg.height)/2;
 			levelClearedMenu.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
@@ -241,7 +256,7 @@ package com.hegdemahesh.ui
 		private function addGameWorld(level:Level):void {
 			
 			removeWorld();
-			world =  new World(levelLoader.currentLevel(level.levelId),level);
+			world =  new World(levelManager.setCurrentLevel(level),level);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 			this.addChild(world);
 		}

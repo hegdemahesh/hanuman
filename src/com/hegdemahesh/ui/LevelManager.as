@@ -60,8 +60,15 @@ package com.hegdemahesh.ui
 			//levelDetails.level[runningLevel.levelId].cleared = "Yes";
 			return level;
 		}
-		public function validateLevel(level:Level):void {
-			levelDetails.level[level.levelId-1].cleared = "Yes";
+		public function validateLevel(level:Level):Boolean {
+			if (levelDetails.level[level.levelId] != undefined){
+				levelDetails.level[level.levelId].cleared = "Yes";
+				return true;
+			}
+			else {
+				return false;
+			}
+			
 		}
 		public function setCurrentLevel(level:Level=null):XML {
 			if (level == null){
