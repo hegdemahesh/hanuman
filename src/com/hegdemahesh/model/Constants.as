@@ -40,6 +40,9 @@ package com.hegdemahesh.model
 		public static const WEAPON_MATERIAL_DENSITY:int = 30;
 		public static const LEVEL_COMPLETE_DELAY:int = 120;
 		
+		
+		public static const FIRE_PIC_WIDTH:int = 120;
+		
 		public function Constants()
 		{
 		}

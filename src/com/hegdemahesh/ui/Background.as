@@ -21,6 +21,8 @@
  */
 package com.hegdemahesh.ui
 {
+	import com.hegdemahesh.model.Assets;
+	
 	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -28,7 +30,6 @@ package com.hegdemahesh.ui
 	import starling.events.Event;
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
-	import com.hegdemahesh.model.Assets;
 	
 	public class Background extends Sprite
 	{
@@ -42,7 +43,7 @@ package com.hegdemahesh.ui
 		private var bg5:Image;
 		private var buildings:Image;
 		
-		private var mParticleSystem:PDParticleSystem;
+		//private var mParticleSystem:PDParticleSystem;
 		
 		private var hillsCopy:Image;
 		private var bg1Copy:Image;
@@ -52,11 +53,13 @@ package com.hegdemahesh.ui
 		private var bg5Copy:Image;
 		private var buildingsCopy:Image;
 		
-		private var mParticleSystemCopy:PDParticleSystem;
+		private var fireBg:FireBackground;
+		
+		//private var mParticleSystemCopy:PDParticleSystem;
 		
 		
-		private var psConfig:XML = XML(new com.hegdemahesh.model.Assets.FireConfig());
-		private var psTexture:Texture = Texture.fromBitmap(new com.hegdemahesh.model.Assets.FireParticle());
+		//private var psConfig:XML = XML(new com.hegdemahesh.model.Assets.FireConfig());
+		//private var psTexture:Texture = Texture.fromBitmap(new com.hegdemahesh.model.Assets.FireParticle());
 		
 		public var _gameXOffest:int = 0;
 		
@@ -68,11 +71,13 @@ package com.hegdemahesh.ui
 				bg5.x = int(offSet);
 				bg4.x = int(offSet/1.2);
 				buildings.x = int(offSet/1.5);
-				mParticleSystem.x = int(offSet/1.5);
+				//mParticleSystem.x = int(offSet/1.5);
 				bg3.x = int(offSet/3);
 				bg2.x = int(offSet/5);
 				bg1.x = int(offSet/8);
 				hills.x = int(offSet/16);
+				
+				fireBg.x = int(offSet/1.5);
 				
 				bg5Copy.x = parallaxOffSet+int(offSet);
 				bg4Copy.x = parallaxOffSet+int(offSet/1.2);
@@ -130,12 +135,12 @@ package com.hegdemahesh.ui
 			this.addChild(bg3Copy);
 			bg3Copy.x = parallaxOffSet;
 			
-			mParticleSystem = new PDParticleSystem(psConfig, psTexture);
+			/*mParticleSystem = new PDParticleSystem(psConfig, psTexture);
 			mParticleSystem.emitterX = 0;
 			mParticleSystem.emitterY = 440;
 			mParticleSystem.start();
 			this.addChild(mParticleSystem);
-			Starling.juggler.add(mParticleSystem);
+			Starling.juggler.add(mParticleSystem);*/
 			
 			/*mParticleSystemCopy = new PDParticleSystem(psConfig, psTexture);
 			mParticleSystemCopy.emitterX = 0;
@@ -144,6 +149,10 @@ package com.hegdemahesh.ui
 			this.addChild(mParticleSystemCopy);
 			Starling.juggler.add(mParticleSystemCopy);
 			mParticleSystemCopy.x = parallaxOffSet;*/
+			
+			fireBg =  new FireBackground(1700);
+			fireBg.y = 280;
+			this.addChild(fireBg);
 			
 			buildings = new Image(Assets.getAtlas().getTexture("buildings"));
 			buildings.y = 250;
