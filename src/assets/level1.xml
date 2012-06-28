@@ -113,15 +113,7 @@
 		<flammable>0</flammable>
 		<crushable>0</crushable>
 	</actor>
-	<actor>
-		<id>8</id>
-		<name>box_golden</name>
-		<xcord>198</xcord>
-		<ycord>124</ycord>
-		<material>gold</material>
-		<flammable>0</flammable>
-		<crushable>0</crushable>
-	</actor>
+	
 	<actor>
 		<id>8</id>
 		<name>roof_stone_middle</name>

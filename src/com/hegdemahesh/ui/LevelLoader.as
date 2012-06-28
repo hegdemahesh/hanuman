@@ -22,6 +22,7 @@
 package com.hegdemahesh.ui
 {
 	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.vos.Level;
 	
 	import starling.display.Sprite;
 	
@@ -34,8 +35,8 @@ package com.hegdemahesh.ui
 	public class LevelLoader extends Sprite
 	{
 		
-		public var xmllevel1:XML = XML(new com.hegdemahesh.model.Assets.level1XML());
-		public var xmllevel2:XML = XML(new com.hegdemahesh.model.Assets.level2XML());
+		public var xml1:XML = XML(new com.hegdemahesh.model.Assets.level1XML());
+		public var xml2:XML = XML(new com.hegdemahesh.model.Assets.level2XML());
 		
 		public var levelDetails:XML = XML(new com.hegdemahesh.model.Assets.levelDetails());
 		
@@ -46,19 +47,25 @@ package com.hegdemahesh.ui
 			
 		}
 		
-		public function currentLevel(levelId:String = null):XML {
-			if (levelId == null){
-				return xmllevel1;
+		public function currentLevel(levelId:int = 0):XML {
+			if (levelId == 0){
+				return xml1;
 			}
 			else {
+				
 				return currentLevelXML(levelId);
 			}
 		}
 		
-		private function currentLevelXML(levelId:String):XML
+		private function currentLevelXML(levelId:int):XML
 		{
 			// TODO Auto Generated method stub
-			return this['xml'+levelId];
+			if (this['xml'+levelId.toString()] != null){
+				return this['xml'+levelId.toString()];
+			}
+			else {
+				return xml1;
+			}
 			/*if (levelId == 'level1'){
 				return xmllevel1;
 			}
@@ -71,5 +78,16 @@ package com.hegdemahesh.ui
 			
 		}
 		
+		private function levelCleared(levelId:int = 0):XML {
+			if (levelId > 0){
+				if (levelDetails.level[levelId+1].cleared != "Yes"){
+					levelDetails.level[levelId+1].cleared =  "Yes";
+				}
+				return currentLevel(levelId+1);
+			}
+			else {
+				return xml1;	
+			}
+		}
 	}
 }

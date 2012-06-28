@@ -107,6 +107,7 @@ package com.hegdemahesh.ui.components
 			// TODO Auto Generated method stub
 			var e:ActionButtonEvent =  new ActionButtonEvent(ActionButtonEvent.GET);
 			e.actionString =  event.actionString;
+			e.level = level;
 			this.dispatchEvent(e);
 			//this.removeFromParent(true);
 		}

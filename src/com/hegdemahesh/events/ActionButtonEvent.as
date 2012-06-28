@@ -21,12 +21,15 @@
  */
 package com.hegdemahesh.events
 {
+	import com.hegdemahesh.vos.Level;
+	
 	import starling.events.Event;
 	
 	public class ActionButtonEvent extends Event
 	{
 		public static const GET:String = "actionButtonClickedEvent";
 		public var actionString:String;
+		public var level:Level;
 		public function ActionButtonEvent(type:String, bubbles:Boolean=false, data:Object=null)
 		{
 			super(type, bubbles, data);

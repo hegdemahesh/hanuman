@@ -321,6 +321,18 @@ package com.hegdemahesh.ui
 			
 		}
 		
+		private function levelFailed():void
+		{
+			// TODO Auto Generated method stub
+			//clearLevel();
+			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
+				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
+			}
+			var e:LevelFailedEvent = new LevelFailedEvent(LevelFailedEvent.GET);
+			e.level =  selectedLevel;
+			this.dispatchEvent(e);
+		}
+		
 		public function clearLevel():void
 		{
 			// TODO Auto Generated method stub
@@ -375,14 +387,7 @@ package com.hegdemahesh.ui
 			}
 		}
 		
-		private function levelFailed():void
-		{
-			// TODO Auto Generated method stub
-			//clearLevel();
-			var e:LevelFailedEvent = new LevelFailedEvent(LevelFailedEvent.GET);
-			e.level =  selectedLevel;
-			this.dispatchEvent(e);
-		}
+		
 		
 		private function updateViewport():void
 		{

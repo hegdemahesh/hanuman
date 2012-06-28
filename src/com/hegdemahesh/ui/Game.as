@@ -33,6 +33,7 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.ui.components.LevelClearedMenu;
+	import com.hegdemahesh.ui.components.LevelFailedMenu;
 	import com.hegdemahesh.vos.Level;
 	
 	import starling.display.DisplayObject;
@@ -124,9 +125,11 @@ package com.hegdemahesh.ui
 		private function onActionButtonEvent(event:ActionButtonEvent):void
 		{
 			// TODO Auto Generated method stub
+			var actionString:String = event.actionString;
+			var actionLevel:Level =  event.level;
 			var displayObject:DisplayObject = event.target as DisplayObject;
 			displayObject.removeFromParent(true);
-			var actionString:String = event.actionString;
+			
 			if (actionString == "replay"){
 				if (world != null){
 					world.clearLevel();
@@ -134,6 +137,7 @@ package com.hegdemahesh.ui
 					this.removeChild(world);
 					world = null;
 				}
+				
 				//addGameWorld(event.
 			}
 		}
@@ -152,6 +156,11 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			var failedLevel:Level =  event.level;
+			var levelFailedMenu:LevelFailedMenu =  new LevelFailedMenu(failedLevel);
+			levelFailedMenu.x =  (stage.stageWidth-levelFailedMenu.bg.width)/2;
+			levelFailedMenu.y = (stage.stageHeight-levelFailedMenu.bg.height)/2;
+			levelFailedMenu.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+			this.addChild(levelFailedMenu);
 		}
 		
 		private function onSponsorScreenChanged(event:SponsorScreenChanged):void
@@ -220,7 +229,7 @@ package com.hegdemahesh.ui
 		private function addGameWorld(level:Level):void {
 			
 			removeWorld();
-			world =  new World(levelLoader.currentLevel(level.levelName),level);
+			world =  new World(levelLoader.currentLevel(level.levelId),level);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 			this.addChild(world);
 		}
