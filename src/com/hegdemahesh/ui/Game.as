@@ -89,6 +89,12 @@ package com.hegdemahesh.ui
 		
 		private var levelLoader:LevelLoader =  new LevelLoader();
 		
+		/**
+		 * utility class to load different levels
+		 */
+		
+		private var levelManager:LevelManager =  new LevelManager();
+		
 		
 		/**
 		 * creats a new Game instance
@@ -137,8 +143,6 @@ package com.hegdemahesh.ui
 					this.removeChild(world);
 					world = null;
 				}
-				
-				//addGameWorld(event.
 			}
 		}
 		private function onLevelCleared(e:LevelClearedEvent):void
@@ -146,6 +150,7 @@ package com.hegdemahesh.ui
 			// TODO Auto Generated method stub
 			
 			var clearedLevel:Level = e.level;
+			levelManager.validateLevel(levelManager.nextLevel(clearedLevel));
 			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel);
 			levelClearedMenu.x =  (stage.stageWidth-levelClearedMenu.bg.width)/2;
 			levelClearedMenu.y = (stage.stageHeight-levelClearedMenu.bg.height)/2;
@@ -201,19 +206,26 @@ package com.hegdemahesh.ui
 		private function addMenu():void
 		{
 			// TODO Aremouto Generated method stub
-			removeLevelScreen();
-			levelScreen =  new MainMenu(levelLoader.levelDetails);
+			
 			this.addChild(bg);
-			this.addChild(levelScreen);
+			resetLevelMenu();
 			this.addEventListener(LoadLevelEvent.GET,onLoadLevel);
+		}
+		
+		private function resetLevelMenu():void {
+			removeLevelScreen();
+			levelScreen =  new MainMenu(levelManager.levelDetails);
+			this.addChild(levelScreen);
 		}
 		
 		private function removeLevelScreen():void {
 			if (levelScreen != null){
 				if (this.contains(levelScreen)){
-					removeChild(levelScreen);
+					levelScreen.removeFromParent(true);
+					this.removeChild(levelScreen);
 					
 				}
+				
 				levelScreen =  null;
 			}
 		}

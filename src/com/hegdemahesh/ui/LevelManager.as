@@ -19,22 +19,14 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 package com.hegdemahesh.ui
 {
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.vos.Level;
 	
-	import starling.display.Sprite;
-	
-	/**
-	 * level related information stored in XML objects
-	 */
-	
-	
-	
-	public class LevelLoader extends Sprite
+	public class LevelManager
 	{
-		
 		public var xml1:XML = XML(new com.hegdemahesh.model.Assets.level1XML());
 		public var xml2:XML = XML(new com.hegdemahesh.model.Assets.level2XML());
 		
@@ -42,63 +34,57 @@ package com.hegdemahesh.ui
 		
 		public var runningLevel:Level;
 		
-		public function LevelLoader()
+		public function LevelManager()
 		{
-			super();
-			
-			
+			resetCurrentLevel();
 		}
-		
-		public function currentLevel(levelId:int = 0):XML {
-			if (levelId == 0){
-				setRunningLevel(1);
-				return xml1;
-			}
-			else {
-				setRunningLevel(levelId);
-				return currentLevelXML(levelId);
-			}
-		}
-		
-		private function setRunningLevel(levelId:int):void {
+		public function resetCurrentLevel():void {
 			runningLevel =  new Level();
-			runningLevel.levelId = levelId;
-			runningLevel.levelName = levelDetails.level[levelId-1].levelName;
-			runningLevel.locked = false;
+			runningLevel.levelId = levelDetails.level[0].id;
+			runningLevel.levelName = levelDetails.level[0].name;
 		}
-		private function currentLevelXML(levelId:int):XML
-		{
-			// TODO Auto Generated method stub
-			if (this['xml'+levelId.toString()] != null){
-				setRunningLevel(levelId);
-				return this['xml'+levelId.toString()];
+		public function currentLevel():Level {
+			return runningLevel;
+		}
+		public function nextLevel(cLevel:Level= null):Level {
+			var level:Level = new Level();
+			if (cLevel == null){
+				level.levelId = levelDetails.level[runningLevel.levelId].id;
+				level.levelName = levelDetails.level[runningLevel.levelId].name;
 			}
+			
 			else {
-				setRunningLevel(1);
+				level.levelId = levelDetails.level[cLevel.levelId].id;
+				level.levelName = levelDetails.level[cLevel.levelId].name;
+			}
+			//levelDetails.level[runningLevel.levelId].cleared = "Yes";
+			return level;
+		}
+		public function validateLevel(level:Level):void {
+			levelDetails.level[level.levelId-1].cleared = "Yes";
+		}
+		public function setCurrentLevel(level:Level=null):XML {
+			if (level == null){
+				resetCurrentLevel();
 				return xml1;
 			}
-			/*if (levelId == 'level1'){
-				return xmllevel1;
-			}
-			else if (levelId == 'level2'){
-				return xmllevel2;
-			}
 			else {
-				return null;
-			}*/
-			
-		}
-		
-		public function levelCleared(levelId:int = 0):XML {
-			if (levelId > 0){
-				if (levelDetails.level[levelId].cleared != "Yes"){
-					levelDetails.level[levelId].cleared =  "Yes";
+				if (levelDetails.level[level.levelId-1].cleared == "Yes"){
+					if (this['xml'+level.levelId.toString()] != null){
+						runningLevel = level;
+						return (this['xml'+level.levelId.toString()] as XML);
+					}
+					else {
+						resetCurrentLevel();
+						return xml1;
+						trace("Level Not Available");
+					}
 				}
-				return currentLevel(levelId);
-			}
-			else {
-				setRunningLevel(1);
-				return xml1;	
+				else {
+					resetCurrentLevel();
+					return xml1;
+					trace("Level Not authenticated");
+				}
 			}
 		}
 	}
