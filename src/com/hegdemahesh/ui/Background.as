@@ -66,21 +66,21 @@ package com.hegdemahesh.ui
 			if (_gameXOffest != offSet){
 				_gameXOffest = offSet;
 				bg5.x = int(offSet);
-				bg4.x = int(offSet/1.5);
-				buildings.x = int(offSet/3);
-				mParticleSystem.x = int(offSet/3);
-				bg3.x = int(offSet/5);
-				bg2.x = int(offSet/8);
-				bg1.x = int(offSet/10);
+				bg4.x = int(offSet/1.2);
+				buildings.x = int(offSet/1.5);
+				mParticleSystem.x = int(offSet/1.5);
+				bg3.x = int(offSet/3);
+				bg2.x = int(offSet/5);
+				bg1.x = int(offSet/8);
 				hills.x = int(offSet/16);
 				
 				bg5Copy.x = parallaxOffSet+int(offSet);
-				bg4Copy.x = parallaxOffSet+int(offSet/1.5);
-				buildingsCopy.x = parallaxOffSet+int(offSet/3);
-				mParticleSystemCopy.x = parallaxOffSet+int(offSet/3);
-				bg3Copy.x = parallaxOffSet+int(offSet/5);
-				bg2Copy.x = parallaxOffSet+int(offSet/8);
-				bg1Copy.x = parallaxOffSet+int(offSet/10);
+				bg4Copy.x = parallaxOffSet+int(offSet/1.2);
+				buildingsCopy.x = parallaxOffSet+int(offSet/1.5);
+				//mParticleSystemCopy.x = parallaxOffSet+int(offSet/1.5);
+				bg3Copy.x = parallaxOffSet+int(offSet/3);
+				bg2Copy.x = parallaxOffSet+int(offSet/5);
+				bg1Copy.x = parallaxOffSet+int(offSet/8);
 				hillsCopy.x = parallaxOffSet+int(offSet/16);
 			}
 			
@@ -137,13 +137,13 @@ package com.hegdemahesh.ui
 			this.addChild(mParticleSystem);
 			Starling.juggler.add(mParticleSystem);
 			
-			mParticleSystemCopy = new PDParticleSystem(psConfig, psTexture);
+			/*mParticleSystemCopy = new PDParticleSystem(psConfig, psTexture);
 			mParticleSystemCopy.emitterX = 0;
 			mParticleSystemCopy.emitterY = 440;
 			mParticleSystemCopy.start();
 			this.addChild(mParticleSystemCopy);
 			Starling.juggler.add(mParticleSystemCopy);
-			mParticleSystemCopy.x = parallaxOffSet;
+			mParticleSystemCopy.x = parallaxOffSet;*/
 			
 			buildings = new Image(Assets.getAtlas().getTexture("buildings"));
 			buildings.y = 250;

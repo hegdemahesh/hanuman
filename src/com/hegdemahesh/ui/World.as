@@ -111,7 +111,7 @@ package com.hegdemahesh.ui
 		/**
 		 * A debug environament for nape physics. remove this for production 
 		 */
-		private var debug:BitmapDebug;
+		//private var debug:BitmapDebug;
 		
 		/**
 		 * Maximum number of weapons that can be used by the user in a level 
@@ -159,7 +159,7 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			space = new Space(new Vec2(0,2000));
-			
+			space.gravity = new Vec2(0,1200);
 			/*Add ground to the physics world*/
 			ground = new Body(BodyType.STATIC);
 			ground.shapes.add(new Polygon(Polygon.rect(0,groundYOffest,1700,20)));
@@ -190,8 +190,8 @@ package com.hegdemahesh.ui
 			
 			
 			/*Debug view for nape physics.. remove this for deployment*/
-			debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
-			Starling.current.nativeOverlay.addChild(debug.display);
+			/*debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
+			Starling.current.nativeOverlay.addChild(debug.display);*/
 			
 		}
 		
@@ -295,10 +295,10 @@ package com.hegdemahesh.ui
 					
 				}
 				updateViewport();
-				debug.clear();
+				//debug.clear();
 				space.step(1/60);
-				debug.draw(space);
-				debug.flush();
+				//debug.draw(space);
+				//debug.flush();
 			}
 			else {
 				levelComplete();
@@ -395,12 +395,12 @@ package com.hegdemahesh.ui
 			var offsetRatio:Number = (this.x / viewFocusX);
 			if (offsetRatio < 1.002 && offsetRatio > 0.998){
 				this.x = int(viewFocusX);
-				debug.display.x = int(viewFocusX);
+				//debug.display.x = int(viewFocusX);
 				
 			}
 			else {
 				this.x = int((this.x * 8  + viewFocusX)/9);
-				debug.display.x = int((this.x * 8  + viewFocusX)/9);
+				//debug.display.x = int((this.x * 8  + viewFocusX)/9);
 			}
 			var e:ChangeBackgroundOffset =  new ChangeBackgroundOffset(ChangeBackgroundOffset.GET);
 			e.globalXOffset = this.x;
@@ -443,13 +443,15 @@ package com.hegdemahesh.ui
 							
 							this.removeChild(actor);
 							actor = null;
-							space.bodies.remove(b);
-							b.graphicUpdate = null;
-							b.clear();
+							
 							
 						}
 					}
 				}
+				space.bodies.remove(b);
+				b.graphicUpdate = null;
+				b.clear();
+				b = null;
 			}
 		}		
 		
@@ -514,8 +516,8 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			var actor:Actor = b.graphic as Actor;
-			actor.x = b.position.x;
-			actor.y = b.position.y;
+			actor.x = int(b.position.x);
+			actor.y = int(b.position.y);
 			actor.rotation = b.rotation;
 			if (actor.crushable == true){
 				//trace (b.crushFactor());
