@@ -29,6 +29,7 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.LevelClearedEvent;
 	import com.hegdemahesh.events.LevelFailedEvent;
 	import com.hegdemahesh.events.LoadLevelEvent;
+	import com.hegdemahesh.events.ScoreEvent;
 	import com.hegdemahesh.events.SponsorScreenChanged;
 	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.events.WeaponCountEvent;
@@ -403,11 +404,18 @@ package com.hegdemahesh.ui
 			world =  new World(levelManager.setCurrentLevel(level),level);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 			world.addEventListener(WeaponCountEvent.GET,onWeaponCountEvent);
+			world.addEventListener(ScoreEvent.GET,onScoreEvent);
 			this.addChild(world);
 			
 			addMenuComp(level);
 			addScoreComponents(level);
 			addWeaponCount();
+		}
+		
+		private function onScoreEvent(event:ScoreEvent):void
+		{
+			// TODO Auto Generated method stub
+			scoreComponent.score = event.score;
 		}
 		
 		private function onWeaponCountEvent(evnt:WeaponCountEvent):void

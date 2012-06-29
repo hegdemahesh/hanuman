@@ -14,7 +14,7 @@ package com.hegdemahesh.ui.components
 	
 	public class ScoreComponent extends Sprite
 	{
-		public var _score:int = 10000;
+		public var _score:int = 0;
 		
 		public var texture1:starling.textures.Texture =  Assets.getTexture('ShowCardGothicBitmap');
 		
@@ -25,6 +25,8 @@ package com.hegdemahesh.ui.components
 		public var levelText:TextField;
 		
 		public var level:Level;
+		
+		public var headerText:TextField;
 		
 		public function ScoreComponent(levelC:Level= null)
 		{
@@ -40,11 +42,18 @@ package com.hegdemahesh.ui.components
 			}
 		}
 		
+		public function set score(sc:int):void {
+			_score = sc;
+			headerText.text = "Score - " + sc.toString();
+		}
+		public function get score():int {
+			return _score;
+		}
 		private function onAddedToStage(event:Event):void
 		{
 			// TODO Auto Generated method stub
 			TextField.registerBitmapFont(new BitmapFont(texture1,xml1));
-			var headerText:TextField = new TextField(160, 30, "Score - "+_score, "Showcard Gothic", 50);
+			headerText = new TextField(160, 30, "Score - "+ _score, "Showcard Gothic", 50);
 			headerText.fontSize = 30;
 			headerText.x = 82;
 			headerText.hAlign = HorizontalAlign.RIGHT;
@@ -65,14 +74,6 @@ package com.hegdemahesh.ui.components
 			
 			
 		}
-		public function set score(sc:int):void {
-			_score = sc;
-			scoreText.text = sc.toString();
-		}
 		
-		
-		public function get score():int {
-			return _score;
-		}
 	}
 }

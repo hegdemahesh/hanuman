@@ -27,6 +27,7 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.LevelClearedEvent;
 	import com.hegdemahesh.events.LevelFailedEvent;
+	import com.hegdemahesh.events.ScoreEvent;
 	import com.hegdemahesh.events.WeaponCountEvent;
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Assets;
@@ -146,6 +147,12 @@ package com.hegdemahesh.ui
 		private var actorFrameCouter:int = Constants.LEVEL_COMPLETE_DELAY;
 		
 		/**
+		 * total of score of the level
+		 */
+		private var _levelScore:int = 0;
+		
+		
+		/**
 		 * Creates a new World.
 		 */
 		
@@ -161,6 +168,16 @@ package com.hegdemahesh.ui
 			mParticleSystem = new PDParticleSystem(psConfig, psTexture);
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
 			
+		}
+		
+		public function set levelScore(score:int):void {
+			_levelScore = score;
+			var e:ScoreEvent =  new ScoreEvent(ScoreEvent.GET);
+			e.score = score;
+			this.dispatchEvent(e);
+		}
+		public function get levelScore():int {
+			return _levelScore;
 		}
 		
 		public function set weaponCount(c:int):void {
@@ -281,7 +298,18 @@ package com.hegdemahesh.ui
 								var actor:Actor =  b.graphic as Actor;
 								if (actor.crushable == true){
 									actorFrameCouter = Constants.LEVEL_COMPLETE_DELAY;
+									if (b.crushFactor() > Constants.CRUSH_NUMBER){
+										b.graphic.crushed = true;
+									}
 								}
+								if (b.crushFactor() > (Constants.CRUSH_NUMBER * 4)){
+									if(b.userData != true){
+										levelScore = levelScore + 350 + int(Math.random()*30);
+										b.userData = true;
+									}
+									
+								}
+								
 								if (actor.isWeapon == true){
 									if (b.isSleeping == true || (b.position.x > 1700)){
 										this.removeChild(actor);
@@ -335,6 +363,7 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			//clearLevel();
+			
 			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
 				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			}
@@ -448,7 +477,7 @@ package com.hegdemahesh.ui
 		
 		
 		/**
-		 *this function will remove level related bodies from the space and from the starling display list.
+		 *this function will remove level related bodies from nape space and from the starling display list.
 		 */
 		
 		private function removeBodies():void
@@ -542,13 +571,7 @@ package com.hegdemahesh.ui
 			actor.x = int(b.position.x);
 			actor.y = int(b.position.y);
 			actor.rotation = b.rotation;
-			if (actor.crushable == true){
-				//trace (b.crushFactor());
-				if (b.crushFactor() > crushNumber){
-					b.graphic.crushed = true;
-				}
-				
-			}
+			
 			
 		}
 	}
