@@ -120,6 +120,11 @@ package com.hegdemahesh.ui
 		
 		private var muteButton:ActionButton;
 		
+		/**
+		 * A parameter to check the game is muted or not 
+		 */
+		
+		private var isMuted:Boolean = false;
 		
 		/**
 		 * A component to show current weapon Count 
@@ -162,7 +167,7 @@ package com.hegdemahesh.ui
 			this.addEventListener(LevelFailedEvent.GET,onLevelFailed);
 			this.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			
-			addMuteComp();
+			
 			
 			
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
@@ -210,6 +215,7 @@ package com.hegdemahesh.ui
 			muteButton.x = 5;
 			muteButton.y = 0;
 			muteButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+			this.addChild(muteButton);
 		}
 		
 		private function removeWeaponCount():void
@@ -246,7 +252,7 @@ package com.hegdemahesh.ui
 			var actionString:String = event.actionString;
 			var actionLevel:Level =  event.level;
 			var displayObject:DisplayObject = event.target as DisplayObject;
-			displayObject.removeFromParent(true);
+			
 			
 			if (actionString == "replay"){
 				/*if (world != null){
@@ -255,27 +261,47 @@ package com.hegdemahesh.ui
 					this.removeChild(world);
 					world = null;
 				}*/
+				displayObject.removeFromParent(true);
 				addGameWorld(actionLevel);
 			}
-			if (actionString == "next"){
+			else if (actionString == "next"){
 				/*if (world != null){
 					world.clearLevel();
 					world.removeFromParent(true);
 					this.removeChild(world);
 					world = null;
 				}*/
+				displayObject.removeFromParent(true);
 				addGameWorld(levelManager.nextLevel(actionLevel));
 			}
-			if (actionString == "menu"){
+			else if (actionString == "menu"){
 				/*if (world != null){
 					world.clearLevel();
 					world.removeFromParent(true);
 					this.removeChild(world);
 					world = null;
 				}*/
+				displayObject.removeFromParent(true);
 				removeWorld();
 				resetLevelMenu();
 			}
+			else if (actionString == "mute"){
+				muteAudio();
+			}
+		}
+		
+		private function muteAudio():void
+		{
+			// TODO Auto Generated method stub
+			if (isMuted == false){
+				isMuted = true;
+				muteButton.iconImg.alpha = 0.4;
+			}
+			else {
+				isMuted = false;
+				muteButton.iconImg.alpha = 1.0;
+			}
+			
 		}
 		private function onLevelCleared(e:LevelClearedEvent):void
 		{
@@ -284,8 +310,8 @@ package com.hegdemahesh.ui
 			var clearedLevel:Level = e.level;
 			var levelValidate:Boolean = levelManager.validateLevel(clearedLevel);
 			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel,levelValidate);
-			levelClearedMenu.x =  (stage.stageWidth-levelClearedMenu.bg.width)/2;
-			levelClearedMenu.y = (stage.stageHeight-levelClearedMenu.bg.height)/2;
+			//levelClearedMenu.x =  (stage.stageWidth-levelClearedMenu.bg.width)/2;
+			//levelClearedMenu.y = (stage.stageHeight-levelClearedMenu.bg.height)/2;
 			levelClearedMenu.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			this.addChild(levelClearedMenu);
 		}
@@ -294,8 +320,8 @@ package com.hegdemahesh.ui
 			// TODO Auto Generated method stub
 			var failedLevel:Level =  event.level;
 			var levelFailedMenu:LevelFailedMenu =  new LevelFailedMenu(failedLevel);
-			levelFailedMenu.x =  (stage.stageWidth-levelFailedMenu.bg.width)/2;
-			levelFailedMenu.y = (stage.stageHeight-levelFailedMenu.bg.height)/2;
+			//levelFailedMenu.x =  (stage.stageWidth-levelFailedMenu.bg.width)/2;
+			//levelFailedMenu.y = (stage.stageHeight-levelFailedMenu.bg.height)/2;
 			levelFailedMenu.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			this.addChild(levelFailedMenu);
 		}
@@ -342,6 +368,7 @@ package com.hegdemahesh.ui
 			this.addChild(bg);
 			resetLevelMenu();
 			this.addEventListener(LoadLevelEvent.GET,onLoadLevel);
+			addMuteComp();
 		}
 		
 		private function resetLevelMenu():void {

@@ -40,6 +40,8 @@ package com.hegdemahesh.ui.components
 	{
 		public var bg:Image =  new Image(Assets.getAtlas().getTexture("levelFinish"));
 		
+		private var img:Image = new Image(Assets.getAtlas().getTexture('transparentBg'));
+		
 		public var texture1:Texture =  Assets.getTexture('ShowCardGothicBitmap');
 		
 		public var xml1:XML = XML(new Assets.ShowCardGothicXML());
@@ -67,9 +69,21 @@ package com.hegdemahesh.ui.components
 		private function onAddedToStage(event:Event):void
 		{
 			// TODO Auto Generated method stub
+			this.addChild(img);
+			img.x = -50;
+			img.y = -50;
+			img.width = stage.stageWidth+ 100;
+			img.height = stage.stageHeight + 100;
+			
 			menuButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			replayButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			nextButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+			
+			var xT:int = int((stage.stageWidth - bg.width)/2);
+			var yT:int = int((stage.stageHeight - bg.height)/2);
+			
+			bg.x = xT;
+			bg.y = yT;
 			this.addChild(bg);
 			
 			TextField.registerBitmapFont(new BitmapFont(texture1,xml1));
@@ -79,27 +93,27 @@ package com.hegdemahesh.ui.components
 			
 			if(nextLevelValidated == false){
 				headerText.text = "Game Complete!";
-				menuButton.x = 194;
+				menuButton.x = xT+194;
 				
-				replayButton.x = 278;
+				replayButton.x = xT+278;
 			}
 			
 			else {
-				menuButton.x = 110;
+				menuButton.x = xT+110;
 				
-				replayButton.x = 194;
+				replayButton.x = xT+194;
 				
-				nextButton.y = yDiff;
-				nextButton.x = 278;
+				nextButton.y = yT+yDiff;
+				nextButton.x = xT+278;
 				this.addChild(nextButton);
 			}
 			
-			menuButton.y = yDiff;
+			menuButton.y =yT+ yDiff;
 			
 			this.addChild(menuButton);
 			
 			
-			replayButton.y = yDiff;
+			replayButton.y = yT+yDiff;
 			
 			this.addChild(replayButton);
 			
@@ -108,8 +122,8 @@ package com.hegdemahesh.ui.components
 			// use white to use the texture as it is (no tinting)
 			headerText.color = Color.TEAL;
 			// centers the text on stage
-			headerText.x = bg.width - headerText.width >> 1;
-			headerText.y = 15;
+			headerText.x = xT+ (bg.width - headerText.width >> 1);
+			headerText.y = yT+15;
 			// show it
 			this.addChild(headerText);
 			

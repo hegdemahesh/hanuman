@@ -37,7 +37,7 @@ package com.hegdemahesh.ui.components
 	public class ActionButton extends Sprite
 	{
 		public var img:Button =  new Button(Assets.getAtlas().getTexture('buttonBg'));
-		private var iconImg:Image ;
+		public var iconImg:Image ;
 		private var iconURL:String;
 		public var level:Level;
 		public function ActionButton(iconImgURL:String =  "")
