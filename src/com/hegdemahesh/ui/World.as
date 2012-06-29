@@ -27,6 +27,7 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.ChangeBackgroundOffset;
 	import com.hegdemahesh.events.LevelClearedEvent;
 	import com.hegdemahesh.events.LevelFailedEvent;
+	import com.hegdemahesh.events.WeaponCountEvent;
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.model.Constants;
@@ -164,6 +165,9 @@ package com.hegdemahesh.ui
 		
 		public function set weaponCount(c:int):void {
 			_weaponCount = c;
+			var ev:WeaponCountEvent =  new WeaponCountEvent(WeaponCountEvent.GET);
+			ev.count = c;
+			this.dispatchEvent(ev);
 		}
 		public function get weaponCount():int {
 			return _weaponCount;
@@ -396,7 +400,7 @@ package com.hegdemahesh.ui
 		private function loadWeapon():void
 		{
 			// TODO Auto Generated method stub
-			if (weaponCount > 0){
+			if (weaponCount > 1){
 				weaponCount --;
 				weaponRelease.loadWeapon();
 				changeViewPort(0);

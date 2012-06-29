@@ -31,6 +31,7 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.LoadLevelEvent;
 	import com.hegdemahesh.events.SponsorScreenChanged;
 	import com.hegdemahesh.events.StartScreenChanged;
+	import com.hegdemahesh.events.WeaponCountEvent;
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.ui.components.ActionButton;
 	import com.hegdemahesh.ui.components.LevelClearedMenu;
@@ -112,6 +113,14 @@ package com.hegdemahesh.ui
 		
 		private var replayButton:ActionButton;
 		
+		
+		/**
+		 * A button to mute and unmute 
+		 */
+		
+		private var muteButton:ActionButton;
+		
+		
 		/**
 		 * A component to show current weapon Count 
 		 */
@@ -153,6 +162,7 @@ package com.hegdemahesh.ui
 			this.addEventListener(LevelFailedEvent.GET,onLevelFailed);
 			this.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			
+			addMuteComp();
 			
 			
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
@@ -180,13 +190,13 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			menuButton =  new ActionButton("menu");
-			menuButton.x = 5;
+			menuButton.x = 75;
 			menuButton.y = 0;
 			menuButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			this.addChild(menuButton);
 			
 			replayButton =  new ActionButton("replay");
-			replayButton.x =75;
+			replayButton.x =145;
 			replayButton.y = 0;
 			replayButton.level =  level;
 			replayButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
@@ -195,6 +205,12 @@ package com.hegdemahesh.ui
 			
 		}
 		
+		private function addMuteComp():void {
+			muteButton =  new ActionButton("mute");
+			muteButton.x = 5;
+			muteButton.y = 0;
+			muteButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+		}
 		
 		private function removeWeaponCount():void
 		{
@@ -359,11 +375,21 @@ package com.hegdemahesh.ui
 			removeWorld();
 			world =  new World(levelManager.setCurrentLevel(level),level);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
+			world.addEventListener(WeaponCountEvent.GET,onWeaponCountEvent);
 			this.addChild(world);
 			
 			addMenuComp(level);
 			addScoreComponents(level);
 			addWeaponCount();
+		}
+		
+		private function onWeaponCountEvent(evnt:WeaponCountEvent):void
+		{
+			// TODO Auto Generated method stub
+			if(weaponCountComp != null){
+				weaponCountComp.count = evnt.count;
+			}
+			
 		}
 		
 		private function removeWorld():void
@@ -376,6 +402,9 @@ package com.hegdemahesh.ui
 					this.removeChild(world);
 					if(world.hasEventListener(ChangeBackgroundOffset.GET) == true){
 						world.removeEventListener(ChangeBackgroundOffset.GET,onOffestChange);
+					}
+					if (world.hasEventListener(WeaponCountEvent.GET) == true){
+						world.removeEventListener(WeaponCountEvent.GET,onWeaponCountEvent);
 					}
 				}
 				world =  null;
