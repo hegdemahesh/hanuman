@@ -1,6 +1,9 @@
 package com.hegdemahesh.ui.components
 {
 	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.vos.Level;
+	
+	import org.osmf.layout.HorizontalAlign;
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -19,37 +22,55 @@ package com.hegdemahesh.ui.components
 		
 		public var scoreText:TextField;
 		
-		public function ScoreComponent()
+		public var levelText:TextField;
+		
+		public var level:Level;
+		
+		public function ScoreComponent(levelC:Level= null)
 		{
 			super();
-			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
+			if (levelC != null){
+				level =  levelC;
+				this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
+			}
+			else {
+				level = new Level();
+				level.levelName = "";
+				level.levelId = 0;
+			}
 		}
 		
 		private function onAddedToStage(event:Event):void
 		{
 			// TODO Auto Generated method stub
 			TextField.registerBitmapFont(new BitmapFont(texture1,xml1));
-			var headerText:TextField = new TextField(250, 30, "Score-", "Showcard Gothic", 50);
-			headerText.fontSize = 24;
+			var headerText:TextField = new TextField(160, 30, "Score - "+_score, "Showcard Gothic", 50);
+			headerText.fontSize = 30;
+			headerText.x = 82;
+			headerText.hAlign = HorizontalAlign.RIGHT;
 			headerText.color = Color.GREEN;
 			this.addChild(headerText);
 			
-			scoreText = new TextField(120,30,_score.toString(),"Showcard Gothic",24);
+			/*scoreText = new TextField(120,30,_score.toString(),"Showcard Gothic",24);
 			this.addChild(scoreText);
-			scoreText.x = 120;
+			scoreText.x = 122;
+			scoreText.hAlign = HorizontalAlign.RIGHT;*/
+			
+			levelText =  new TextField(120,30,"Level - "+level.levelId.toString(),"Showcard Gothic",24);
+			levelText.x = 120;
+			levelText.y = 25;
+			levelText.hAlign = HorizontalAlign.RIGHT;
+			levelText.color = Color.PURPLE;
+			this.addChild(levelText);
 			
 			
 		}
 		public function set score(sc:int):void {
 			_score = sc;
-			updateScore();
+			scoreText.text = sc.toString();
 		}
 		
-		private function updateScore():void
-		{
-			// TODO Auto Generated method stub
-			
-		}
+		
 		public function get score():int {
 			return _score;
 		}

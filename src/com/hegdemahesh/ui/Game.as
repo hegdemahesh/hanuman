@@ -161,15 +161,18 @@ package com.hegdemahesh.ui
 		private function addWeaponCount():void
 		{
 			// TODO Auto Generated method stub
-			
+			weaponCountComp =  new WeaponCount(world.weaponCount);
+			weaponCountComp.x = 779;
+			weaponCountComp.y = 55;
+			this.addChild(weaponCountComp);
 		}
 		
-		private function addScoreComponents():void
+		private function addScoreComponents(level:Level):void
 		{
 			// TODO Auto Generated method stub
-			scoreComponent =  new ScoreComponent();
+			scoreComponent =  new ScoreComponent(level);
 			scoreComponent.x = 600;
-			scoreComponent.y = 10;
+			scoreComponent.y = 0;
 			this.addChild(scoreComponent);
 		}
 		
@@ -196,15 +199,17 @@ package com.hegdemahesh.ui
 		private function removeWeaponCount():void
 		{
 			// TODO Auto Generated method stub
-			if(this.contains(scoreComponent)){
-				this.removeChild(scoreComponent);
+			if (this.contains(weaponCountComp)){
+				weaponCountComp.removeFromParent(true);
 			}
 		}
 		
 		private function removeScoreComp():void
 		{
 			// TODO Auto Generated method stub
-			
+			if(this.contains(scoreComponent)){
+				this.removeChild(scoreComponent);
+			}
 		}
 		
 		private function removeMenuComp():void
@@ -357,7 +362,7 @@ package com.hegdemahesh.ui
 			this.addChild(world);
 			
 			addMenuComp(level);
-			addScoreComponents();
+			addScoreComponents(level);
 			addWeaponCount();
 		}
 		

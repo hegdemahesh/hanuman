@@ -119,7 +119,7 @@ package com.hegdemahesh.ui
 		/**
 		 * Maximum number of weapons that can be used by the user in a level 
 		 */
-		private var weaponCount:int;
+		private var _weaponCount:int;
 		
 		/**
 		 * weapon compoentn to be loaded 
@@ -160,6 +160,13 @@ package com.hegdemahesh.ui
 			mParticleSystem = new PDParticleSystem(psConfig, psTexture);
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
 			
+		}
+		
+		public function set weaponCount(c:int):void {
+			_weaponCount = c;
+		}
+		public function get weaponCount():int {
+			return _weaponCount;
 		}
 		
 		private function onAddedToStage(event:Event):void
@@ -208,7 +215,7 @@ package com.hegdemahesh.ui
 		
 		
 		/**
-		 * Hanuman tail component is initialised 
+		 * Hanuman tail component initialised 
 		 */
 		
 		private function addCatapult():void {
