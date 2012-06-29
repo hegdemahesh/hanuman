@@ -30,8 +30,11 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.model.Constants;
+	import com.hegdemahesh.ui.components.ActionButton;
 	import com.hegdemahesh.ui.components.Actor;
+	import com.hegdemahesh.ui.components.ScoreComponent;
 	import com.hegdemahesh.ui.components.Weapon;
+	import com.hegdemahesh.ui.components.WeaponCount;
 	import com.hegdemahesh.vos.Level;
 	
 	import nape.geom.Vec2;
@@ -124,10 +127,14 @@ package com.hegdemahesh.ui
 		private var weaponRelease:Weapon;
 		
 		/**
-		 * An XML containing information about the current level 
+		 * An XML containing actor information about the current level 
 		 */
 		
 		private var levelXML:XML;
+		
+		/**
+		 * An level object containing information about the current level 
+		 */
 		
 		private var selectedLevel:Level;
 		
@@ -160,7 +167,7 @@ package com.hegdemahesh.ui
 			// TODO Auto Generated method stub
 			space = new Space(new Vec2(0,2000));
 			space.gravity = new Vec2(0,1200);
-			/*Add ground to the physics world*/
+			/*Add ground to the nape physics world*/
 			ground = new Body(BodyType.STATIC);
 			ground.shapes.add(new Polygon(Polygon.rect(0,groundYOffest,1700,20)));
 			ground.space = space;
@@ -185,6 +192,8 @@ package com.hegdemahesh.ui
 			this.addChild(mParticleSystem);
 			Starling.juggler.add(mParticleSystem);
 			
+			
+			
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			//this.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			
@@ -194,6 +203,9 @@ package com.hegdemahesh.ui
 			Starling.current.nativeOverlay.addChild(debug.display);*/
 			
 		}
+		
+		
+		
 		
 		/**
 		 * Hanuman tail component is initialised 

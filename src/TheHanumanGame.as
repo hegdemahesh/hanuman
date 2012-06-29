@@ -58,8 +58,8 @@ package
 		private function startStarling():void
 		{
 			// TODO Auto Generated method stub
-			stats = new Stats();
-			this.addChild(stats);
+			//stats = new Stats();
+			//this.addChild(stats);
 			
 			myStarling = new Starling(Game,stage);
 			myStarling.antiAliasing = 1;

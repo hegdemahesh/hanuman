@@ -24,6 +24,7 @@ package com.hegdemahesh.ui.components
 {
 	import com.hegdemahesh.events.ActionButtonEvent;
 	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.vos.Level;
 	
 	import starling.display.Button;
 	import starling.display.DisplayObject;
@@ -38,6 +39,7 @@ package com.hegdemahesh.ui.components
 		public var img:Button =  new Button(Assets.getAtlas().getTexture('buttonBg'));
 		private var iconImg:Image ;
 		private var iconURL:String;
+		public var level:Level;
 		public function ActionButton(iconImgURL:String =  "")
 		{
 			super();
@@ -70,6 +72,7 @@ package com.hegdemahesh.ui.components
 			{
 				var ev:ActionButtonEvent =  new ActionButtonEvent(ActionButtonEvent.GET);
 				ev.actionString = iconURL;
+				ev.level = level;
 				this.dispatchEvent(ev);
 				//this.removeFromParent(true);
 				

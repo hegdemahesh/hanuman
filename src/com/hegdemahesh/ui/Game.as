@@ -32,8 +32,11 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.SponsorScreenChanged;
 	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.ui.components.ActionButton;
 	import com.hegdemahesh.ui.components.LevelClearedMenu;
 	import com.hegdemahesh.ui.components.LevelFailedMenu;
+	import com.hegdemahesh.ui.components.ScoreComponent;
+	import com.hegdemahesh.ui.components.WeaponCount;
 	import com.hegdemahesh.vos.Level;
 	
 	import starling.display.DisplayObject;
@@ -91,10 +94,38 @@ package com.hegdemahesh.ui
 		
 		private var levelManager:LevelManager =  new LevelManager();
 		
+		/**
+		 * A dispaly component to show current score 
+		 */
+		
+		private var scoreComponent:ScoreComponent;
+		
+		
+		/**
+		 * A button to show menu screen 
+		 */
+		private var menuButton:ActionButton;
+		
+		/**
+		 * A button to restart the current level 
+		 */
+		
+		private var replayButton:ActionButton;
+		
+		/**
+		 * A component to show current weapon Count 
+		 */
+		
+		private var weaponCountComp:WeaponCount;
+		
+		
+		
 		
 		/**
 		 * creats a new Game instance
 		 */
+		
+		
 		
 		public function Game()
 		{
@@ -121,8 +152,72 @@ package com.hegdemahesh.ui
 			this.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			this.addEventListener(LevelFailedEvent.GET,onLevelFailed);
 			this.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+			
+			
+			
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 		}	
+		
+		private function addWeaponCount():void
+		{
+			// TODO Auto Generated method stub
+			
+		}
+		
+		private function addScoreComponents():void
+		{
+			// TODO Auto Generated method stub
+			scoreComponent =  new ScoreComponent();
+			scoreComponent.x = 600;
+			scoreComponent.y = 10;
+			this.addChild(scoreComponent);
+		}
+		
+		private function addMenuComp(level:Level):void
+		{
+			// TODO Auto Generated method stub
+			menuButton =  new ActionButton("menu");
+			menuButton.x = 5;
+			menuButton.y = 0;
+			menuButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+			this.addChild(menuButton);
+			
+			replayButton =  new ActionButton("replay");
+			replayButton.x =75;
+			replayButton.y = 0;
+			replayButton.level =  level;
+			replayButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+			this.addChild(replayButton);
+			
+			
+		}
+		
+		
+		private function removeWeaponCount():void
+		{
+			// TODO Auto Generated method stub
+			if(this.contains(scoreComponent)){
+				this.removeChild(scoreComponent);
+			}
+		}
+		
+		private function removeScoreComp():void
+		{
+			// TODO Auto Generated method stub
+			
+		}
+		
+		private function removeMenuComp():void
+		{
+			// TODO Auto Generated method stub
+			if (this.contains(menuButton)){
+				menuButton.removeFromParent(true);
+			}
+			if (this.contains(replayButton)){
+				replayButton.removeFromParent(true);
+			}
+		}	
+		
 		
 		private function onActionButtonEvent(event:ActionButtonEvent):void
 		{
@@ -133,30 +228,31 @@ package com.hegdemahesh.ui
 			displayObject.removeFromParent(true);
 			
 			if (actionString == "replay"){
-				if (world != null){
+				/*if (world != null){
 					world.clearLevel();
 					world.removeFromParent(true);
 					this.removeChild(world);
 					world = null;
-				}
+				}*/
 				addGameWorld(actionLevel);
 			}
 			if (actionString == "next"){
-				if (world != null){
+				/*if (world != null){
 					world.clearLevel();
 					world.removeFromParent(true);
 					this.removeChild(world);
 					world = null;
-				}
+				}*/
 				addGameWorld(levelManager.nextLevel(actionLevel));
 			}
 			if (actionString == "menu"){
-				if (world != null){
+				/*if (world != null){
 					world.clearLevel();
 					world.removeFromParent(true);
 					this.removeChild(world);
 					world = null;
-				}
+				}*/
+				removeWorld();
 				resetLevelMenu();
 			}
 		}
@@ -259,22 +355,33 @@ package com.hegdemahesh.ui
 			world =  new World(levelManager.setCurrentLevel(level),level);
 			world.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 			this.addChild(world);
+			
+			addMenuComp(level);
+			addScoreComponents();
+			addWeaponCount();
 		}
 		
 		private function removeWorld():void
 		{
 			// TODO Auto Generated method stub
 			if (world != null){
+				world.clearLevel();
 				if (this.contains(world)){
-					removeChild(world);
+					world.removeFromParent(true);
+					this.removeChild(world);
 					if(world.hasEventListener(ChangeBackgroundOffset.GET) == true){
 						world.removeEventListener(ChangeBackgroundOffset.GET,onOffestChange);
 					}
 				}
 				world =  null;
 			}
+			removeMenuComp();
+			removeScoreComp();
+			removeWeaponCount();
 		}
 		
+			
+				
 	
 		/**
 		 * Background offset is updated , when the game focus point changes..

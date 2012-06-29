@@ -84,12 +84,12 @@ package com.hegdemahesh.ui.components
 			var yDiff:int = int(bg.height - (menuButton.img.height/2))-20;
 			
 			menuButton.y = yDiff;
-			menuButton.x = 110;
+			menuButton.x = 194;
 			this.addChild(menuButton);
 			
 			
 			replayButton.y = yDiff;
-			replayButton.x = 194;
+			replayButton.x = 278;
 			this.addChild(replayButton);
 			
 			
