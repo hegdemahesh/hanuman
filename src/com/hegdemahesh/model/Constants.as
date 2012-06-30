@@ -32,7 +32,7 @@ package com.hegdemahesh.model
 		public static const WEAPON_EXTREME_Y:int = 30;
 		
 		public static const WEAPON_X:int = 142;
-		public static const WEAPON_Y:int = 166;
+		public static const WEAPON_Y:int = 220;
 		
 		public static const TAIL_ANGLE:int = 50;
 		public static const SPEED_FACTOR:int = 40;
@@ -44,6 +44,8 @@ package com.hegdemahesh.model
 		public static const FIRE_PIC_WIDTH:int = 120;
 		
 		public static const WEAPON_SCORE_FACTOR:int = 2500;
+		
+		public static const WEAPON_ROLLING_FRICTION:int = 50000;
 		
 		public function Constants()
 		{

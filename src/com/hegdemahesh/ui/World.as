@@ -86,7 +86,7 @@ package com.hegdemahesh.ui
 		 * groundYOffset is the distance from top of the screen at which ground starts
 		 */
 		
-		private var groundYOffest:int = 491;
+		private var groundYOffest:int = 560;
 		
 		/**
 		 * this Particle system is responsible for villain destruction effect
@@ -203,8 +203,8 @@ package com.hegdemahesh.ui
 			
 			/*Add our hero 'hanuman' to the stage*/
 			var hanuman:MovieClip =  new MovieClip(Assets.getAtlas().getTextures("hanuman_"),24);
-			hanuman.x = 100;
-			hanuman.y = 220;
+			hanuman.x = Constants.WEAPON_X - 42;
+			hanuman.y = Constants.WEAPON_Y + 54;
 			this.addChild(hanuman);
 			hanuman.play();
 			Starling.juggler.add(hanuman);
@@ -262,6 +262,7 @@ package com.hegdemahesh.ui
 			
 			var material:Material =  new Material(.6);
 			material.density = Constants.WEAPON_MATERIAL_DENSITY;
+			material.rollingFriction = Constants.WEAPON_ROLLING_FRICTION;
 			
 			var actor:Actor =  new Actor("stone_throw");
 			actor.x =  Constants.WEAPON_X - xdif - 19;
@@ -275,8 +276,8 @@ package com.hegdemahesh.ui
 			actorNape.graphic = actor ;
 			actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
 			actorNape.graphicUpdate = updateGraphics;
-			actorNape.shapes.clear();
-			actorNape.shapes.add(new Circle(20,null,material));
+			//actorNape.shapes.clear();
+			//actorNape.shapes.add(new Circle(20,null,material));
 			actorNape.velocity = new Vec2(xdif * Constants.SPEED_FACTOR,ydif * Constants.SPEED_FACTOR);
 			this.addChild(actorNape.graphic);
 			
@@ -477,6 +478,7 @@ package com.hegdemahesh.ui
 				viewFocusX = 425 - xVal;
 				
 			}
+			
 			
 		}
 		
