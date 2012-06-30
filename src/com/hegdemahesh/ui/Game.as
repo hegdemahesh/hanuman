@@ -310,9 +310,10 @@ package com.hegdemahesh.ui
 			
 			var clearedLevel:Level = e.level;
 			var levelValidate:Boolean = levelManager.validateLevel(clearedLevel);
-			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel,levelValidate);
+			var levelClearedMenu:LevelClearedMenu = new LevelClearedMenu(clearedLevel,levelValidate,e.score);
 			//levelClearedMenu.x =  (stage.stageWidth-levelClearedMenu.bg.width)/2;
 			//levelClearedMenu.y = (stage.stageHeight-levelClearedMenu.bg.height)/2;
+			//levelClearedMenu.score = e.score;
 			levelClearedMenu.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			this.addChild(levelClearedMenu);
 		}
@@ -375,7 +376,13 @@ package com.hegdemahesh.ui
 		private function resetLevelMenu():void {
 			removeLevelScreen();
 			levelScreen =  new MainMenu(levelManager.levelDetails);
-			this.addChild(levelScreen);
+			if (this.contains(muteButton) == true){
+				this.addChildAt(levelScreen,this.getChildIndex(muteButton));
+			}
+			else {
+				this.addChild(levelScreen);
+			}
+			//this.addChild(levelScreen);
 		}
 		
 		private function removeLevelScreen():void {
@@ -440,6 +447,9 @@ package com.hegdemahesh.ui
 					}
 					if (world.hasEventListener(WeaponCountEvent.GET) == true){
 						world.removeEventListener(WeaponCountEvent.GET,onWeaponCountEvent);
+					}
+					if (world.hasEventListener(ScoreEvent.GET) == true){
+						world.removeEventListener(ScoreEvent.GET,onScoreEvent);
 					}
 				}
 				world =  null;

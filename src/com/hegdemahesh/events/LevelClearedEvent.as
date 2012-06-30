@@ -30,6 +30,7 @@ package com.hegdemahesh.events
 	{
 		public static const GET:String = "levelClearedEvent";
 		public var level:Level;
+		public var score:int;
 		public function LevelClearedEvent(type:String, bubbles:Boolean=true, data:Object=null)
 		{
 			super(type, bubbles, data);

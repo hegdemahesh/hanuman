@@ -56,16 +56,29 @@ package com.hegdemahesh.ui.components
 		
 		public var nextLevelValidated:Boolean =  false;
 		
-		public function LevelClearedMenu(levelCleared:Level = null,levelValidate:Boolean = false)
+		public var _score:int = 0;
+		
+		public var scoreText:TextField;
+		
+		public function LevelClearedMenu(levelCleared:Level = null,levelValidate:Boolean = false,sc:int= 0)
 		{
 			super();
 			if (levelCleared != null){
 				level = levelCleared;
 			}
 			nextLevelValidated =  levelValidate;
+			score = sc;
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
 		}
 		
+		public function set score(sc:int):void {
+			_score = sc;
+			//scoreText.text = "score - " + sc.toString();
+		}
+		
+		public function get score():int {
+			return _score;
+		}
 		private function onAddedToStage(event:Event):void
 		{
 			// TODO Auto Generated method stub
@@ -88,6 +101,16 @@ package com.hegdemahesh.ui.components
 			
 			TextField.registerBitmapFont(new BitmapFont(texture1,xml1));
 			var headerText:TextField = new TextField(350, 50, "Level Complete!", "Showcard Gothic", 50);
+			
+			scoreText =  new TextField(350,50,"Score - "+score.toString(),"Showcard Gothic" , 50);
+			
+			scoreText.fontSize = 30;
+			scoreText.color = Color.MAROON;
+			
+			scoreText.x = xT+ (bg.width - headerText.width >> 1);
+			scoreText.y = yT+85;
+			this.addChild(scoreText)
+			
 			var yDiff:int = int(bg.height - (menuButton.img.height/2))-20;
 			
 			

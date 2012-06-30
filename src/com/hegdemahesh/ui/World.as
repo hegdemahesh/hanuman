@@ -43,6 +43,7 @@ package com.hegdemahesh.ui
 	import nape.phys.Body;
 	import nape.phys.BodyType;
 	import nape.phys.Material;
+	import nape.shape.Circle;
 	import nape.shape.Polygon;
 	import nape.space.Space;
 	import nape.util.BitmapDebug;
@@ -274,6 +275,8 @@ package com.hegdemahesh.ui
 			actorNape.graphic = actor ;
 			actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
 			actorNape.graphicUpdate = updateGraphics;
+			actorNape.shapes.clear();
+			actorNape.shapes.add(new Circle(20,null,material));
 			actorNape.velocity = new Vec2(xdif * Constants.SPEED_FACTOR,ydif * Constants.SPEED_FACTOR);
 			this.addChild(actorNape.graphic);
 			
@@ -311,7 +314,7 @@ package com.hegdemahesh.ui
 								}
 								
 								if (actor.isWeapon == true){
-									if (b.isSleeping == true || (b.position.x > 1700)){
+									if (b.isSleeping == true || (b.position.x > 1700) || (b.position.x < 0)){
 										this.removeChild(actor);
 										actor = null;
 										space.bodies.remove(b);
@@ -363,12 +366,14 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			//clearLevel();
+			levelScore = levelScore + (Constants.WEAPON_SCORE_FACTOR * weaponCount);
 			
 			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
 				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			}
 			var e:LevelClearedEvent =  new LevelClearedEvent(LevelClearedEvent.GET);
 			e.level = selectedLevel;
+			e.score = levelScore;
 			this.dispatchEvent(e);
 			
 		}

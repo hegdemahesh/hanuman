@@ -95,6 +95,8 @@ package com.hegdemahesh.ui.components
 			// show it
 			this.addChild(headerText);
 			
+			
+			
 			var yDiff:int = int(bg.height - (menuButton.img.height/2))-20;
 			
 			menuButton.y = yT+yDiff;
@@ -107,8 +109,12 @@ package com.hegdemahesh.ui.components
 			this.addChild(replayButton);
 			
 			
-			
-			
+			var villain:Image =  new Image(Assets.getAtlas().getTexture("nandu"));
+			villain.x = xT+(bg.width - villain.width >> 1);
+			villain.y = yT+55;
+			//villain.scaleX = .7;
+			//villain.scaleY = .7;
+			this.addChild(villain);
 			//bmpFontTF.touchable = false;
 			
 		}

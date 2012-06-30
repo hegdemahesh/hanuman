@@ -43,6 +43,8 @@ package com.hegdemahesh.model
 		
 		public static const FIRE_PIC_WIDTH:int = 120;
 		
+		public static const WEAPON_SCORE_FACTOR:int = 2500;
+		
 		public function Constants()
 		{
 		}
