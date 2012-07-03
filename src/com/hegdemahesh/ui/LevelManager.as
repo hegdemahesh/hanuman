@@ -29,6 +29,7 @@ package com.hegdemahesh.ui
 	{
 		public var xml1:XML = XML(new com.hegdemahesh.model.Assets.level1XML());
 		public var xml2:XML = XML(new com.hegdemahesh.model.Assets.level2XML());
+		public var xml3:XML = XML(new com.hegdemahesh.model.Assets.level3XML());
 		
 		public var levelDetails:XML = XML(new com.hegdemahesh.model.Assets.levelDetails());
 		

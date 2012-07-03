@@ -64,8 +64,8 @@ package com.hegdemahesh.ui.components
 		{
 			// TODO Auto Generated method stub
 			this.addChild(image);
-			pivotX = width >> 1;
-			pivotY = height >> 1;
+			pivotX = image.width >> 1;
+			pivotY = image.height >> 1;
 		}
 	}
 }

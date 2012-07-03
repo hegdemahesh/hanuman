@@ -88,6 +88,7 @@ package starling.textures
         private var mFrame:Rectangle;
         private var mRepeat:Boolean;
         
+		
         /** @private */
         public function Texture()
         {

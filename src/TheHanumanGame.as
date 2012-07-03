@@ -60,7 +60,9 @@ package
 			// TODO Auto Generated method stub
 			//stats = new Stats();
 			//this.addChild(stats);
+			/*uncomment below code to run in software mode*/
 			
+			//myStarling = new Starling(Game,stage,null,null,"software");
 			myStarling = new Starling(Game,stage);
 			myStarling.antiAliasing = 1;
 			myStarling.start();

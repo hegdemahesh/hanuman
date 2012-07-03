@@ -69,6 +69,9 @@ package com.hegdemahesh.model
 		[Embed(source="assets/level2.xml",mimeType="application/octet-stream")]
 		public static const level2XML:Class;
 		
+		[Embed(source="assets/level3.xml",mimeType="application/octet-stream")]
+		public static const level3XML:Class;
+		
 		[Embed(source="assets/levelDetails.xml",mimeType="application/octet-stream")]
 		public static const levelDetails:Class;
 		

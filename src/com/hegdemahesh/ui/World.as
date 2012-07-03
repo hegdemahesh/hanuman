@@ -81,7 +81,7 @@ package com.hegdemahesh.ui
 		/**
 		 * groundXOffset is where the palace OR the destructable area starts
 		 */		
-		private var groundXOffset:int = 1000;
+		private var groundXOffset:int = 650;
 		/**
 		 * groundYOffset is the distance from top of the screen at which ground starts
 		 */
@@ -372,11 +372,34 @@ package com.hegdemahesh.ui
 			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
 				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			}
+			
 			var e:LevelClearedEvent =  new LevelClearedEvent(LevelClearedEvent.GET);
 			e.level = selectedLevel;
 			e.score = levelScore;
 			this.dispatchEvent(e);
 			
+		}
+		
+		private function checkForActors():Boolean
+		{
+			// TODO Auto Generated method stub
+			var actorPresnt:Boolean = false;
+			for (var i:int = 0; i < space.bodies.length; i++){
+				var b:Body = space.bodies.at(i) as Body;
+				
+				if (b.space != null){
+					if (b.isDynamic() == true){
+						if (b.graphic is Actor){
+							//trace("An actor identified");
+							var actor:Actor =  b.graphic as Actor;
+							if (actor.crushable == true){
+								actorPresnt = true;
+							}
+						}
+					}
+				}
+			}
+			return actorPresnt;
 		}
 		
 		private function levelFailed():void
@@ -386,9 +409,15 @@ package com.hegdemahesh.ui
 			if (this.hasEventListener(starling.events.Event.ENTER_FRAME)){
 				this.removeEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			}
-			var e:LevelFailedEvent = new LevelFailedEvent(LevelFailedEvent.GET);
-			e.level =  selectedLevel;
-			this.dispatchEvent(e);
+			if (checkForActors() == true){
+				var e:LevelFailedEvent = new LevelFailedEvent(LevelFailedEvent.GET);
+				e.level =  selectedLevel;
+				this.dispatchEvent(e);
+			}
+			else {
+				levelComplete();
+			}
+			
 		}
 		
 		public function clearLevel():void
@@ -441,6 +470,7 @@ package com.hegdemahesh.ui
 				changeViewPort(0);
 			}
 			else {
+				
 				levelFailed();
 			}
 		}

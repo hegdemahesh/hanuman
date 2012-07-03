@@ -12,7 +12,13 @@
 		<id>2</id>
 		<name>level2</name>
 		<difficulty>normal</difficulty>
-		<cleared>No</cleared>
+		<cleared>Yes</cleared>
+	</level>
+	<level>
+		<id>3</id>
+		<name>level3</name>
+		<difficulty>normal</difficulty>
+		<cleared>Yes</cleared>
 	</level>
 	
 </data>

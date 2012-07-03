@@ -61,7 +61,7 @@ package com.hegdemahesh.ui
 			}
 			
 			var grain:Vec2 = (granularity==null) ? new Vec2(4,4) : granularity;
-			var polys:GeomPolyList = MarchingSquares.run(iso, bounds, grain, 6);
+			var polys:GeomPolyList = MarchingSquares.run(iso, bounds, grain,2);
 			polys.foreach(function (p:GeomPoly):void {
 				var qolys:GeomPolyList = p.simplify(1).convex_decomposition();
 				qolys.foreach(function (q:GeomPoly):void {

@@ -30,8 +30,8 @@ package starling.textures
         private var mOptimizedForRenderTexture:Boolean;
         private var mData:Object;
         private var mScale:Number;
-        
-        /** Creates a ConcreteTexture object from a TextureBase, storing information about size,
+
+		/** Creates a ConcreteTexture object from a TextureBase, storing information about size,
          *  mip-mapping, and if the channels contain premultiplied alpha values. */
         public function ConcreteTexture(base:TextureBase, width:int, height:int, 
                                         mipMapping:Boolean, premultipliedAlpha:Boolean,
@@ -40,7 +40,7 @@ package starling.textures
         {
             mScale = scale <= 0 ? 1.0 : scale;
             mBase = base;
-            mWidth = width;
+			mWidth = width;
             mHeight = height;
             mMipMapping = mipMapping;
             mPremultipliedAlpha = premultipliedAlpha;
