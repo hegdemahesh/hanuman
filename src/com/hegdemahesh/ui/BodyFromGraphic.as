@@ -21,6 +21,9 @@
  */
 package com.hegdemahesh.ui
 {
+	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.ui.components.Actor;
+	
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
@@ -34,17 +37,44 @@ package com.hegdemahesh.ui
 	import nape.geom.GeomPolyList;
 	import nape.geom.MarchingSquares;
 	import nape.geom.Vec2;
+	import nape.geom.Vec2List;
 	import nape.phys.Body;
 	import nape.phys.Material;
 	import nape.shape.Polygon;
+	import nape.shape.ShapeList;
 	
 	import starling.display.Sprite;
 	import starling.display.Stage;
-	import com.hegdemahesh.ui.components.Actor;
 	
 	public class BodyFromGraphic extends starling.display.Sprite
 	{
-		
+		public static const xml:XML = XML(new Assets.hanumanActorsXML());
+		public static function shapesToBody(bodyTemp:Body,material:Material):Body {
+			var body:Body = bodyTemp;
+			var graphic:Actor = body.graphic as Actor;
+			
+			graphic.x = graphic.y = graphic.rotation = 0;
+			var lengthInt:int = xml.body.(@name == graphic.imgSrc).fixture.polygon.vertex.length;
+			for (var i:int = 0 ; i < xml.body.(@name == graphic.imgSrc).fixture.polygon.vertex.length; i++ ){
+				var xCoord:int = xml.body.(@name == graphic.imgSrc).fixture.polygon.vertex[i].@x;
+				var yCoord:int =  xml.body.(@name == graphic.imgSrc).fixture.polygon.vertex[i].@y;
+				var vec2:Vec2 = new Vec2(xCoord,yCoord);
+			}
+			//var tXML:XML = xml.body[@name == graphic.imgSrc].fixture;
+			/*var geomPoly:GeomPoly = new GeomPoly();
+			for (var i:int = 0; i < vectList.length ; i++){
+				var vec2:Vec2 = vectList.at(i);
+				geomPoly.push(vec2);
+			}*/
+			
+			//var anchor:Vec2 = body.localCOM.mul(-1);
+			//body.align();
+			
+			//body.graphic = graphic;
+			//body.graphicOffset = anchor;
+			
+			return body;
+		}
 		
 		public static function starlingToBody(bodyTemp:Body,material:Material,granularity:Vec2=null):Body {
 			var body:Body = bodyTemp;

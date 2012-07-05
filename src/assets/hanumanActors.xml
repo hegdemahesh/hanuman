@@ -1,0 +1,2437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<body name="barrel"  >
+
+            <fixture>
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="23.5000" y="32.5000" />
+
+                    <vertex x="-19.5000" y="33.5000" />
+
+                    <vertex x="-25.5000" y="11.5000" />
+
+                    <vertex x="-25.5000" y="-21.5000" />
+
+                    <vertex x="-21.5000" y="-33.5000" />
+
+                    <vertex x="22.5000" y="-33.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+    </body>
+
+    <body name="box_golden"  >
+
+            <fixture>
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-28.5000" y="-22.0000" />
+
+                    <vertex x="28.5000" y="-22.0000" />
+
+                    <vertex x="28.5000" y="22.0000" />
+
+                    <vertex x="-28.5000" y="22.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+    </body>
+
+    <body name="box_wooden"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-30.5000" y="-26.5000" />
+
+                    <vertex x="30.5000" y="-26.5000" />
+
+                    <vertex x="30.5000" y="26.5000" />
+
+                    <vertex x="-30.5000" y="26.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    <body name="foundation_stone_left"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="49.5000" y="34.5000" />
+
+                    <vertex x="-27.5000" y="-14.5000" />
+
+                    <vertex x="-49.5000" y="-34.5000" />
+
+                    <vertex x="49.5000" y="-34.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-27.5000" y="14.5000" />
+
+                    <vertex x="49.5000" y="34.5000" />
+
+                    <vertex x="-49.5000" y="34.5000" />
+
+                    <vertex x="-49.5000" y="24.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-49.5000" y="-34.5000" />
+
+                    <vertex x="-27.5000" y="-14.5000" />
+
+                    <vertex x="-49.5000" y="-24.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-27.5000" y="-14.5000" />
+
+                    <vertex x="49.5000" y="34.5000" />
+
+                    <vertex x="-27.5000" y="14.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    <body name="foundation_stone_middle"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-25.0000" y="34.5000" />
+
+                    <vertex x="-25.0000" y="-34.5000" />
+
+                    <vertex x="25.0000" y="-34.5000" />
+
+                    <vertex x="25.0000" y="34.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    <body name="foundation_stone_right"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-49.5000" y="-34.5000" />
+
+                    <vertex x="27.5000" y="14.5000" />
+
+                    <vertex x="49.5000" y="34.5000" />
+
+                    <vertex x="-49.5000" y="34.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="27.5000" y="-14.5000" />
+
+                    <vertex x="-49.5000" y="-34.5000" />
+
+                    <vertex x="49.5000" y="-34.5000" />
+
+                    <vertex x="49.5000" y="-24.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="49.5000" y="34.5000" />
+
+                    <vertex x="27.5000" y="14.5000" />
+
+                    <vertex x="49.5000" y="24.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="27.5000" y="14.5000" />
+
+                    <vertex x="-49.5000" y="-34.5000" />
+
+                    <vertex x="27.5000" y="-14.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    <body name="golden_design"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-14.0000" y="-11.0000" />
+
+                    <vertex x="14.0000" y="-11.0000" />
+
+                    <vertex x="14.0000" y="11.0000" />
+
+                    <vertex x="-14.0000" y="11.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    <body name="gopur01"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="50.5000" y="-32.5000" />
+
+                    <vertex x="79.5000" y="26.5000" />
+
+                    <vertex x="-79.5000" y="21.5000" />
+
+                    <vertex x="-55.5000" y="-32.5000" />
+
+                    <vertex x="-35.5000" y="-48.5000" />
+
+                    <vertex x="28.5000" y="-50.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="79.5000" y="26.5000" />
+
+                    <vertex x="112.5000" y="45.5000" />
+
+                    <vertex x="112.5000" y="50.5000" />
+
+                    <vertex x="-112.5000" y="50.5000" />
+
+                    <vertex x="-79.5000" y="21.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    <body name="gourish"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="6.0000" y="62.0000" />
+
+                    <vertex x="27.0000" y="66.0000" />
+
+                    <vertex x="0.0000" y="70.0000" />
+
+                    <vertex x="-3.0000" y="62.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="20.0000" y="-68.0000" />
+
+                    <vertex x="21.0000" y="-47.0000" />
+
+                    <vertex x="4.0000" y="-43.0000" />
+
+                    <vertex x="1.0000" y="-46.0000" />
+
+                    <vertex x="-1.0000" y="-69.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-20.0000" y="-48.0000" />
+
+                    <vertex x="-19.0000" y="-21.0000" />
+
+                    <vertex x="-27.0000" y="-50.0000" />
+
+                    <vertex x="-26.0000" y="-54.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="9.0000" y="56.0000" />
+
+                    <vertex x="27.0000" y="66.0000" />
+
+                    <vertex x="6.0000" y="62.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="9.0000" y="56.0000" />
+
+                    <vertex x="5.0000" y="39.0000" />
+
+                    <vertex x="5.0000" y="22.0000" />
+
+                    <vertex x="23.0000" y="27.0000" />
+
+                    <vertex x="27.0000" y="66.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="5.0000" y="22.0000" />
+
+                    <vertex x="1.0000" y="-11.0000" />
+
+                    <vertex x="21.0000" y="-47.0000" />
+
+                    <vertex x="26.0000" y="-6.0000" />
+
+                    <vertex x="23.0000" y="27.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="21.0000" y="-47.0000" />
+
+                    <vertex x="1.0000" y="-11.0000" />
+
+                    <vertex x="-4.0000" y="-21.0000" />
+
+                    <vertex x="4.0000" y="-43.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-18.0000" y="-10.0000" />
+
+                    <vertex x="-19.0000" y="-21.0000" />
+
+                    <vertex x="-4.0000" y="-21.0000" />
+
+                    <vertex x="1.0000" y="-11.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-11.0000" y="70.0000" />
+
+                    <vertex x="-27.0000" y="-50.0000" />
+
+                    <vertex x="-18.0000" y="-10.0000" />
+
+                    <vertex x="-5.0000" y="70.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-18.0000" y="-10.0000" />
+
+                    <vertex x="-27.0000" y="-50.0000" />
+
+                    <vertex x="-19.0000" y="-21.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    <body name="kalasa_top_02"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="17.5000" y="-2.5000" />
+
+                    <vertex x="19.5000" y="5.5000" />
+
+                    <vertex x="11.5000" y="13.5000" />
+
+                    <vertex x="-10.5000" y="13.5000" />
+
+                    <vertex x="-19.5000" y="-0.5000" />
+
+                    <vertex x="-0.5000" y="-22.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="20.5000" y="22.5000" />
+
+                    <vertex x="-20.5000" y="22.5000" />
+
+                    <vertex x="-10.5000" y="13.5000" />
+
+                    <vertex x="11.5000" y="13.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+	
+	<body name="kalasha_middle_01"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="8">
+
+                    <vertex x="-37.0000" y="-28.0000" />
+
+                    <vertex x="33.0000" y="-29.0000" />
+
+                    <vertex x="61.0000" y="-8.0000" />
+
+                    <vertex x="61.0000" y="-1.0000" />
+
+                    <vertex x="37.0000" y="17.0000" />
+
+                    <vertex x="-37.0000" y="17.0000" />
+
+                    <vertex x="-57.0000" y="3.0000" />
+
+                    <vertex x="-61.0000" y="-8.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="37.0000" y="17.0000" />
+
+                    <vertex x="42.0000" y="29.0000" />
+
+                    <vertex x="-40.0000" y="29.0000" />
+
+                    <vertex x="-37.0000" y="17.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="kalasha_middle_02"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="-22.5000" y="-20.5000" />
+
+                    <vertex x="16.5000" y="-22.5000" />
+
+                    <vertex x="28.5000" y="-6.5000" />
+
+                    <vertex x="18.5000" y="8.5000" />
+
+                    <vertex x="-20.5000" y="9.5000" />
+
+                    <vertex x="-34.5000" y="-5.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="36.5000" y="22.5000" />
+
+                    <vertex x="-36.5000" y="22.5000" />
+
+                    <vertex x="-20.5000" y="9.5000" />
+
+                    <vertex x="18.5000" y="8.5000" />
+
+                    <vertex x="31.5000" y="13.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="kalasha_middle_03"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="-35.0000" y="17.5000" />
+
+                    <vertex x="-32.0000" y="-0.5000" />
+
+                    <vertex x="-20.0000" y="-17.5000" />
+
+                    <vertex x="20.0000" y="-17.5000" />
+
+                    <vertex x="29.0000" y="-6.5000" />
+
+                    <vertex x="35.0000" y="17.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="kalasha_middle_04"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-64.5000" y="15.5000" />
+
+                    <vertex x="69.5000" y="15.5000" />
+
+                    <vertex x="77.5000" y="28.5000" />
+
+                    <vertex x="-77.5000" y="28.5000" />
+
+                    <vertex x="-72.5000" y="17.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-39.5000" y="-19.5000" />
+
+                    <vertex x="37.5000" y="-28.5000" />
+
+                    <vertex x="37.5000" y="-20.5000" />
+
+                    <vertex x="-64.5000" y="15.5000" />
+
+                    <vertex x="-56.5000" y="-6.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="64.5000" y="15.5000" />
+
+                    <vertex x="-64.5000" y="15.5000" />
+
+                    <vertex x="37.5000" y="-20.5000" />
+
+                    <vertex x="61.5000" y="-0.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="37.5000" y="-28.5000" />
+
+                    <vertex x="-39.5000" y="-19.5000" />
+
+                    <vertex x="-38.5000" y="-28.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="kalasha_middle_05"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="8">
+
+                    <vertex x="-33.0000" y="-10.0000" />
+
+                    <vertex x="-21.0000" y="-18.0000" />
+
+                    <vertex x="22.0000" y="-19.0000" />
+
+                    <vertex x="36.0000" y="-7.0000" />
+
+                    <vertex x="37.0000" y="0.0000" />
+
+                    <vertex x="24.0000" y="12.0000" />
+
+                    <vertex x="-21.0000" y="13.0000" />
+
+                    <vertex x="-37.0000" y="0.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="31.0000" y="19.0000" />
+
+                    <vertex x="-30.0000" y="19.0000" />
+
+                    <vertex x="-21.0000" y="13.0000" />
+
+                    <vertex x="24.0000" y="12.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="kalasha_top_01"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="12.0000" y="-2.0000" />
+
+                    <vertex x="7.0000" y="9.0000" />
+
+                    <vertex x="-8.0000" y="10.0000" />
+
+                    <vertex x="-13.0000" y="0.0000" />
+
+                    <vertex x="-11.0000" y="-11.0000" />
+
+                    <vertex x="2.0000" y="-18.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-8.0000" y="10.0000" />
+
+                    <vertex x="18.0000" y="18.0000" />
+
+                    <vertex x="-18.0000" y="18.0000" />
+
+                    <vertex x="-14.0000" y="10.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="7.0000" y="9.0000" />
+
+                    <vertex x="18.0000" y="14.0000" />
+
+                    <vertex x="18.0000" y="18.0000" />
+
+                    <vertex x="-8.0000" y="10.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="ladder"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="10.5000" y="-2.5000" />
+
+                    <vertex x="16.5000" y="-14.5000" />
+
+                    <vertex x="16.5000" y="14.5000" />
+
+                    <vertex x="10.5000" y="14.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-16.5000" y="14.5000" />
+
+                    <vertex x="-16.5000" y="-14.5000" />
+
+                    <vertex x="-10.5000" y="-2.5000" />
+
+                    <vertex x="-10.5000" y="14.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-10.5000" y="-2.5000" />
+
+                    <vertex x="-16.5000" y="-14.5000" />
+
+                    <vertex x="-10.5000" y="-14.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="16.5000" y="-14.5000" />
+
+                    <vertex x="10.5000" y="-2.5000" />
+
+                    <vertex x="10.5000" y="-14.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-10.5000" y="3.5000" />
+
+                    <vertex x="-10.5000" y="-2.5000" />
+
+                    <vertex x="10.5000" y="-2.5000" />
+
+                    <vertex x="10.5000" y="3.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="nandu"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="28.0000" y="-4.0000" />
+
+                    <vertex x="16.0000" y="10.0000" />
+
+                    <vertex x="18.0000" y="-2.0000" />
+
+                    <vertex x="24.0000" y="-14.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-28.0000" y="15.0000" />
+
+                    <vertex x="-23.0000" y="15.0000" />
+
+                    <vertex x="-21.0000" y="24.0000" />
+
+                    <vertex x="-31.0000" y="22.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="17.0000" y="-51.0000" />
+
+                    <vertex x="15.0000" y="-41.0000" />
+
+                    <vertex x="-7.0000" y="-49.0000" />
+
+                    <vertex x="-4.0000" y="-60.0000" />
+
+                    <vertex x="6.0000" y="-70.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="15.0000" y="-41.0000" />
+
+                    <vertex x="8.0000" y="-36.0000" />
+
+                    <vertex x="-31.0000" y="-21.0000" />
+
+                    <vertex x="-23.0000" y="-37.0000" />
+
+                    <vertex x="-7.0000" y="-49.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-23.0000" y="62.0000" />
+
+                    <vertex x="2.0000" y="70.0000" />
+
+                    <vertex x="-28.0000" y="70.0000" />
+
+                    <vertex x="-29.0000" y="66.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-23.0000" y="43.0000" />
+
+                    <vertex x="-18.0000" y="34.0000" />
+
+                    <vertex x="1.0000" y="62.0000" />
+
+                    <vertex x="2.0000" y="70.0000" />
+
+                    <vertex x="-23.0000" y="62.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="16.0000" y="65.0000" />
+
+                    <vertex x="2.0000" y="70.0000" />
+
+                    <vertex x="1.0000" y="62.0000" />
+
+                    <vertex x="15.0000" y="61.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="6">
+
+                    <vertex x="16.0000" y="10.0000" />
+
+                    <vertex x="3.0000" y="39.0000" />
+
+                    <vertex x="-18.0000" y="34.0000" />
+
+                    <vertex x="-21.0000" y="24.0000" />
+
+                    <vertex x="11.0000" y="-21.0000" />
+
+                    <vertex x="18.0000" y="-2.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-18.0000" y="34.0000" />
+
+                    <vertex x="3.0000" y="39.0000" />
+
+                    <vertex x="1.0000" y="62.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-21.0000" y="24.0000" />
+
+                    <vertex x="-31.0000" y="-21.0000" />
+
+                    <vertex x="8.0000" y="-36.0000" />
+
+                    <vertex x="11.0000" y="-21.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="pillar_stone_small"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-9.5000" y="29.5000" />
+
+                    <vertex x="-9.5000" y="-29.5000" />
+
+                    <vertex x="9.5000" y="-29.5000" />
+
+                    <vertex x="9.5000" y="29.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="pillar1"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-19.0000" y="64.0000" />
+
+                    <vertex x="-19.0000" y="-64.0000" />
+
+                    <vertex x="19.0000" y="-64.0000" />
+
+                    <vertex x="19.0000" y="64.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+	<body name="pillar2"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-18.0000" y="64.5000" />
+
+                    <vertex x="-18.0000" y="-64.5000" />
+
+                    <vertex x="18.0000" y="-64.5000" />
+
+                    <vertex x="18.0000" y="64.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="pillar3"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-18.0000" y="64.5000" />
+
+                    <vertex x="-18.0000" y="-64.5000" />
+
+                    <vertex x="18.0000" y="-64.5000" />
+
+                    <vertex x="18.0000" y="64.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="pillar4"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-16.5000" y="64.5000" />
+
+                    <vertex x="-16.5000" y="-64.5000" />
+
+                    <vertex x="16.5000" y="-64.5000" />
+
+                    <vertex x="16.5000" y="64.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="pillar5"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-15.5000" y="64.5000" />
+
+                    <vertex x="-15.5000" y="-64.5000" />
+
+                    <vertex x="15.5000" y="-64.5000" />
+
+                    <vertex x="15.5000" y="64.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="pillar6"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-28.5000" y="-73.5000" />
+
+                    <vertex x="27.5000" y="-73.5000" />
+
+                    <vertex x="11.5000" y="-63.5000" />
+
+                    <vertex x="-23.5000" y="-63.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="11.5000" y="-63.5000" />
+
+                    <vertex x="27.5000" y="-73.5000" />
+
+                    <vertex x="22.5000" y="-64.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-20.5000" y="63.5000" />
+
+                    <vertex x="19.5000" y="61.5000" />
+
+                    <vertex x="27.5000" y="73.5000" />
+
+                    <vertex x="-28.5000" y="73.5000" />
+
+                    <vertex x="-28.5000" y="68.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="6">
+
+                    <vertex x="22.5000" y="12.5000" />
+
+                    <vertex x="19.5000" y="61.5000" />
+
+                    <vertex x="-20.5000" y="63.5000" />
+
+                    <vertex x="-25.5000" y="12.5000" />
+
+                    <vertex x="-13.5000" y="-63.5000" />
+
+                    <vertex x="11.5000" y="-63.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="pillar7"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="20.5000" y="-50.0000" />
+
+                    <vertex x="-29.5000" y="-70.0000" />
+
+                    <vertex x="-37.5000" y="-88.0000" />
+
+                    <vertex x="26.5000" y="-70.0000" />
+
+                    <vertex x="31.5000" y="-54.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="31.5000" y="88.0000" />
+
+                    <vertex x="-32.5000" y="88.0000" />
+
+                    <vertex x="-32.5000" y="84.0000" />
+
+                    <vertex x="-22.5000" y="81.0000" />
+
+                    <vertex x="28.5000" y="81.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="26.5000" y="-70.0000" />
+
+                    <vertex x="-37.5000" y="-88.0000" />
+
+                    <vertex x="37.5000" y="-88.0000" />
+
+                    <vertex x="36.5000" y="-72.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-29.5000" y="-70.0000" />
+
+                    <vertex x="20.5000" y="-50.0000" />
+
+                    <vertex x="-22.5000" y="-50.0000" />
+
+                    <vertex x="-31.5000" y="-52.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-37.5000" y="-88.0000" />
+
+                    <vertex x="-29.5000" y="-70.0000" />
+
+                    <vertex x="-37.5000" y="-72.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="20.5000" y="-50.0000" />
+
+                    <vertex x="20.5000" y="81.0000" />
+
+                    <vertex x="-22.5000" y="81.0000" />
+
+                    <vertex x="-22.5000" y="-50.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="prakash"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="1.5000" y="72.5000" />
+
+                    <vertex x="-5.5000" y="41.5000" />
+
+                    <vertex x="7.5000" y="60.5000" />
+
+                    <vertex x="14.5000" y="72.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-16.5000" y="61.5000" />
+
+                    <vertex x="-7.5000" y="69.5000" />
+
+                    <vertex x="-24.5000" y="72.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="10.5000" y="-58.5000" />
+
+                    <vertex x="-6.5000" y="-47.5000" />
+
+                    <vertex x="-8.5000" y="-65.5000" />
+
+                    <vertex x="2.5000" y="-71.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="23.5000" y="-58.5000" />
+
+                    <vertex x="24.5000" y="-50.5000" />
+
+                    <vertex x="10.5000" y="-58.5000" />
+
+                    <vertex x="16.5000" y="-62.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="24.5000" y="-50.5000" />
+
+                    <vertex x="19.5000" y="-45.5000" />
+
+                    <vertex x="-25.5000" y="-26.5000" />
+
+                    <vertex x="-6.5000" y="-47.5000" />
+
+                    <vertex x="10.5000" y="-58.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-16.5000" y="61.5000" />
+
+                    <vertex x="-18.5000" y="46.5000" />
+
+                    <vertex x="-18.5000" y="30.5000" />
+
+                    <vertex x="-5.5000" y="41.5000" />
+
+                    <vertex x="-7.5000" y="69.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-14.5000" y="-47.5000" />
+
+                    <vertex x="-6.5000" y="-47.5000" />
+
+                    <vertex x="-25.5000" y="-26.5000" />
+
+                    <vertex x="-24.5000" y="-39.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-5.5000" y="41.5000" />
+
+                    <vertex x="10.5000" y="34.5000" />
+
+                    <vertex x="7.5000" y="60.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="8">
+
+                    <vertex x="-18.5000" y="30.5000" />
+
+                    <vertex x="-25.5000" y="9.5000" />
+
+                    <vertex x="-25.5000" y="-26.5000" />
+
+                    <vertex x="19.5000" y="-45.5000" />
+
+                    <vertex x="23.5000" y="-41.5000" />
+
+                    <vertex x="12.5000" y="28.5000" />
+
+                    <vertex x="10.5000" y="34.5000" />
+
+                    <vertex x="-5.5000" y="41.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-16.5000" y="-70.5000" />
+
+                    <vertex x="-6.5000" y="-47.5000" />
+
+                    <vertex x="-14.5000" y="-53.5000" />
+
+                    <vertex x="-22.5000" y="-70.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-6.5000" y="-47.5000" />
+
+                    <vertex x="-14.5000" y="-47.5000" />
+
+                    <vertex x="-14.5000" y="-53.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="12.5000" y="28.5000" />
+
+                    <vertex x="23.5000" y="-41.5000" />
+
+                    <vertex x="24.5000" y="-5.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="10.5000" y="34.5000" />
+
+                    <vertex x="12.5000" y="28.5000" />
+
+                    <vertex x="25.5000" y="66.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="prashant"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="4.0000" y="-58.5000" />
+
+                    <vertex x="7.0000" y="-43.5000" />
+
+                    <vertex x="3.0000" y="-38.5000" />
+
+                    <vertex x="-13.0000" y="-36.5000" />
+
+                    <vertex x="-17.0000" y="-57.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-21.0000" y="67.5000" />
+
+                    <vertex x="-26.0000" y="77.5000" />
+
+                    <vertex x="-35.0000" y="71.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="6.0000" y="41.5000" />
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="43.0000" y="69.5000" />
+
+                    <vertex x="14.0000" y="77.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-26.0000" y="77.5000" />
+
+                    <vertex x="-21.0000" y="67.5000" />
+
+                    <vertex x="-4.0000" y="44.5000" />
+
+                    <vertex x="-5.0000" y="70.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="7">
+
+                    <vertex x="-41.0000" y="-13.5000" />
+
+                    <vertex x="-30.0000" y="-30.5000" />
+
+                    <vertex x="-13.0000" y="-36.5000" />
+
+                    <vertex x="3.0000" y="-38.5000" />
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="-25.0000" y="20.5000" />
+
+                    <vertex x="-43.0000" y="5.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="16.0000" y="-58.5000" />
+
+                    <vertex x="9.0000" y="-64.5000" />
+
+                    <vertex x="5.0000" y="-77.5000" />
+
+                    <vertex x="16.0000" y="-69.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="5">
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="18.0000" y="-36.5000" />
+
+                    <vertex x="16.0000" y="-58.5000" />
+
+                    <vertex x="25.0000" y="-56.5000" />
+
+                    <vertex x="40.0000" y="-26.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="5.0000" y="-77.5000" />
+
+                    <vertex x="9.0000" y="-64.5000" />
+
+                    <vertex x="5.0000" y="-61.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="16.0000" y="-58.5000" />
+
+                    <vertex x="18.0000" y="-36.5000" />
+
+                    <vertex x="9.0000" y="-64.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="3.0000" y="-38.5000" />
+
+                    <vertex x="18.0000" y="-36.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="-20.0000" y="40.5000" />
+
+                    <vertex x="-25.0000" y="20.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="-4.0000" y="44.5000" />
+
+                    <vertex x="-21.0000" y="67.5000" />
+
+                    <vertex x="-20.0000" y="40.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="2.0000" y="40.5000" />
+
+                    <vertex x="-4.0000" y="44.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="6.0000" y="41.5000" />
+
+                    <vertex x="2.0000" y="40.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="43.0000" y="69.5000" />
+
+                    <vertex x="28.0000" y="-15.5000" />
+
+                    <vertex x="47.0000" y="73.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="roof_golden_left"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-20.5000" y="16.5000" />
+
+                    <vertex x="-31.5000" y="0.5000" />
+
+                    <vertex x="-39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="17.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-39.5000" y="-17.5000" />
+
+                    <vertex x="-31.5000" y="0.5000" />
+
+                    <vertex x="-39.5000" y="-2.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="roof_golden_middle"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-37.5000" y="-17.5000" />
+
+                    <vertex x="37.5000" y="-17.5000" />
+
+                    <vertex x="37.5000" y="17.5000" />
+
+                    <vertex x="-37.5000" y="17.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+	
+	<body name="roof_golden_right"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="-17.5000" />
+
+                    <vertex x="32.5000" y="-1.5000" />
+
+                    <vertex x="18.5000" y="17.5000" />
+
+                    <vertex x="-39.5000" y="17.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="32.5000" y="-1.5000" />
+
+                    <vertex x="39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="-3.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="roof_stone_left"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-20.5000" y="16.5000" />
+
+                    <vertex x="-31.5000" y="0.5000" />
+
+                    <vertex x="-39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="17.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-39.5000" y="-17.5000" />
+
+                    <vertex x="-31.5000" y="0.5000" />
+
+                    <vertex x="-39.5000" y="-2.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="roof_stone_middle"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-39.0000" y="-17.5000" />
+
+                    <vertex x="39.0000" y="-17.5000" />
+
+                    <vertex x="39.0000" y="17.5000" />
+
+                    <vertex x="-39.0000" y="17.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="roof_stone_right"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="-17.5000" />
+
+                    <vertex x="34.5000" y="-2.5000" />
+
+                    <vertex x="18.5000" y="17.5000" />
+
+                    <vertex x="-39.5000" y="17.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="34.5000" y="-2.5000" />
+
+                    <vertex x="39.5000" y="-17.5000" />
+
+                    <vertex x="39.5000" y="-2.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="slab_golden"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-22.0000" y="-4.5000" />
+
+                    <vertex x="22.0000" y="-4.5000" />
+
+                    <vertex x="22.0000" y="4.5000" />
+
+                    <vertex x="-22.0000" y="4.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="slab_stone"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-34.0000" y="-5.0000" />
+
+                    <vertex x="34.0000" y="-5.0000" />
+
+                    <vertex x="34.0000" y="5.0000" />
+
+                    <vertex x="-34.0000" y="5.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="slab_stone_long"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-68.0000" y="-5.0000" />
+
+                    <vertex x="68.0000" y="-5.0000" />
+
+                    <vertex x="68.0000" y="5.0000" />
+
+                    <vertex x="-68.0000" y="5.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="slab_stone_very_long"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-102.0000" y="-5.0000" />
+
+                    <vertex x="102.0000" y="-5.0000" />
+
+                    <vertex x="102.0000" y="5.0000" />
+
+                    <vertex x="-102.0000" y="5.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="slab_wooden"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-64.0000" y="-6.5000" />
+
+                    <vertex x="64.0000" y="-6.5000" />
+
+                    <vertex x="64.0000" y="6.5000" />
+
+                    <vertex x="-64.0000" y="6.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="steps_golden"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-34.0000" y="-19.0000" />
+
+                    <vertex x="34.0000" y="-19.0000" />
+
+                    <vertex x="34.0000" y="19.0000" />
+
+                    <vertex x="-34.0000" y="19.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+		
+		<body name="steps_stone"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-34.0000" y="-19.0000" />
+
+                    <vertex x="34.0000" y="-19.0000" />
+
+                    <vertex x="34.0000" y="19.0000" />
+
+                    <vertex x="-34.0000" y="19.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="stone_block_big"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-96.5000" y="-60.5000" />
+
+                    <vertex x="96.5000" y="-60.5000" />
+
+                    <vertex x="96.5000" y="60.5000" />
+
+                    <vertex x="-96.5000" y="60.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="stone_box"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-26.5000" y="31.5000" />
+
+                    <vertex x="-26.5000" y="-31.5000" />
+
+                    <vertex x="26.5000" y="-31.5000" />
+
+                    <vertex x="26.5000" y="31.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="stone_throw"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="7">
+
+                    <vertex x="7.5000" y="-17.5000" />
+
+                    <vertex x="17.5000" y="-11.5000" />
+
+                    <vertex x="18.5000" y="9.5000" />
+
+                    <vertex x="11.5000" y="17.5000" />
+
+                    <vertex x="-9.5000" y="17.5000" />
+
+                    <vertex x="-18.5000" y="7.5000" />
+
+                    <vertex x="-16.5000" y="-9.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wallBottom_golden_left"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-40.5000" y="10.5000" />
+
+                    <vertex x="-49.5000" y="20.5000" />
+
+                    <vertex x="-49.5000" y="10.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="49.5000" y="20.5000" />
+
+                    <vertex x="-27.5000" y="0.5000" />
+
+                    <vertex x="-27.5000" y="-20.5000" />
+
+                    <vertex x="49.5000" y="-20.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-27.5000" y="0.5000" />
+
+                    <vertex x="-40.5000" y="10.5000" />
+
+                    <vertex x="-36.5000" y="3.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-49.5000" y="20.5000" />
+
+                    <vertex x="-40.5000" y="10.5000" />
+
+                    <vertex x="-27.5000" y="0.5000" />
+
+                    <vertex x="49.5000" y="20.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wallBottom_golden_middle"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-23.5000" y="-20.5000" />
+
+                    <vertex x="23.5000" y="-20.5000" />
+
+                    <vertex x="23.5000" y="20.5000" />
+
+                    <vertex x="-23.5000" y="20.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wallBottom_golden_right"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="3">
+
+                    <vertex x="49.5000" y="20.5000" />
+
+                    <vertex x="40.5000" y="10.5000" />
+
+                    <vertex x="49.5000" y="10.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="27.5000" y="-20.5000" />
+
+                    <vertex x="27.5000" y="0.5000" />
+
+                    <vertex x="-49.5000" y="20.5000" />
+
+                    <vertex x="-49.5000" y="-20.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="40.5000" y="10.5000" />
+
+                    <vertex x="27.5000" y="0.5000" />
+
+                    <vertex x="35.5000" y="2.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="27.5000" y="0.5000" />
+
+                    <vertex x="40.5000" y="10.5000" />
+
+                    <vertex x="49.5000" y="20.5000" />
+
+                    <vertex x="-49.5000" y="20.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wallTop_golden_left"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-49.5000" y="-20.5000" />
+
+                    <vertex x="-40.5000" y="-10.5000" />
+
+                    <vertex x="-49.5000" y="-10.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-27.5000" y="20.5000" />
+
+                    <vertex x="-27.5000" y="-0.5000" />
+
+                    <vertex x="49.5000" y="-20.5000" />
+
+                    <vertex x="49.5000" y="20.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-40.5000" y="-10.5000" />
+
+                    <vertex x="-27.5000" y="-0.5000" />
+
+                    <vertex x="-35.5000" y="-2.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-27.5000" y="-0.5000" />
+
+                    <vertex x="-40.5000" y="-10.5000" />
+
+                    <vertex x="-49.5000" y="-20.5000" />
+
+                    <vertex x="49.5000" y="-20.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wallTop_golden_middle"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-32.5000" y="-20.5000" />
+
+                    <vertex x="32.5000" y="-20.5000" />
+
+                    <vertex x="32.5000" y="20.5000" />
+
+                    <vertex x="-32.5000" y="20.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wallTop_golden_right"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="3">
+
+                    <vertex x="40.5000" y="-10.5000" />
+
+                    <vertex x="49.5000" y="-20.5000" />
+
+                    <vertex x="49.5000" y="-10.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-49.5000" y="-20.5000" />
+
+                    <vertex x="27.5000" y="-0.5000" />
+
+                    <vertex x="27.5000" y="20.5000" />
+
+                    <vertex x="-49.5000" y="20.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="27.5000" y="-0.5000" />
+
+                    <vertex x="40.5000" y="-10.5000" />
+
+                    <vertex x="36.5000" y="-3.5000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="49.5000" y="-20.5000" />
+
+                    <vertex x="40.5000" y="-10.5000" />
+
+                    <vertex x="27.5000" y="-0.5000" />
+
+                    <vertex x="-49.5000" y="-20.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+		<body name="wood"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-21.5000" y="-14.0000" />
+
+                    <vertex x="21.5000" y="-14.0000" />
+
+                    <vertex x="21.5000" y="14.0000" />
+
+                    <vertex x="-21.5000" y="14.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wood2"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-18.5000" y="-16.0000" />
+
+                    <vertex x="18.5000" y="-16.0000" />
+
+                    <vertex x="18.5000" y="16.0000" />
+
+                    <vertex x="-18.5000" y="16.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="wood3"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-21.5000" y="-15.5000" />
+
+                    <vertex x="21.5000" y="-15.5000" />
+
+                    <vertex x="21.5000" y="15.5000" />
+
+                    <vertex x="-21.5000" y="15.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="woodenBox"  >
+
+            <fixture
+                
+                
+                >
+
+
+                <polygon numVertexes="4">
+
+                    <vertex x="-30.5000" y="-26.5000" />
+
+                    <vertex x="30.5000" y="-26.5000" />
+
+                    <vertex x="30.5000" y="26.5000" />
+
+                    <vertex x="-30.5000" y="26.5000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+</data>

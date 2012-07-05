@@ -24,6 +24,10 @@ package com.hegdemahesh.model
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
 	
+	import nape.geom.GeomPoly;
+	import nape.geom.GeomPolyList;
+	import nape.geom.Vec2;
+	
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 
@@ -75,6 +79,8 @@ package com.hegdemahesh.model
 		[Embed(source="assets/levelDetails.xml",mimeType="application/octet-stream")]
 		public static const levelDetails:Class;
 		
+		[Embed(source="assets/hanumanActors.xml",mimeType="application/octet-stream")]
+		public static const hanumanActorsXML:Class;
 		
 		[Embed(source="assets/ShowCardGothic.fnt", mimeType="application/octet-stream")]
 		public static const ShowCardGothicXML:Class;
@@ -82,11 +88,27 @@ package com.hegdemahesh.model
 		[Embed(source="assets/ShowCardGothic_0.png")]
 		public static const ShowCardGothicBitmap:Class;
 		
-		
+		public static var xml:XML = XML(new Assets.hanumanActorsXML());
 		
 		private static var gameTextures:Dictionary =new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
 		
+		public static function getShapes(name1:String):GeomPolyList {
+			var geomPolyList:GeomPolyList =  new GeomPolyList();
+			var k:int = xml.body.(@name == name1).fixture.polygon.length();
+			var tName:String = xml.body.(@name == name1).@name;
+			for (var i:int = 0 ; i < xml.body.(@name == name1).fixture.polygon.length(); i++){
+				var geomPoly:GeomPoly =  new GeomPoly();
+				for (var j:int = 0; j < xml.body.(@name == name1).fixture.polygon[i].vertex.length(); j ++){
+					var xCoord:int = xml.body.(@name == name1).fixture.polygon[i].vertex[j].@x;
+					var yCoord:int = xml.body.(@name == name1).fixture.polygon[i].vertex[j].@y;
+					var vertex:Vec2 =  new Vec2(xCoord,yCoord);
+					geomPoly.push(vertex);
+				}
+				geomPolyList.push(geomPoly);
+			}
+			return geomPolyList;
+		}
 		
 		
 		public static function getAtlas():TextureAtlas {

@@ -39,6 +39,8 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.ui.components.WeaponCount;
 	import com.hegdemahesh.vos.Level;
 	
+	import nape.geom.GeomPoly;
+	import nape.geom.GeomPolyList;
 	import nape.geom.Vec2;
 	import nape.phys.Body;
 	import nape.phys.BodyType;
@@ -117,7 +119,7 @@ package com.hegdemahesh.ui
 		/**
 		 * A debug environament for nape physics. remove this for production 
 		 */
-		//private var debug:BitmapDebug;
+		private var debug:BitmapDebug;
 		
 		/**
 		 * Maximum number of weapons that can be used by the user in a level 
@@ -228,8 +230,8 @@ package com.hegdemahesh.ui
 			
 			
 			/*Debug view for nape physics.. remove this for deployment*/
-			/*debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
-			Starling.current.nativeOverlay.addChild(debug.display);*/
+			debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
+			Starling.current.nativeOverlay.addChild(debug.display);
 			
 		}
 		
@@ -350,10 +352,10 @@ package com.hegdemahesh.ui
 					
 				}
 				updateViewport();
-				//debug.clear();
+				debug.clear();
 				space.step(1/60);
-				//debug.draw(space);
-				//debug.flush();
+				debug.draw(space);
+				debug.flush();
 			}
 			else {
 				levelComplete();
@@ -590,12 +592,37 @@ package com.hegdemahesh.ui
 				actorNape.position.y = actor.y;
 				actorNape.space = space;
 				actorNape.graphic = actor ;
-				actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
+				
+				actorNape = shapesToBody(actorNape,material);
 				actorNape.graphicUpdate = updateGraphics;
 				this.addChild(actorNape.graphic);
 				
 			}
 		}
+		
+		public function shapesToBody(bodyTemp:Body,material:Material):Body {
+			var body:Body = bodyTemp;
+			var graphic:Actor = body.graphic as Actor;
+			
+			graphic.x = graphic.y = graphic.rotation = 0;
+			var polys:GeomPolyList =  Assets.getShapes(graphic.imgSrc);
+			
+			polys.foreach(function (p:GeomPoly):void {
+				var qolys:GeomPolyList = p.simplify(1).convex_decomposition();
+				qolys.foreach(function (q:GeomPoly):void {
+					body.shapes.add(new Polygon(q,material));
+				});
+			});
+			
+			var anchor:Vec2 = body.localCOM.mul(-1);
+			body.align();
+			
+			body.graphic = graphic;
+			body.graphicOffset = anchor;
+			
+			return body;
+		}
+		
 		
 		/**
 		 * position and other parameters of starling display sprites are modified in accordance with the nape physics objects
