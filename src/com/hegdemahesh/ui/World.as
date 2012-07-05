@@ -230,8 +230,8 @@ package com.hegdemahesh.ui
 			
 			
 			/*Debug view for nape physics.. remove this for deployment*/
-			debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
-			Starling.current.nativeOverlay.addChild(debug.display);
+			//debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
+			//Starling.current.nativeOverlay.addChild(debug.display);
 			
 		}
 		
@@ -276,7 +276,8 @@ package com.hegdemahesh.ui
 			actorNape.position.y = actor.y;
 			actorNape.space = space;
 			actorNape.graphic = actor ;
-			actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
+			actorNape = shapesToBody(actorNape,material);
+			//actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
 			actorNape.graphicUpdate = updateGraphics;
 			//actorNape.shapes.clear();
 			//actorNape.shapes.add(new Circle(20,null,material));
@@ -352,10 +353,10 @@ package com.hegdemahesh.ui
 					
 				}
 				updateViewport();
-				debug.clear();
+				//debug.clear();
 				space.step(1/60);
-				debug.draw(space);
-				debug.flush();
+				//debug.draw(space);
+				//debug.flush();
 			}
 			else {
 				levelComplete();
@@ -560,8 +561,8 @@ package com.hegdemahesh.ui
 				actor.xcord = xml.actor[i].xcord;
 				actor.ycord = xml.actor[i].ycord;
 				actor.flammable = (xml.actor[i].flammable == 1)? true: false;
-				actor.x = groundXOffset + int(xml.actor[i].xcord)-int(Math.ceil(actor.image.width/2));
-				actor.y = groundYOffest - int(xml.actor[i].ycord)-int(Math.ceil(actor.image.height/2));
+				actor.x = groundXOffset + int(xml.actor[i].xcord)/*-int(Math.ceil(actor.image.width/2))*/;
+				actor.y = groundYOffest - int(xml.actor[i].ycord)/*-int(Math.ceil(actor.image.height/2))*/;
 				actor.crushable = (xml.actor[i].crushable == 1)? true: false;
 				
 				var material:Material = new Material();
@@ -594,6 +595,7 @@ package com.hegdemahesh.ui
 				actorNape.graphic = actor ;
 				
 				actorNape = shapesToBody(actorNape,material);
+				
 				actorNape.graphicUpdate = updateGraphics;
 				this.addChild(actorNape.graphic);
 				
@@ -615,10 +617,10 @@ package com.hegdemahesh.ui
 			});
 			
 			var anchor:Vec2 = body.localCOM.mul(-1);
-			body.align();
+			//body.align();
 			
 			body.graphic = graphic;
-			body.graphicOffset = anchor;
+			//body.graphicOffset = anchor;
 			
 			return body;
 		}

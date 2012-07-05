@@ -2,95 +2,437 @@
 <!-- level1 actor details-->
 <!--  -->
 <data>
-  <weaponLimit>5</weaponLimit>
+  <weaponLimit>8</weaponLimit>
   <offsetX>1000</offsetX>
   <leveld>1</leveld>
   <actor>
-    <id>2</id>
-    <name>gopur01</name>
-    <xcord>114</xcord>
-    <ycord>53</ycord>
-    <material>metal</material>
-    <flammable>0</flammable>
-    <crushable>0</crushable>
-  </actor>
-  <actor>
     <id>3</id>
-    <name>kalasha_middle_01</name>
-    <xcord>113</xcord>
-    <ycord>132</ycord>
+    <name>wallBottom_golden_left</name>
+    <xcord>66</xcord>
+    <ycord>21</ycord>
     <material>metal</material>
     <flammable>0</flammable>
     <crushable>0</crushable>
   </actor>
   <actor>
     <id>4</id>
-    <name>kalasha_middle_01</name>
-    <xcord>114</xcord>
-    <ycord>190</ycord>
+    <name>wallBottom_golden_middle</name>
+    <xcord>139</xcord>
+    <ycord>21</ycord>
     <material>metal</material>
     <flammable>0</flammable>
     <crushable>0</crushable>
   </actor>
   <actor>
     <id>5</id>
-    <name>kalasha_middle_05</name>
-    <xcord>113</xcord>
-    <ycord>240</ycord>
+    <name>wallBottom_golden_middle</name>
+    <xcord>186</xcord>
+    <ycord>21</ycord>
     <material>metal</material>
     <flammable>0</flammable>
     <crushable>0</crushable>
   </actor>
   <actor>
     <id>6</id>
-    <name>nandu</name>
-    <xcord>378</xcord>
-    <ycord>79</ycord>
+    <name>wallTop_golden_left</name>
+    <xcord>66</xcord>
+    <ycord>61</ycord>
     <material>metal</material>
     <flammable>0</flammable>
-    <crushable>1</crushable>
+    <crushable>0</crushable>
   </actor>
   <actor>
     <id>7</id>
-    <name>kalasha_middle_02</name>
-    <xcord>115</xcord>
-    <ycord>282</ycord>
+    <name>wallTop_golden_middle</name>
+    <xcord>148</xcord>
+    <ycord>61</ycord>
     <material>metal</material>
     <flammable>0</flammable>
     <crushable>0</crushable>
   </actor>
   <actor>
     <id>8</id>
-    <name>wood</name>
-    <xcord>300</xcord>
-    <ycord>22</ycord>
+    <name>wallBottom_golden_middle</name>
+    <xcord>233</xcord>
+    <ycord>21</ycord>
     <material>metal</material>
     <flammable>0</flammable>
     <crushable>0</crushable>
   </actor>
   <actor>
     <id>9</id>
-    <name>prakash</name>
-    <xcord>303</xcord>
-    <ycord>116</ycord>
+    <name>wallBottom_golden_middle</name>
+    <xcord>280</xcord>
+    <ycord>21</ycord>
     <material>metal</material>
     <flammable>0</flammable>
-    <crushable>1</crushable>
+    <crushable>0</crushable>
   </actor>
   <actor>
     <id>10</id>
-    <name>pillar_stone_small</name>
-    <xcord>435</xcord>
-    <ycord>40</ycord>
+    <name>steps_golden</name>
+    <xcord>580</xcord>
+    <ycord>20</ycord>
     <material>metal</material>
     <flammable>0</flammable>
     <crushable>0</crushable>
   </actor>
   <actor>
     <id>11</id>
-    <name>pillar7</name>
-    <xcord>502</xcord>
-    <ycord>99</ycord>
+    <name>wallTop_golden_middle</name>
+    <xcord>213</xcord>
+    <ycord>61</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>12</id>
+    <name>wallBottom_golden_middle</name>
+    <xcord>327</xcord>
+    <ycord>21</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>13</id>
+    <name>wallTop_golden_middle</name>
+    <xcord>278</xcord>
+    <ycord>61</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>14</id>
+    <name>wallTop_golden_middle</name>
+    <xcord>343</xcord>
+    <ycord>62</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>15</id>
+    <name>wallBottom_golden_middle</name>
+    <xcord>373</xcord>
+    <ycord>21</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>16</id>
+    <name>wallBottom_golden_middle</name>
+    <xcord>420</xcord>
+    <ycord>21</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>17</id>
+    <name>wallTop_golden_middle</name>
+    <xcord>409</xcord>
+    <ycord>62</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>18</id>
+    <name>barrel</name>
+    <xcord>280</xcord>
+    <ycord>117</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>19</id>
+    <name>box_golden</name>
+    <xcord>73</xcord>
+    <ycord>102</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>20</id>
+    <name>prashant</name>
+    <xcord>136</xcord>
+    <ycord>163</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>1</crushable>
+  </actor>
+  <actor>
+    <id>21</id>
+    <name>wallBottom_golden_right</name>
+    <xcord>492</xcord>
+    <ycord>22</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>22</id>
+    <name>wallTop_golden_right</name>
+    <xcord>493</xcord>
+    <ycord>63</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>23</id>
+    <name>nandu</name>
+    <xcord>287</xcord>
+    <ycord>221</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>1</crushable>
+  </actor>
+  <actor>
+    <id>24</id>
+    <name>prakash</name>
+    <xcord>716</xcord>
+    <ycord>501</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>1</crushable>
+  </actor>
+  <actor>
+    <id>25</id>
+    <name>pillar4</name>
+    <xcord>73</xcord>
+    <ycord>188</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>26</id>
+    <name>box_golden</name>
+    <xcord>490</xcord>
+    <ycord>104</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>27</id>
+    <name>box_golden</name>
+    <xcord>210</xcord>
+    <ycord>103</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>28</id>
+    <name>box_golden</name>
+    <xcord>351</xcord>
+    <ycord>104</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>29</id>
+    <name>pillar4</name>
+    <xcord>210</xcord>
+    <ycord>189</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>30</id>
+    <name>pillar4</name>
+    <xcord>351</xcord>
+    <ycord>190</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>31</id>
+    <name>pillar4</name>
+    <xcord>489</xcord>
+    <ycord>191</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>32</id>
+    <name>wood3</name>
+    <xcord>591</xcord>
+    <ycord>57</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>33</id>
+    <name>kalasha_top_01</name>
+    <xcord>352</xcord>
+    <ycord>272</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>34</id>
+    <name>kalasha_top_01</name>
+    <xcord>489</xcord>
+    <ycord>274</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>35</id>
+    <name>kalasha_middle_04</name>
+    <xcord>137</xcord>
+    <ycord>326</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>36</id>
+    <name>kalasha_middle_03</name>
+    <xcord>138</xcord>
+    <ycord>371</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>37</id>
+    <name>gourish</name>
+    <xcord>707</xcord>
+    <ycord>343</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>1</crushable>
+  </actor>
+  <actor>
+    <id>38</id>
+    <name>kalasa_top_02</name>
+    <xcord>138</xcord>
+    <ycord>411</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>39</id>
+    <name>stone_block_big</name>
+    <xcord>713</xcord>
+    <ycord>61</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>40</id>
+    <name>stone_block_big</name>
+    <xcord>715</xcord>
+    <ycord>213</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>41</id>
+    <name>roof_stone_middle</name>
+    <xcord>679</xcord>
+    <ycord>138</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>42</id>
+    <name>roof_stone_middle</name>
+    <xcord>756</xcord>
+    <ycord>138</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>43</id>
+    <name>pillar6</name>
+    <xcord>781</xcord>
+    <ycord>347</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>44</id>
+    <name>pillar6</name>
+    <xcord>646</xcord>
+    <ycord>346</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>45</id>
+    <name>slab_stone_very_long</name>
+    <xcord>711</xcord>
+    <ycord>424</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>46</id>
+    <name>slab_stone_very_long</name>
+    <xcord>136</xcord>
+    <ycord>292</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>47</id>
+    <name>roof_golden_left</name>
+    <xcord>58</xcord>
+    <ycord>270</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>48</id>
+    <name>roof_golden_right</name>
+    <xcord>219</xcord>
+    <ycord>271</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>49</id>
+    <name>stone_box</name>
+    <xcord>647</xcord>
+    <ycord>460</ycord>
+    <material>metal</material>
+    <flammable>0</flammable>
+    <crushable>0</crushable>
+  </actor>
+  <actor>
+    <id>50</id>
+    <name>stone_box</name>
+    <xcord>778</xcord>
+    <ycord>461</ycord>
     <material>metal</material>
     <flammable>0</flammable>
     <crushable>0</crushable>
