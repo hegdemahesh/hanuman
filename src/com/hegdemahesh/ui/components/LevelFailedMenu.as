@@ -28,6 +28,7 @@ package com.hegdemahesh.ui.components
 	import com.hegdemahesh.vos.Level;
 	
 	import flash.display.Bitmap;
+	import flash.media.Sound;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -52,6 +53,7 @@ package com.hegdemahesh.ui.components
 		public var menuButton:ActionButton =  new ActionButton("menu");
 		
 		//public var nextButton:ActionButton = new ActionButton("next");
+		public var sound:Sound;
 		
 		public var replayButton:ActionButton =  new ActionButton("replay");
 		
@@ -116,7 +118,18 @@ package com.hegdemahesh.ui.components
 			//villain.scaleY = .7;
 			this.addChild(villain);
 			//bmpFontTF.touchable = false;
-			
+			startSound();	
+		}
+		
+		private function startSound():void
+		{
+			// TODO Auto Generated method stub
+			sound = (new Assets.laugh()) as Sound;
+			sound.play();
+		}
+		public override function dispose():void {
+			sound = null;
+			super.dispose();
 		}
 		
 		private function onActionButtonEvent(event:ActionButtonEvent):void

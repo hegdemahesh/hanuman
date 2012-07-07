@@ -3,6 +3,8 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.events.SponsorScreenChanged;
 	import com.hegdemahesh.model.Assets;
 	
+	import flash.media.Sound;
+	
 	import starling.animation.Transitions;
 	import starling.animation.Tween;
 	import starling.core.Starling;
@@ -16,7 +18,7 @@ package com.hegdemahesh.ui
 	{
 		private var img:Image = new Image(Assets.getAtlas().getTexture('innoBrik'));
 		private var developerImage:Image =  new Image(Assets.getAtlas().getTexture('developedBy'));
-		
+		private var sound:Sound;
 		public function SponsorScreen()
 		{
 			
@@ -42,8 +44,20 @@ package com.hegdemahesh.ui
 			//img.addEventListener(starling.events.Event.ADDED_TO_STAGE,onImgAddedToStage);
 			
 			addEffects();
+			addSound();
 		}
 		
+		private function addSound():void
+		{
+			// TODO Auto Generated method stub
+			sound = Assets.getSound("background1");
+			sound.play();
+		}
+		
+		public override function dispose():void {
+			sound = null;
+			super.dispose();
+		}
 		private function onImgAddedToStage(event:Event):void
 		{
 			// TODO Auto Generated method stub

@@ -22,6 +22,7 @@
 package com.hegdemahesh.model
 {
 	import flash.display.Bitmap;
+	import flash.media.Sound;
 	import flash.utils.Dictionary;
 	
 	import nape.geom.GeomPoly;
@@ -135,9 +136,49 @@ package com.hegdemahesh.model
 		[Embed(source="assets/ShowCardGothic_0.png")]
 		public static const ShowCardGothicBitmap:Class;
 		
+		[Embed(source="assets/music/scream1.mp3")]
+		public static const scream1:Class;
+		
+		[Embed(source="assets/music/background1.mp3")]
+		public static const background1:Class;
+		
+		[Embed(source="assets/music/background2.mp3")]
+		public static const background2:Class;
+		
+		[Embed(source="assets/music/background3.mp3")]
+		public static const background3:Class;
+		
+		[Embed(source="assets/music/background4.mp3")]
+		public static const background4:Class;
+		
+		[Embed(source="assets/music/crash.mp3")]
+		public static const crash:Class;
+		
+		[Embed(source="assets/music/crash2.mp3")]
+		public static const crash2:Class;
+		
+		[Embed(source="assets/music/scream2.mp3")]
+		public static const scream2:Class;
+		
+		[Embed(source="assets/music/laugh.mp3")]
+		public static const laugh:Class;
+		
+		[Embed(source="assets/music/victory.mp3")]
+		public static const victory:Class;
+		
+		[Embed(source="assets/music/victory1.mp3")]
+		public static const victory1:Class;
+		
+		[Embed(source="assets/music/scream3.mp3")]
+		public static const scream3:Class;
+		
+		[Embed(source="assets/music/scream4.mp3")]
+		public static const scream4:Class;
+		
 		public static var xml:XML = XML(new Assets.hanumanActorsXML());
 		
 		private static var gameTextures:Dictionary =new Dictionary();
+		private static var gameSounds:Dictionary =new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
 		
 		public static function getShapes(name1:String):GeomPolyList {
@@ -175,6 +216,14 @@ package com.hegdemahesh.model
 			return gameTextures[name];
 		}
 		
+		public static function getSound(name:String):Sound {
+			
+			if (gameSounds[name] == undefined){
+				var sound:Sound = new Assets[name]();
+				gameSounds[name] = sound;
+			}
+			return gameSounds[name];
+		}
 		public function Assets()
 		{
 			

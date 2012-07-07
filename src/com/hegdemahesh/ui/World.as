@@ -39,6 +39,10 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.ui.components.WeaponCount;
 	import com.hegdemahesh.vos.Level;
 	
+	import flash.media.Sound;
+	
+	import mx.events.FlexEvent;
+	
 	import nape.geom.GeomPoly;
 	import nape.geom.GeomPolyList;
 	import nape.geom.Vec2;
@@ -333,6 +337,18 @@ package com.hegdemahesh.ui
 								if (actor != null){
 									if (actor.crushed == true || (actor.x > 1700) ){
 										//trace(actor.imgSrc);
+										var sound:Sound;
+										if(Math.random() > .66){
+											sound = Assets.getSound("scream2");
+										}
+										else if (Math.random() < .33){
+											sound = Assets.getSound("scream3");
+										}
+										else {
+											sound = Assets.getSound("scream4");
+										}
+										 
+										sound.play();
 										mParticleSystem.emitterX = b.position.x;
 										mParticleSystem.emitterY = b.position.y;
 										mParticleSystem.start(.25);
