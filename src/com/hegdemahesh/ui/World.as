@@ -331,7 +331,7 @@ package com.hegdemahesh.ui
 									}
 								}
 								if (actor != null){
-									if (actor.crushed == true){
+									if (actor.crushed == true || (actor.x > 1700) ){
 										//trace(actor.imgSrc);
 										mParticleSystem.emitterX = b.position.x;
 										mParticleSystem.emitterY = b.position.y;
@@ -620,7 +620,7 @@ package com.hegdemahesh.ui
 			//body.align();
 			
 			body.graphic = graphic;
-			//body.graphicOffset = anchor;
+			body.graphicOffset = anchor;
 			
 			return body;
 		}

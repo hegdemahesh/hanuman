@@ -76,8 +76,55 @@ package com.hegdemahesh.model
 		[Embed(source="assets/level3.xml",mimeType="application/octet-stream")]
 		public static const level3XML:Class;
 		
+		[Embed(source="assets/level4.xml",mimeType="application/octet-stream")]
+		public static const level4XML:Class;
+		
+		[Embed(source="assets/level5.xml",mimeType="application/octet-stream")]
+		public static const level5XML:Class;
+		
+		[Embed(source="assets/level6.xml",mimeType="application/octet-stream")]
+		public static const level6XML:Class;
+		
+		[Embed(source="assets/level7.xml",mimeType="application/octet-stream")]
+		public static const level7XML:Class;
+		
+		[Embed(source="assets/level8.xml",mimeType="application/octet-stream")]
+		public static const level8XML:Class;
+		
+		[Embed(source="assets/level9.xml",mimeType="application/octet-stream")]
+		public static const level9XML:Class;
+		
+		[Embed(source="assets/level10.xml",mimeType="application/octet-stream")]
+		public static const level10XML:Class;
+		
+		[Embed(source="assets/level11.xml",mimeType="application/octet-stream")]
+		public static const level11XML:Class;
+		
+		[Embed(source="assets/level12.xml",mimeType="application/octet-stream")]
+		public static const level12XML:Class;
+		
+		[Embed(source="assets/level13.xml",mimeType="application/octet-stream")]
+		public static const level13XML:Class;
+		
+		[Embed(source="assets/level14.xml",mimeType="application/octet-stream")]
+		public static const level14XML:Class;
+		
+		[Embed(source="assets/level15.xml",mimeType="application/octet-stream")]
+		public static const level15XML:Class;
+		
+		[Embed(source="assets/level16.xml",mimeType="application/octet-stream")]
+		public static const level16XML:Class;
+		
+		[Embed(source="assets/level17.xml",mimeType="application/octet-stream")]
+		public static const level17XML:Class;
+		
+		[Embed(source="assets/level18.xml",mimeType="application/octet-stream")]
+		public static const level18XML:Class;
+		
 		[Embed(source="assets/levelDetails.xml",mimeType="application/octet-stream")]
 		public static const levelDetails:Class;
+		
+		
 		
 		[Embed(source="assets/hanumanActors.xml",mimeType="application/octet-stream")]
 		public static const hanumanActorsXML:Class;
