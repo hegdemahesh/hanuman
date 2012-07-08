@@ -89,7 +89,7 @@ package com.hegdemahesh.ui
 		/**
 		 * groundXOffset is where the palace OR the destructable area starts
 		 */		
-		private var groundXOffset:int = 650;
+		private var groundXOffset:int = 500;
 		/**
 		 * groundYOffset is the distance from top of the screen at which ground starts
 		 */
@@ -246,7 +246,7 @@ package com.hegdemahesh.ui
 			//this.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			
 			soundChannel = sound.play(0,9999);
-			
+			//changeViewPort(1275);
 			
 			/*Debug view for nape physics.. remove this for deployment*/
 			//debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);

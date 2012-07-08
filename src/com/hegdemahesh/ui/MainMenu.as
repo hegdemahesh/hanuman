@@ -53,7 +53,7 @@ package com.hegdemahesh.ui
 		private function addSound():void
 		{
 			// TODO Auto Generated method stub
-			sound = Assets.getSound("background2");
+			sound = Assets.getSound("background1");
 			soundChannel = sound.play(0,9999);
 			
 		}

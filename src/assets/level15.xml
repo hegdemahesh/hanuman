@@ -228,7 +228,7 @@
     <ycord>113</ycord>
     <material>metal</material>
     <flammable>0</flammable>
-    <crushable>0</crushable>
+    <crushable>1</crushable>
   </actor>
   <actor>
     <id>28</id>
