@@ -157,8 +157,14 @@ package com.hegdemahesh.model
 		[Embed(source="assets/music/crash2.mp3")]
 		public static const crash2:Class;
 		
-		[Embed(source="assets/music/scream2.mp3")]
-		public static const scream2:Class;
+		[Embed(source="assets/music/crash3.mp3")]
+		public static const crash3:Class;
+		
+		[Embed(source="assets/music/crash4.mp3")]
+		public static const crash4:Class;
+		
+		/*[Embed(source="assets/music/scream2.mp3")]
+		public static const scream2:Class;*/
 		
 		[Embed(source="assets/music/laugh.mp3")]
 		public static const laugh:Class;
@@ -169,11 +175,11 @@ package com.hegdemahesh.model
 		[Embed(source="assets/music/victory1.mp3")]
 		public static const victory1:Class;
 		
-		[Embed(source="assets/music/scream3.mp3")]
+		/*[Embed(source="assets/music/scream3.mp3")]
 		public static const scream3:Class;
 		
 		[Embed(source="assets/music/scream4.mp3")]
-		public static const scream4:Class;
+		public static const scream4:Class;*/
 		
 		public static var xml:XML = XML(new Assets.hanumanActorsXML());
 		

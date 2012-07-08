@@ -39,7 +39,9 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.ui.components.WeaponCount;
 	import com.hegdemahesh.vos.Level;
 	
+	import flash.events.Event;
 	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	
 	import mx.events.FlexEvent;
 	
@@ -158,6 +160,17 @@ package com.hegdemahesh.ui
 		 */
 		private var _levelScore:int = 0;
 		
+		/**
+		 * background Sound Channel
+		 */
+		
+		private var soundChannel:SoundChannel =  new SoundChannel();
+		
+		/**
+		 * background Sound Object
+		 */
+		
+		private var sound:Sound = Assets.getSound("background4");
 		
 		/**
 		 * Creates a new World.
@@ -197,7 +210,7 @@ package com.hegdemahesh.ui
 			return _weaponCount;
 		}
 		
-		private function onAddedToStage(event:Event):void
+		private function onAddedToStage(event:starling.events.Event):void
 		{
 			// TODO Auto Generated method stub
 			space = new Space(new Vec2(0,2000));
@@ -231,6 +244,8 @@ package com.hegdemahesh.ui
 			
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			//this.addEventListener(WeaponReleased.GET,onWeaponReleased);
+			
+			soundChannel = sound.play(0,9999);
 			
 			
 			/*Debug view for nape physics.. remove this for deployment*/
@@ -290,11 +305,19 @@ package com.hegdemahesh.ui
 			
 		}
 		
+		public override function dispose():void {
+			
+			soundChannel.stop();
+			sound = null;
+			
+			super.dispose();
+		}
+		
 		/**
 		 *this function is executed once every frame
 		 */
 		
-		private function onEnterFrame(event:Event):void
+		private function onEnterFrame(event:starling.events.Event):void
 		{
 			// TODO Auto Generated method stub
 			if (actorFrameCouter > 0){
@@ -317,6 +340,16 @@ package com.hegdemahesh.ui
 									if(b.userData != true){
 										levelScore = levelScore + 350 + int(Math.random()*30);
 										b.userData = true;
+										var crashSound:Sound;
+										if(Math.random() > 0.5){
+											crashSound= Assets.getSound("crash3");
+										}
+										else {
+											crashSound= Assets.getSound("crash4");
+										}
+										
+										crashSound.play().addEventListener(flash.events.Event.SOUND_COMPLETE,onSoundComplete);
+										crashSound = null;
 									}
 									
 								}
@@ -339,13 +372,13 @@ package com.hegdemahesh.ui
 										//trace(actor.imgSrc);
 										var sound:Sound;
 										if(Math.random() > .66){
-											sound = Assets.getSound("scream2");
+											sound = Assets.getSound("crash");
 										}
 										else if (Math.random() < .33){
-											sound = Assets.getSound("scream3");
+											sound = Assets.getSound("crash2");
 										}
 										else {
-											sound = Assets.getSound("scream4");
+											sound = Assets.getSound("crash2");
 										}
 										 
 										sound.play();
@@ -379,6 +412,13 @@ package com.hegdemahesh.ui
 				//debug.clear();
 			}
 			
+			
+		}
+		
+		protected function onSoundComplete(event:flash.events.Event):void
+		{
+			// TODO Auto-generated method stub
+			(event.target as SoundChannel).removeEventListener(flash.events.Event.SOUND_COMPLETE,onSoundComplete);
 			
 		}
 		

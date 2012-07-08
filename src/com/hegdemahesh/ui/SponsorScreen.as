@@ -18,7 +18,7 @@ package com.hegdemahesh.ui
 	{
 		private var img:Image = new Image(Assets.getAtlas().getTexture('innoBrik'));
 		private var developerImage:Image =  new Image(Assets.getAtlas().getTexture('developedBy'));
-		private var sound:Sound;
+		//private var sound:Sound;
 		public function SponsorScreen()
 		{
 			
@@ -50,12 +50,12 @@ package com.hegdemahesh.ui
 		private function addSound():void
 		{
 			// TODO Auto Generated method stub
-			sound = Assets.getSound("background1");
-			sound.play();
+			//sound = Assets.getSound("background1");
+			//sound.play();
 		}
 		
 		public override function dispose():void {
-			sound = null;
+			//sound = null;
 			super.dispose();
 		}
 		private function onImgAddedToStage(event:Event):void

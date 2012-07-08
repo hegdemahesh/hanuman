@@ -29,6 +29,7 @@ package com.hegdemahesh.ui.components
 	
 	import flash.display.Bitmap;
 	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -54,6 +55,8 @@ package com.hegdemahesh.ui.components
 		
 		//public var nextButton:ActionButton = new ActionButton("next");
 		public var sound:Sound;
+		
+		public var soundChannel:SoundChannel;
 		
 		public var replayButton:ActionButton =  new ActionButton("replay");
 		
@@ -125,9 +128,11 @@ package com.hegdemahesh.ui.components
 		{
 			// TODO Auto Generated method stub
 			sound = (new Assets.laugh()) as Sound;
-			sound.play();
+			soundChannel = sound.play();
 		}
 		public override function dispose():void {
+			
+			soundChannel.stop();
 			sound = null;
 			super.dispose();
 		}

@@ -41,6 +41,9 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.ui.components.WeaponCount;
 	import com.hegdemahesh.vos.Level;
 	
+	import flash.media.SoundMixer;
+	import flash.media.SoundTransform;
+	
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -135,7 +138,6 @@ package com.hegdemahesh.ui
 		
 		
 		
-		
 		/**
 		 * creats a new Game instance
 		 */
@@ -162,12 +164,11 @@ package com.hegdemahesh.ui
 			sponsorScreen =  new SponsorScreen();
 			this.addChild(sponsorScreen);
 			sponsorScreen.addEventListener(SponsorScreenChanged.GET,onSponsorScreenChanged);
-				
+			
 			this.addEventListener(starling.events.Event.ENTER_FRAME,onEnterFrame);
 			this.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			this.addEventListener(LevelFailedEvent.GET,onLevelFailed);
 			this.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
-			
 			
 			
 			
@@ -217,6 +218,9 @@ package com.hegdemahesh.ui
 			muteButton.y = 0;
 			muteButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
 			this.addChild(muteButton);
+			if (isMuted == true){
+				muteButton.iconImg.alpha = 0.4;
+			}
 		}
 		
 		private function removeWeaponCount():void
@@ -297,10 +301,12 @@ package com.hegdemahesh.ui
 			if (isMuted == false){
 				isMuted = true;
 				muteButton.iconImg.alpha = 0.4;
+				SoundMixer.soundTransform = new SoundTransform(0,0);
 			}
 			else {
 				isMuted = false;
 				muteButton.iconImg.alpha = 1.0;
+				SoundMixer.soundTransform = new SoundTransform(1,0);
 			}
 			
 		}
@@ -332,6 +338,7 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			this.removeChild(sponsorScreen);
+			sponsorScreen.dispose();
 			sponsorScreen =  null;
 			developerScreen = new DeveloperScreen();
 			this.addChild(developerScreen);
@@ -342,6 +349,7 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			this.removeChild(developerScreen);
+			developerScreen.dispose();
 			developerScreen =  null;
 			addStartScreen();
 		}
@@ -358,6 +366,8 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			this.removeChild(startScreen);
+			isMuted = startScreen.isMuted;
+			startScreen.dispose();
 			startScreen =  null;
 			//addGameWorld();
 			addMenu();

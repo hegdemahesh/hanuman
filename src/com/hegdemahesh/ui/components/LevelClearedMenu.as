@@ -27,6 +27,8 @@ package com.hegdemahesh.ui.components
 	import com.hegdemahesh.vos.Level;
 	
 	import flash.display.Bitmap;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -59,6 +61,10 @@ package com.hegdemahesh.ui.components
 		public var _score:int = 0;
 		
 		public var scoreText:TextField;
+		
+		public var sound:Sound;
+		
+		public var soundChannel:SoundChannel;
 		
 		public function LevelClearedMenu(levelCleared:Level = null,levelValidate:Boolean = false,sc:int= 0)
 		{
@@ -152,6 +158,20 @@ package com.hegdemahesh.ui.components
 			
 			//bmpFontTF.touchable = false;
 			
+			startSound();	
+		}
+		
+		private function startSound():void
+		{
+			// TODO Auto Generated method stub
+			sound = (new Assets.laugh()) as Sound;
+			soundChannel = sound.play();
+		}
+		public override function dispose():void {
+			
+			soundChannel.stop();
+			sound = null;
+			super.dispose();
 		}
 		
 		private function onActionButtonEvent(event:ActionButtonEvent):void

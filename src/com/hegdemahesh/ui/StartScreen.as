@@ -1,7 +1,14 @@
 package com.hegdemahesh.ui
 {
+	import com.hegdemahesh.events.ActionButtonEvent;
 	import com.hegdemahesh.events.StartScreenChanged;
 	import com.hegdemahesh.model.Assets;
+	import com.hegdemahesh.ui.components.ActionButton;
+	
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
+	import flash.media.SoundMixer;
+	import flash.media.SoundTransform;
 	
 	import starling.core.Starling;
 	import starling.display.Button;
@@ -27,16 +34,55 @@ package com.hegdemahesh.ui
 		
 		private var mParticleSystem:PDParticleSystem;
 		
+		private var muteButton:ActionButton =  new ActionButton("mute");
 		
 		private var psConfig:XML = XML(new com.hegdemahesh.model.Assets.FireConfig());
 		private var psTexture:Texture = Texture.fromBitmap(new com.hegdemahesh.model.Assets.FireParticle());
 		
+		private var sound:Sound;
+		private var soundChannel:SoundChannel;
 		
+		/**
+		 * A parameter to check the game is muted or not 
+		 */
+		
+		public var isMuted:Boolean = false;
 		
 		public function StartScreen()
 		{
 			super();
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE,onAddedToStage);
+		}
+		
+		private function onActionButtonEvent(event:ActionButtonEvent):void
+		{
+			
+			muteAudio();
+			
+		}
+		
+		private function addMuteComp():void {
+			muteButton =  new ActionButton("mute");
+			muteButton.x = 5;
+			muteButton.y = 0;
+			muteButton.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
+			this.addChild(muteButton);
+		}
+		
+		private function muteAudio():void
+		{
+			// TODO Auto Generated method stub
+			if (isMuted == false){
+				isMuted = true;
+				muteButton.iconImg.alpha = 0.4;
+				SoundMixer.soundTransform = new SoundTransform(0,0);
+			}
+			else {
+				isMuted = false;
+				muteButton.iconImg.alpha = 1.0;
+				SoundMixer.soundTransform = new SoundTransform(1,0);
+			}
+			
 		}
 		
 		private function onAddedToStage(event:Event):void
@@ -67,10 +113,20 @@ package com.hegdemahesh.ui
 			startButton.x = 650;
 			startButton.y = 470;
 			
+			sound =  Assets.getSound("background3");
+			soundChannel = sound.play(0,9999);
 			
 			startButton.addEventListener(starling.events.TouchEvent.TOUCH,onStart);
 			
+			addMuteComp();
 				
+		}
+		
+		public override function dispose():void {
+			soundChannel.stop();
+			sound = null;
+			soundChannel = null;
+			super.dispose();
 		}
 		
 		private function onStart(event:TouchEvent):void

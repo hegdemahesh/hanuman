@@ -3,6 +3,9 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.ui.components.TileSprite;
 	
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
+	
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -11,6 +14,10 @@ package com.hegdemahesh.ui
 	{
 		public var levelDetails:XML;
 		private var img:Image = new Image(Assets.getAtlas().getTexture('transparentBg'));
+		
+		private var sound:Sound;
+		private var soundChannel:SoundChannel;
+		
 		public function MainMenu(levelXML:XML=null)
 		{
 			super();
@@ -33,7 +40,22 @@ package com.hegdemahesh.ui
 			levelSprite.x = int((stage.stageWidth-600)/2);
 			levelSprite.y = int((stage.stageHeight-400)/2);
 			this.addChild(levelSprite);
+			
+			addSound();
+		}
+		public override function dispose():void {
+			soundChannel.stop();
+			soundChannel = null;
+			sound = null;
+			super.dispose();
+		}
 		
+		private function addSound():void
+		{
+			// TODO Auto Generated method stub
+			sound = Assets.getSound("background2");
+			soundChannel = sound.play(0,9999);
+			
 		}
 	}
 }
