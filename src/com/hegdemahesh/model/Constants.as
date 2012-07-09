@@ -37,7 +37,7 @@ package com.hegdemahesh.model
 		public static const TAIL_ANGLE:int = 50;
 		public static const SPEED_FACTOR:int = 40;
 		
-		public static const WEAPON_MATERIAL_DENSITY:int = 100;
+		public static const WEAPON_MATERIAL_DENSITY:int = 60;
 		public static const LEVEL_COMPLETE_DELAY:int = 120;
 		
 		

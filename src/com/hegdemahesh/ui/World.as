@@ -42,6 +42,7 @@ package com.hegdemahesh.ui
 	import flash.events.Event;
 	import flash.media.Sound;
 	import flash.media.SoundChannel;
+	import flash.media.SoundMixer;
 	
 	import mx.events.FlexEvent;
 	
@@ -89,7 +90,7 @@ package com.hegdemahesh.ui
 		/**
 		 * groundXOffset is where the palace OR the destructable area starts
 		 */		
-		private var groundXOffset:int = 500;
+		private var groundXOffset:int = 600;
 		/**
 		 * groundYOffset is the distance from top of the screen at which ground starts
 		 */
@@ -246,6 +247,7 @@ package com.hegdemahesh.ui
 			//this.addEventListener(WeaponReleased.GET,onWeaponReleased);
 			
 			soundChannel = sound.play(0,9999);
+			
 			//changeViewPort(1275);
 			
 			/*Debug view for nape physics.. remove this for deployment*/
@@ -287,7 +289,7 @@ package com.hegdemahesh.ui
 			
 			var actor:Actor =  new Actor("stone_throw");
 			actor.x =  Constants.WEAPON_X - xdif - 19;
-			actor.y = Constants.WEAPON_Y - ydif - 19;
+			actor.y = Constants.WEAPON_Y + ydif + 19;
 			actor.isWeapon = true;
 			
 			var actorNape:Body =  new Body();
@@ -295,8 +297,8 @@ package com.hegdemahesh.ui
 			actorNape.position.y = actor.y;
 			actorNape.space = space;
 			actorNape.graphic = actor ;
-			actorNape = shapesToBody(actorNape,material);
-			//actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
+			//actorNape = shapesToBody(actorNape,material);
+			actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
 			actorNape.graphicUpdate = updateGraphics;
 			//actorNape.shapes.clear();
 			//actorNape.shapes.add(new Circle(20,null,material));

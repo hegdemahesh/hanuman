@@ -2,7 +2,7 @@
 <!-- level1 actor details-->
 <!--  -->
 <data>
-  <weaponLimit>5</weaponLimit>
+  <weaponLimit>10</weaponLimit>
   <offsetX>1000</offsetX>
   <leveld>1</leveld>
   <actor>

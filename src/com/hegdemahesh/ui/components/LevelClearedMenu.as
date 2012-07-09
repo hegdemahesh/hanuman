@@ -164,8 +164,8 @@ package com.hegdemahesh.ui.components
 		private function startSound():void
 		{
 			// TODO Auto Generated method stub
-			sound = (new Assets.laugh()) as Sound;
-			soundChannel = sound.play();
+			sound = Assets.getSound("background2");
+			soundChannel = sound.play(0,20);
 		}
 		public override function dispose():void {
 			
