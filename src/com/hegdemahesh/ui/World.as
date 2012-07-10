@@ -134,7 +134,7 @@ package com.hegdemahesh.ui
 		private var _weaponCount:int;
 		
 		/**
-		 * weapon compoentn to be loaded 
+		 * weapon component to be loaded 
 		 */
 		private var weaponRelease:Weapon;
 		
@@ -171,7 +171,7 @@ package com.hegdemahesh.ui
 		 * background Sound Object
 		 */
 		
-		private var sound:Sound = Assets.getSound("background4");
+		private var sound:Sound = Assets.getSound("background3");
 		
 		/**
 		 * Creates a new World.
@@ -288,8 +288,8 @@ package com.hegdemahesh.ui
 			material.rollingFriction = Constants.WEAPON_ROLLING_FRICTION;
 			
 			var actor:Actor =  new Actor("stone_throw");
-			actor.x =  Constants.WEAPON_X - xdif - 19;
-			actor.y = Constants.WEAPON_Y + ydif + 19;
+			actor.x =  Constants.WEAPON_X ;
+			actor.y = Constants.WEAPON_Y ;
 			actor.isWeapon = true;
 			
 			var actorNape:Body =  new Body();
@@ -297,8 +297,8 @@ package com.hegdemahesh.ui
 			actorNape.position.y = actor.y;
 			actorNape.space = space;
 			actorNape.graphic = actor ;
-			//actorNape = shapesToBody(actorNape,material);
-			actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
+			actorNape = shapesToBody(actorNape,material);
+			//actorNape = BodyFromGraphic.starlingToBody(actorNape,material);
 			actorNape.graphicUpdate = updateGraphics;
 			//actorNape.shapes.clear();
 			//actorNape.shapes.add(new Circle(20,null,material));

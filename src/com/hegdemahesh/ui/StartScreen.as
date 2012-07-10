@@ -28,7 +28,7 @@ package com.hegdemahesh.ui
 		private var developerImage:Image =  new Image(Assets.getAtlas().getTexture('developedBy'));
 		private var startButton:Button =  new Button(Assets.getAtlas().getTexture('startButton'));
 		
-		private var sky:Image = new Image(Assets.getAtlas().getTexture("sky"));
+		private var sky:Image = new Image(Assets.getTexture('bg'));
 		
 		private var buildings:Image = new Image(Assets.getAtlas().getTexture("buildings"));
 		

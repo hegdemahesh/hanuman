@@ -47,6 +47,9 @@ package com.hegdemahesh.model
 		[Embed(source="media/jellyfish.pex", mimeType="application/octet-stream")]
 		public static const JellyfishConfig:Class;
 		
+		[Embed(source="media/smokeParticle.pex", mimeType="application/octet-stream")]
+		public static const SmokeConfig:Class;
+		
 		// particle textures
 		
 		[Embed(source = "media/drugs_particle.png")]
@@ -58,12 +61,19 @@ package com.hegdemahesh.model
 		[Embed(source = "media/sun_particle.png")]
 		public static const SunParticle:Class;
 		
+		[Embed(source = "media/smokeTexture.png")]
+		public static const SmokeParticle:Class;
+		
 		[Embed(source = "media/jellyfish_particle.png")]
 		public static const JellyfishParticle:Class;
 		
 		
 		[Embed(source="assets/hanuman.png")]
 		public static const hanumanTexture:Class;
+		
+		
+		[Embed(source="assets/bg.png")]
+		public static const bg:Class;
 		
 		[Embed(source="assets/hanuman.xml",mimeType="application/octet-stream")]
 		public static const hanumanTextureXML:Class;
