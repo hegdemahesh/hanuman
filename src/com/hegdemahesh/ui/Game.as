@@ -478,7 +478,10 @@ package com.hegdemahesh.ui
 		private function onOffestChange(event:ChangeBackgroundOffset):void
 		{
 			// TODO Auto Generated method stub
-			bg.gameXOffset = event.globalXOffset;
+			if( bg.gameXOffset != event.globalXOffset){
+				bg.gameXOffset = event.globalXOffset;
+			}
+			
 		}
 		/**
 		 * this function is called once every frame

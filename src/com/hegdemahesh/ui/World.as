@@ -95,7 +95,7 @@ package com.hegdemahesh.ui
 		 * groundYOffset is the distance from top of the screen at which ground starts
 		 */
 		
-		private var groundYOffest:int = 560;
+		private var groundYOffest:int = 550;
 		
 		/**
 		 * this Particle system is responsible for villain destruction effect
@@ -541,6 +541,7 @@ package com.hegdemahesh.ui
 		private function updateViewport():void
 		{
 			// TODO Auto Generated method stub
+			//var oldX:int = this.x;
 			var offsetRatio:Number = (this.x / viewFocusX);
 			if (offsetRatio < 1.002 && offsetRatio > 0.998){
 				this.x = int(viewFocusX);
@@ -551,9 +552,12 @@ package com.hegdemahesh.ui
 				this.x = int((this.x * 8  + viewFocusX)/9);
 				//debug.display.x = int((this.x * 8  + viewFocusX)/9);
 			}
-			var e:ChangeBackgroundOffset =  new ChangeBackgroundOffset(ChangeBackgroundOffset.GET);
-			e.globalXOffset = this.x;
-			this.dispatchEvent(e);
+			//if(this.x != oldX){
+				var e:ChangeBackgroundOffset =  new ChangeBackgroundOffset(ChangeBackgroundOffset.GET);
+				e.globalXOffset = this.x;
+				this.dispatchEvent(e);
+			//}
+			
 		}
 		
 		private function changeViewPort(xVal:Number):void

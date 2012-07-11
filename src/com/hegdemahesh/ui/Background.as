@@ -32,9 +32,10 @@ package com.hegdemahesh.ui
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
 	
-	public class Background extends ParallaxSprite
+	public class Background extends Sprite
 	{
 		
+		private var _gameXOffset:int;
 		public function Background()
 		{
 			super();
@@ -43,7 +44,38 @@ package com.hegdemahesh.ui
 		
 		private function onAddedToStage(event:Event):void
 		{
-			addParallaxImage("tail",100);
+			var image:Image =  new Image(Assets.getTexture("bg"));
+			//var parallax1:ParallaxSprite =  new ParallaxSprite("tail",100,2);
+			var hills:ParallaxSprite = new ParallaxSprite("hills",450,12);
+			var buildings:ParallaxSprite =  new ParallaxSprite("buildings2",435,8);
+			var trees:ParallaxSprite = new ParallaxSprite("trees",465,4);
+			var tileGround:ParallaxSprite =  new ParallaxSprite("tileGround",485,1);
+			
+			
+			image.x = 0;
+			image.y = 0;
+			//addParallaxImage("tail",100);
+			
+			this.addChild(image);
+			this.addChild(hills);
+			this.addChild(buildings);
+			this.addChild(trees);
+			this.addChild(tileGround);
+			//this.addChild(parallax1);
+		}
+		
+		public function set gameXOffset(gameX:int):void {
+			for (var i:int = 0; i < this.numChildren ; i++){
+				if (this.getChildAt(i) is ParallaxSprite){
+					(this.getChildAt(i) as ParallaxSprite).gameXOffset = gameX;
+				}
+				 
+			}
+			_gameXOffset = gameX;
+			
+		}
+		public function get gameXOffset():int {
+			return _gameXOffset;
 		}
 	}
 }
