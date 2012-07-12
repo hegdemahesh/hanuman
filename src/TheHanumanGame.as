@@ -22,50 +22,95 @@
 
 package
 {
-	import com.hegdemahesh.ui.Game;
+	//import com.hegdemahesh.ui.Game;
 	
-	import flash.display.Sprite;
+	import com.hegdemahesh.ui.components.LoadingImage;
+	
+	import flash.display.LoaderInfo;
+	import flash.display.MovieClip;
 	import flash.events.Event;
+	import flash.events.ProgressEvent;
+	import flash.utils.getDefinitionByName;
 	
 	import net.hires.debug.Stats;
 	
 	import starling.core.Starling;
+	import starling.display.Image;
 	
 	[SWF(frameRate="60",width="850",height="600", backgroundColor="0x000000")]
-	public class TheHanumanGame extends Sprite
+	public class TheHanumanGame extends MovieClip
 	{
 		private var stats:Stats;
 		private var myStarling:Starling;
+		private var loadingImage:LoadingImage;
 		public function TheHanumanGame()
 		{
 			
-			this.addEventListener(Event.ENTER_FRAME,onEnterFrame);
+			stop();
+			loadingImage = new LoadingImage();
+			this.addChild(loadingImage);
+			//this.addEventListener(Event.ENTER_FRAME,onEnterFrame);
+			loaderInfo.addEventListener(ProgressEvent.PROGRESS,onProgressEvent);
+			//loaderInfo.addEventListener(Event.COMPLETE,onLoadComplete);
 			
 		}
 		
-		protected function onEnterFrame(event:Event):void
-		{
-			// TODO Auto-generated method stub
-			if(stage.loaderInfo.bytesLoaded == stage.loaderInfo.bytesTotal){
-				startStarling();
-				this.removeEventListener(Event.ENTER_FRAME,onEnterFrame);
-			}
-			else {
-				trace('loading..');
-			}
-		}
+		
+		
+		
 		
 		private function startStarling():void
 		{
 			// TODO Auto Generated method stub
+			
+			
+			gotoAndStop(2);
+			
 			stats = new Stats();
 			this.addChild(stats);
 			/*uncomment below code to run in software mode*/
 			
+			//this.addEventListener(Event.ENTER_FRAME,onEnterFrame);
 			//myStarling = new Starling(Game,stage,null,null,"software");
+			var Game:Class = getDefinitionByName("com.hegdemahesh.ui.Game") as Class;
+			
+			
+			loaderInfo.addEventListener(ProgressEvent.PROGRESS,onProgressEvent);
+			
+			
 			myStarling = new Starling(Game,stage);
+			
+			
 			myStarling.antiAliasing = 1;
 			myStarling.start();
+			
+			this.removeChild(loadingImage);
+			
+			
+			//loaderInfo.addEventListener(Event.COMPLETE,onGameLoadComplete);
+		}
+		
+		protected function onProgressEvent(event:ProgressEvent):void
+		{
+			// TODO Auto-generated method stub
+			
+			
+			if(loaderInfo.bytesLoaded == loaderInfo.bytesTotal){
+				
+				this.removeChild(loadingImage);
+				this.removeEventListener(ProgressEvent.PROGRESS,onProgressEvent);
+				startStarling();
+			}
+			else {
+				loadingImage.x = int(850 * (event.bytesLoaded / event.bytesTotal));
+			}
+			
+		}
+		
+		protected function onGameLoadComplete(event:Event):void
+		{
+			// TODO Auto-generated method stub
+			this.removeChild(loadingImage);
 		}
 	}
 }

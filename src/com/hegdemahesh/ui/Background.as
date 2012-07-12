@@ -46,9 +46,9 @@ package com.hegdemahesh.ui
 		{
 			var image:Image =  new Image(Assets.getTexture("bg"));
 			//var parallax1:ParallaxSprite =  new ParallaxSprite("tail",100,2);
-			var hills:ParallaxSprite = new ParallaxSprite("hills",450,12);
-			var buildings:ParallaxSprite =  new ParallaxSprite("buildings2",435,8);
-			var trees:ParallaxSprite = new ParallaxSprite("trees",465,4);
+			var hills:ParallaxSprite = new ParallaxSprite("hills",450,10);
+			var buildings:ParallaxSprite =  new ParallaxSprite("buildings2",435,5);
+			var trees:ParallaxSprite = new ParallaxSprite("trees",465,3);
 			var tileGround:ParallaxSprite =  new ParallaxSprite("tileGround",485,1);
 			
 			
