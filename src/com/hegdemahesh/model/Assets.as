@@ -96,7 +96,7 @@ package com.hegdemahesh.model
 		[Embed(source="assets/level2.xml",mimeType="application/octet-stream")]
 		public static const level6XML:Class;
 		
-		[Embed(source="assets/level7.xml",mimeType="application/octet-stream")]
+		[Embed(source="assets/level14.xml",mimeType="application/octet-stream")]
 		public static const level7XML:Class;
 		
 		[Embed(source="assets/level6.xml",mimeType="application/octet-stream")]
@@ -105,7 +105,7 @@ package com.hegdemahesh.model
 		[Embed(source="assets/level13.xml",mimeType="application/octet-stream")]
 		public static const level9XML:Class;
 		
-		[Embed(source="assets/level14.xml",mimeType="application/octet-stream")]
+		[Embed(source="assets/level7.xml",mimeType="application/octet-stream")]
 		public static const level10XML:Class;
 		
 		[Embed(source="assets/level15.xml",mimeType="application/octet-stream")]
