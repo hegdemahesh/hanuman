@@ -51,10 +51,19 @@ package
 			this.addChild(loadingImage);
 			//this.addEventListener(Event.ENTER_FRAME,onEnterFrame);
 			loaderInfo.addEventListener(ProgressEvent.PROGRESS,onProgressEvent);
-			//loaderInfo.addEventListener(Event.COMPLETE,onLoadComplete);
+			loaderInfo.addEventListener(Event.COMPLETE,onLoadComplete);
 			
 		}
 		
+		protected function onLoadComplete(event:Event):void
+		{
+			// TODO Auto-generated method stub
+			
+			this.removeChild(loadingImage);
+			this.removeEventListener(Event.COMPLETE,onLoadComplete);
+			startStarling();	
+			
+		}		
 		
 		
 		
@@ -74,17 +83,13 @@ package
 			//myStarling = new Starling(Game,stage,null,null,"software");
 			var Game:Class = getDefinitionByName("com.hegdemahesh.ui.Game") as Class;
 			
-			
-			loaderInfo.addEventListener(ProgressEvent.PROGRESS,onProgressEvent);
-			
-			
 			myStarling = new Starling(Game,stage);
 			
 			
 			myStarling.antiAliasing = 1;
 			myStarling.start();
 			
-			this.removeChild(loadingImage);
+			//this.removeChild(loadingImage);
 			
 			
 			//loaderInfo.addEventListener(Event.COMPLETE,onGameLoadComplete);
@@ -97,9 +102,9 @@ package
 			
 			if(loaderInfo.bytesLoaded == loaderInfo.bytesTotal){
 				
-				this.removeChild(loadingImage);
+				//this.removeChild(loadingImage);
 				this.removeEventListener(ProgressEvent.PROGRESS,onProgressEvent);
-				startStarling();
+				//startStarling();
 			}
 			else {
 				loadingImage.x = int(850 * (event.bytesLoaded / event.bytesTotal));
@@ -107,10 +112,6 @@ package
 			
 		}
 		
-		protected function onGameLoadComplete(event:Event):void
-		{
-			// TODO Auto-generated method stub
-			this.removeChild(loadingImage);
-		}
+		
 	}
 }
