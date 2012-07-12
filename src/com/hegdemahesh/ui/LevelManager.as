@@ -42,9 +42,7 @@ package com.hegdemahesh.ui
 		public var xml13:XML = XML(new com.hegdemahesh.model.Assets.level13XML());
 		public var xml14:XML = XML(new com.hegdemahesh.model.Assets.level14XML());
 		public var xml15:XML = XML(new com.hegdemahesh.model.Assets.level15XML());
-		public var xml16:XML = XML(new com.hegdemahesh.model.Assets.level16XML());
-		public var xml17:XML = XML(new com.hegdemahesh.model.Assets.level17XML());
-		public var xml18:XML = XML(new com.hegdemahesh.model.Assets.level18XML());
+		
 		
 		public var levelDetails:XML = XML(new com.hegdemahesh.model.Assets.levelDetails());
 		

@@ -324,8 +324,9 @@ package com.hegdemahesh.ui
 			// TODO Auto Generated method stub
 			if (actorFrameCouter > 0){
 				actorFrameCouter--;
+				var b:Body = new Body();
 				for (var i:int = 0; i < space.bodies.length; i++){
-					var b:Body = space.bodies.at(i) as Body;
+					b = space.bodies.at(i) as Body;
 					
 					if (b.space != null){
 						if (b.isDynamic() == true){
@@ -445,8 +446,9 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			var actorPresnt:Boolean = false;
+			var b:Body = new Body();
 			for (var i:int = 0; i < space.bodies.length; i++){
-				var b:Body = space.bodies.at(i) as Body;
+				b = space.bodies.at(i) as Body;
 				
 				if (b.space != null){
 					if (b.isDynamic() == true){

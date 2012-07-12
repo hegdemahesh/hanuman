@@ -123,14 +123,14 @@ package com.hegdemahesh.model
 		[Embed(source="assets/level9.xml",mimeType="application/octet-stream")]
 		public static const level15XML:Class;
 		
-		[Embed(source="assets/level16.xml",mimeType="application/octet-stream")]
+		/*[Embed(source="assets/level16.xml",mimeType="application/octet-stream")]
 		public static const level16XML:Class;
 		
 		[Embed(source="assets/level17.xml",mimeType="application/octet-stream")]
 		public static const level17XML:Class;
 		
 		[Embed(source="assets/level18.xml",mimeType="application/octet-stream")]
-		public static const level18XML:Class;
+		public static const level18XML:Class;*/
 		
 		[Embed(source="assets/levelDetails.xml",mimeType="application/octet-stream")]
 		public static const levelDetails:Class;
@@ -227,7 +227,7 @@ package com.hegdemahesh.model
 		public static function getTexture(name:String):Texture {
 			if (gameTextures[name] == undefined){
 				var bitmap:Bitmap =  new Assets[name]();
-				gameTextures[name] = Texture.fromBitmap(bitmap);
+				gameTextures[name] = Texture.fromBitmap(bitmap,false);
 			}
 			return gameTextures[name];
 		}

@@ -5,12 +5,16 @@ package com.hegdemahesh.ui
 	import com.hegdemahesh.model.Assets;
 	import com.hegdemahesh.ui.components.ActionButton;
 	
+	import flash.display.BitmapData;
+	import flash.display.BlendMode;
+	import flash.display.Sprite;
 	import flash.media.Sound;
 	import flash.media.SoundChannel;
 	import flash.media.SoundMixer;
 	import flash.media.SoundTransform;
 	
 	import starling.core.Starling;
+	import starling.display.BlendMode;
 	import starling.display.Button;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
@@ -22,7 +26,7 @@ package com.hegdemahesh.ui
 	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
 	
-	public class StartScreen extends Sprite
+	public class StartScreen extends starling.display.Sprite
 	{
 		private var img:Image = new Image(Assets.getAtlas().getTexture('hanumanFront'));
 		private var developerImage:Image =  new Image(Assets.getAtlas().getTexture('developedBy'));
@@ -89,10 +93,29 @@ package com.hegdemahesh.ui
 		{
 			// TODO Auto Generated method stub
 			
+			sky.blendMode = starling.display.BlendMode.NONE;
 			this.addChild(sky);
 			sky.pivotX = 0;
 			sky.pivotY = 0;
 			sky.scaleY = 1.4;
+			
+			var bgSprie:flash.display.Sprite = new flash.display.Sprite();
+			bgSprie.graphics.beginFill(0x000000,1);
+			bgSprie.graphics.drawRect(0,0,100,100);
+			bgSprie.graphics.endFill();
+			
+			var bgData:BitmapData = new BitmapData(100,100,true,0x000000);
+			bgData.draw(bgSprie);
+			
+			var bgTexture:Texture = Texture.fromBitmapData(bgData);
+			
+			var bgImage:Image =  new Image(bgTexture);
+			bgImage.width = stage.stageWidth + 20;
+			bgImage.height = 350;
+			bgImage.y = 320;
+			bgImage.blendMode =  starling.display.BlendMode.NONE;
+			
+			this.addChild(bgImage);
 			
 			buildings.y = 112;
 			this.addChild(buildings);

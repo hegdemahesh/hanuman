@@ -156,6 +156,7 @@ package com.hegdemahesh.ui
 		private function onAddedToStage(event:Event):void
 		{
 			bg =  new Background();
+			bg.touchable = false;
 			//this.addChild(bg);
 			
 			//this.addChild(world);
