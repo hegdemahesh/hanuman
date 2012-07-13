@@ -24,7 +24,6 @@ package com.hegdemahesh.ui.components
 	import com.hegdemahesh.events.WeaponReleased;
 	import com.hegdemahesh.model.Constants;
 	
-	import de.polygonal.ds.NullIterator;
 	
 	import flashx.textLayout.elements.SpecialCharacterElement;
 	

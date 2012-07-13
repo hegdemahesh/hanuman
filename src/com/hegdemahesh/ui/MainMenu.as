@@ -37,7 +37,7 @@ package com.hegdemahesh.ui
 			img.width = stage.stageWidth+ 100;
 			img.height = stage.stageHeight + 100;
 			var levelSprite:TileSprite =  new TileSprite(levelDetails,600,400);
-			levelSprite.x = int((stage.stageWidth-600)/2)+30;
+			levelSprite.x = int((stage.stageWidth-600)/2)-30;
 			levelSprite.y = int((stage.stageHeight-400)/2);
 			this.addChild(levelSprite);
 			

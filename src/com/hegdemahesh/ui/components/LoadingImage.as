@@ -18,19 +18,13 @@ package com.hegdemahesh.ui.components
 		
 		private var _percentLoad:int;
 		
-		private var customPreloader:CustomPreloader;
 		
 		public function LoadingImage()
 		{
-			/*customPreloader = new CustomPreloader();
-			this.addChild(customPreloader);
-			customPreloader.y = 463;
-			customPreloader.x = 260;*/
+			
 			drawImages();
 			
-			//this.graphics.beginBitmapFill(bitmapData);
-			//this.graphics.drawRect(0,180,50,50);
-			//this.graphics.endFill();
+			
 			super();
 		}
 		
@@ -41,7 +35,8 @@ package com.hegdemahesh.ui.components
 			var barData:BitmapData = (new bar()).bitmapData;
 			var bitmapData:BitmapData = (new Preloader()).bitmapData;
 			var logoBitmapData:BitmapData = (new HanumanPreloader()).bitmapData;
-			drawImage(this.graphics,barData,268,462);
+			//drawImage(this.graphics,barData,268,462);
+			drawLoader(barData,268,462);
 			drawImage(this.graphics,bitmapData,int((850 - bitmapData.width)/2),450);
 			drawImage(this.graphics,logoBitmapData,int((850 - logoBitmapData.width)/2),390);
 			barData = null;
@@ -49,11 +44,17 @@ package com.hegdemahesh.ui.components
 			logoBitmapData = null;
 		}
 		
+		public function drawLoader(image:BitmapData, x:int, y:int):void {
+			var loaderWidth:int = 0;
+			while (_percentLoad  > (loaderWidth * 100/290)){
+				drawImage(this.graphics,image,x+loaderWidth,462);
+				loaderWidth = loaderWidth + image.width;
+			}
+		}
+		
 		public function set percentLoad(percent:int):void {
 			_percentLoad = percent;
-			if (_percentLoad > 16){
-				
-			}
+			drawImages();
 			
 		}
 		public function get percentLoad():int {

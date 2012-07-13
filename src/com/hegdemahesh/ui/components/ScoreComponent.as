@@ -57,7 +57,7 @@ package com.hegdemahesh.ui.components
 			headerText.fontSize = 30;
 			headerText.x = 82;
 			headerText.hAlign = HorizontalAlign.RIGHT;
-			headerText.color = Color.GREEN;
+			headerText.color = Color.WHITE;
 			this.addChild(headerText);
 			
 			/*scoreText = new TextField(120,30,_score.toString(),"Showcard Gothic",24);
