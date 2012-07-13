@@ -107,7 +107,7 @@ package
 				//startStarling();
 			}
 			else {
-				loadingImage.x = int(850 * (event.bytesLoaded / event.bytesTotal));
+				loadingImage.percentLoad = int(100 * (event.bytesLoaded / event.bytesTotal));
 			}
 			
 		}
