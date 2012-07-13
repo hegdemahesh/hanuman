@@ -126,7 +126,7 @@ package com.hegdemahesh.ui
 		/**
 		 * A debug environament for nape physics. remove this for production 
 		 */
-		private var debug:BitmapDebug;
+		//private var debug:BitmapDebug;
 		
 		/**
 		 * Maximum number of weapons that can be used by the user in a level 
@@ -248,12 +248,7 @@ package com.hegdemahesh.ui
 			
 			soundChannel = sound.play(0,9999);
 			
-			//changeViewPort(1275);
-			
-			/*Debug view for nape physics.. remove this for deployment*/
-			//debug = new BitmapDebug(stage.stageWidth,stage.stageHeight,0x333333,true);
-			//Starling.current.nativeOverlay.addChild(debug.display);
-			
+				
 		}
 		
 		

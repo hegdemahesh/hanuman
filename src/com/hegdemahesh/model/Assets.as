@@ -35,8 +35,7 @@ package com.hegdemahesh.model
 	public class Assets
 	{
 		
-		[Embed(source="media/drugs.pex", mimeType="application/octet-stream")]
-		public static const DrugsConfig:Class;
+		
 		
 		[Embed(source="media/fire.pex", mimeType="application/octet-stream")]
 		public static const FireConfig:Class;
@@ -44,16 +43,8 @@ package com.hegdemahesh.model
 		[Embed(source="media/sun.pex", mimeType="application/octet-stream")]
 		public static const SunConfig:Class;
 		
-		[Embed(source="media/jellyfish.pex", mimeType="application/octet-stream")]
-		public static const JellyfishConfig:Class;
-		
 		[Embed(source="media/smokeParticle.pex", mimeType="application/octet-stream")]
 		public static const SmokeConfig:Class;
-		
-		// particle textures
-		
-		[Embed(source = "media/drugs_particle.png")]
-		public static const DrugsParticle:Class;
 		
 		[Embed(source = "media/fire_particle.png")]
 		public static const FireParticle:Class;
@@ -63,9 +54,6 @@ package com.hegdemahesh.model
 		
 		[Embed(source = "media/smokeTexture.png")]
 		public static const SmokeParticle:Class;
-		
-		[Embed(source = "media/jellyfish_particle.png")]
-		public static const JellyfishParticle:Class;
 		
 		
 		[Embed(source="assets/hanuman.png")]
@@ -123,14 +111,7 @@ package com.hegdemahesh.model
 		[Embed(source="assets/level9.xml",mimeType="application/octet-stream")]
 		public static const level15XML:Class;
 		
-		/*[Embed(source="assets/level16.xml",mimeType="application/octet-stream")]
-		public static const level16XML:Class;
 		
-		[Embed(source="assets/level17.xml",mimeType="application/octet-stream")]
-		public static const level17XML:Class;
-		
-		[Embed(source="assets/level18.xml",mimeType="application/octet-stream")]
-		public static const level18XML:Class;*/
 		
 		[Embed(source="assets/levelDetails.xml",mimeType="application/octet-stream")]
 		public static const levelDetails:Class;
@@ -170,12 +151,6 @@ package com.hegdemahesh.model
 		[Embed(source="assets/music/crash3.mp3")]
 		public static const crash3:Class;
 		
-		[Embed(source="assets/music/crash4.mp3")]
-		public static const crash4:Class;
-		
-		/*[Embed(source="assets/music/scream2.mp3")]
-		public static const scream2:Class;*/
-		
 		[Embed(source="assets/music/laugh.mp3")]
 		public static const laugh:Class;
 		
@@ -185,11 +160,7 @@ package com.hegdemahesh.model
 		[Embed(source="assets/music/victory1.mp3")]
 		public static const victory1:Class;
 		
-		/*[Embed(source="assets/music/scream3.mp3")]
-		public static const scream3:Class;
 		
-		[Embed(source="assets/music/scream4.mp3")]
-		public static const scream4:Class;*/
 		
 		public static var xml:XML = XML(new Assets.hanumanActorsXML());
 		
