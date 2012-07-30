@@ -22,6 +22,9 @@
 
 package com.hegdemahesh.model
 {
+	/**
+	 * this class holds all the game cosntants
+	 */
 	public class Constants
 	{
 		public static const SPONSOR_SCREEN_SHOW_TIME:int = 200;

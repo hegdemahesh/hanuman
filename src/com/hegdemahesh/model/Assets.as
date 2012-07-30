@@ -31,7 +31,11 @@ package com.hegdemahesh.model
 	
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
-
+	
+	/**
+	 * this class holds all the required assets for the game
+	 */
+	
 	public class Assets
 	{
 		
@@ -150,6 +154,9 @@ package com.hegdemahesh.model
 		
 		[Embed(source="assets/music/crash3.mp3")]
 		public static const crash3:Class;
+		
+		[Embed(source="assets/music/crash4.mp3")]
+		public static const crash4:Class;
 		
 		[Embed(source="assets/music/laugh.mp3")]
 		public static const laugh:Class;

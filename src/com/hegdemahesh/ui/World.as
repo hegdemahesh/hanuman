@@ -535,7 +535,7 @@ package com.hegdemahesh.ui
 		
 		
 		
-		private function updateViewport():void
+		public function updateViewport():void
 		{
 			// TODO Auto Generated method stub
 			//var oldX:int = this.x;
@@ -546,7 +546,7 @@ package com.hegdemahesh.ui
 				
 			}
 			else {
-				this.x = int((this.x * 8  + viewFocusX)/9);
+				this.x = int((this.x * 15  + viewFocusX)/16);
 				//debug.display.x = int((this.x * 8  + viewFocusX)/9);
 			}
 			//if(this.x != oldX){
@@ -557,7 +557,7 @@ package com.hegdemahesh.ui
 			
 		}
 		
-		private function changeViewPort(xVal:Number):void
+		public function changeViewPort(xVal:Number):void
 		{
 			// TODO Auto Generated method stub
 			if (xVal < 425){

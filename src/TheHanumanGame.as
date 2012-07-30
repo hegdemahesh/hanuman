@@ -31,11 +31,26 @@ package
 	import flash.utils.getDefinitionByName;
 	import starling.core.Starling;
 	
+	/**
+	 * The class is the main application file.
+	 * @author hegdemahesh website://www.hegdemahesh.com
+	 *
+	 */
+	
 	[SWF(frameRate="60",width="850",height="600", backgroundColor="0x000000")]
 	public class TheHanumanGame extends MovieClip
 	{
+		/**
+		 * A starling Game calss. This class initiates starling game engine.
+		 */
 		private var myStarling:Starling;
+		/**
+		 * this class is works as a progress bar
+		 */
 		private var loadingImage:LoadingImage;
+		/**
+		 * Application constructor
+		 */
 		public function TheHanumanGame()
 		{
 			
@@ -46,7 +61,9 @@ package
 			loaderInfo.addEventListener(Event.COMPLETE,onLoadComplete);
 			
 		}
-		
+		/**
+		 * this function is executed once application loading is completed
+		 */
 		protected function onLoadComplete(event:Event):void
 		{
 			this.removeChild(loadingImage);
@@ -56,12 +73,13 @@ package
 		}		
 		
 		
-		
+		/**
+		 * this function starts the game engine
+		 */
 		
 		private function startStarling():void
 		{
 			gotoAndStop(2);
-			/*uncomment below code to run in software mode*/
 			
 			var Game:Class = getDefinitionByName("com.hegdemahesh.ui.Game") as Class;
 			myStarling = new Starling(Game,stage);
@@ -70,6 +88,9 @@ package
 			
 			
 		}
+		/**
+		 * this function is executed while application is downloading in progress
+		 */
 		
 		protected function onProgressEvent(event:ProgressEvent):void
 		{

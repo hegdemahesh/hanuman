@@ -49,6 +49,7 @@ package com.hegdemahesh.ui
 	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 
 	/**
 	 * The Game class holds the main game play area and the UI for score and other stats
@@ -170,7 +171,7 @@ package com.hegdemahesh.ui
 			this.addEventListener(LevelClearedEvent.GET,onLevelCleared);
 			this.addEventListener(LevelFailedEvent.GET,onLevelFailed);
 			this.addEventListener(ActionButtonEvent.GET,onActionButtonEvent);
-			
+			//this.addEventListener(starling.events.TouchEvent.TOUCH,onScreenTouch);
 			
 			
 			//levelScreen.addEventListener(ChangeBackgroundOffset.GET,onOffestChange);
@@ -489,6 +490,57 @@ package com.hegdemahesh.ui
 		 */
 		private function onEnterFrame(event:Event):void
 		{
+			
+			
+		}
+		
+		private function onScreenTouch(event:TouchEvent):void
+		{
+			// TODO Auto Generated method stub
+			
+			var target:DisplayObject = event.target as DisplayObject;
+			var mouseX:int = event.getTouch(target, TouchPhase.BEGAN).globalX;
+			var mouseY:int = event.getTouch(target, TouchPhase.BEGAN).globalY;
+			
+			
+			//trace("Mouse interacted");
+			
+			
+			if(event.getTouch(target, TouchPhase.HOVER))
+			{
+				
+			}
+			
+			if(event.getTouch(target, TouchPhase.MOVED))
+			{
+				// mouse moving while down
+				if (world !=null){
+					var vPoint:int = world.viewFocusX + mouseX - 425;
+					world.changeViewPort(vPoint);
+					world.updateViewport();
+				}
+				
+				
+			}
+			
+			if(event.getTouch(target, TouchPhase.BEGAN))
+			{
+				// mouse down
+				if (world !=null){
+					var vPoint1:int = world.viewFocusX + mouseX - 425;
+					world.changeViewPort(vPoint1);
+					world.updateViewport();
+				}
+				
+			}
+			else if(event.getTouch(target, TouchPhase.ENDED))
+			{
+				if (world !=null){
+					var vPoint2:int = world.viewFocusX + mouseX - 425;
+					world.changeViewPort(vPoint2);
+					world.updateViewport();
+				}
+			}
 			
 			
 		}
