@@ -61,11 +61,11 @@ package com.hegdemahesh.ui
 	public class Game extends Sprite
 	{
 		/**
-		 * Sponsor screen
+		 * Sponsor screen www.innobrik.com
 		 */
 		private var sponsorScreen:SponsorScreen;
 		/**
-		 * Developer screen
+		 * Developer screen www.hegdemahesh.com
 		 */
 		private var developerScreen:DeveloperScreen;
 		
